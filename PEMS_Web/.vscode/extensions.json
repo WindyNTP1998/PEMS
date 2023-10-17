@@ -1,8 +1,21 @@
 {
   "recommendations": [
+    "angular.ng-template",
     "nrwl.angular-console",
     "esbenp.prettier-vscode",
     "firsttris.vscode-jest-runner",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "emeraldwalk.runonsave",
+    "vscode-icons-team.vscode-icons",
+    "pkief.material-icon-theme",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "streetsidesoftware.code-spell-checker",
+    "alefragnani.bookmarks",
+    "eamodio.gitlens",
+    "sonarsource.sonarlint-vscode",
+    "dozerg.tsimportsorter",
+    "richie5um2.vscode-sort-json",
+    "rvest.vs-code-prettier-eslint"
   ]
 }
