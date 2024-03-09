@@ -1,6 +1,11 @@
 ﻿namespace Services.Entities;
 
-public abstract class BaseEntity<T>
+public abstract class BaseEntity<TEntityId>
 {
-    public virtual T Id { get; protected set; }
+    protected BaseEntity(TEntityId id)
+    {
+        Id = id;
+    }
+
+    public TEntityId Id { get; set; }
 }

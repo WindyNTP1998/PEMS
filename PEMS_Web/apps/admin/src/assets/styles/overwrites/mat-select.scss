@@ -1,0 +1,23 @@
+.mat-mdc-select{
+    --mat-select-panel-background-color: white;
+    --mat-select-enabled-trigger-text-color: rgba(0, 0, 0, 0.87);
+    --mat-select-disabled-trigger-text-color: rgba(0, 0, 0, 0.38);
+    --mat-select-placeholder-text-color: rgba(0, 0, 0, 0.6);
+    --mat-select-enabled-arrow-color: var(--admin-primary-color);
+    --mat-select-disabled-arrow-color: rgba(0, 0, 0, 0.38);
+    --mat-select-focused-arrow-color: rgba(255, 190, 152, 0.87);
+    --mat-select-invalid-arrow-color: rgba(255, 152, 166, 0.87);
+    border: 1px solid var(--admin-accent-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-family: 'Inter', sans-serif;
+
+    .mat-mdc-select-trigger{
+
+    }
+
+    .mat-mdc-select-value{
+        font-size: 14px;
+        line-height: 24px;
+    }
+}

@@ -15,11 +15,11 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@ng-mf/angular-lib": ["libs/angular-lib/src/index.ts"],
-            "@ng-mf/common": ["libs/common/src/index.ts"],
-            "@ng-mf/domain": ["libs/domain/src/index.ts"],
-            "@ng-mf/platform-core": ["libs/platform-core/src/index.ts"],
-            "@ng-mf/tailwind": ["libs/tailwind/src/index.ts"]
+            "@pem/angular-lib": ["libs/angular-lib/src/index.ts"],
+            "@pem/common": ["libs/common/src/index.ts"],
+            "@pem/domain": ["libs/domain/src/index.ts"],
+            "@pem/platform-core": ["libs/platform-core/src/index.ts"],
+            "@pem/tailwind": ["libs/tailwind/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

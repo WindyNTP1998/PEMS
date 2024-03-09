@@ -1,0 +1,32 @@
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button{
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input{
+	padding: 0.5rem !important;
+	line-height: 24px;
+	border-radius: 0.25rem;
+	border: 1px solid var(--admin-accent-color);
+	font-family: 'Inter', sans-serif;
+	font-size: 14px;
+	color: #727272;
+
+	&:focus-visible{
+		outline: none;
+	}
+
+	&:focus{
+		outline: none;
+	}
+
+	&:read-only{
+		///background-color: (var(--admin-accent-color), 0.75)
+		border-color: #ececec;
+	}
+}
+
+.required-mark{
+	color: red;
+}

@@ -1,14 +1,23 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { PlatformComponent } from '@pem/platform-core';
+import { HttpClientModule } from '@angular/common/http';
+import { AppHeaderComponent } from './shared/components/app-header/app-header.component';
 
 @Component({
     standalone: true,
-    imports: [NxWelcomeComponent, RouterModule],
-    selector: 'ng-mf-root',
+    imports: [RouterModule, HttpClientModule, AppHeaderComponent],
+    selector: 'pem-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls: ['./app.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    providers: []
 })
-export class AppComponent {
+export class AppComponent extends PlatformComponent {
     title = 'ecommerce';
+
+    constructor() {
+        super();
+    }
 }

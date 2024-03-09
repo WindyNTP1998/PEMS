@@ -1,23 +1,47 @@
-import {Component} from '@angular/core';
-import {RouterModule} from '@angular/router';
-import {NxWelcomeComponent} from './nx-welcome.component';
-import {
-    NgbAccordionBody,
-    NgbAccordionButton,
-    NgbAccordionCollapse,
-    NgbAccordionDirective,
-    NgbAccordionHeader,
-    NgbAccordionItem,
-    NgbModule
-} from '@ng-bootstrap/ng-bootstrap';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav, MatSidenavContainer, MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatIcon } from '@angular/material/icon';
+import { MatIconButton } from '@angular/material/button';
+import { RouterOutlet } from '@angular/router';
+import { AppSidenavComponent } from './shared/components/app-side-nav/app-sidenav.component';
+import { PlatformComponent } from '@pem/platform-core';
+import { CategoryManagementComponent } from './routes/category-management/category-management.component';
 
 @Component({
     standalone: true,
-    imports: [NxWelcomeComponent, RouterModule, NgbAccordionDirective, NgbAccordionItem, NgbAccordionButton, NgbAccordionCollapse, NgbAccordionHeader, NgbAccordionBody, NgbModule],
-    selector: 'ng-mf-root',
+    imports: [
+        MatSidenavContainer,
+        MatToolbar,
+        MatIcon,
+        MatIconButton,
+        MatSidenav,
+        RouterOutlet,
+        MatSidenavModule,
+        AppSidenavComponent,
+        CategoryManagementComponent
+    ],
+    selector: 'pem-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent extends PlatformComponent {
     title = 'admin';
+    @ViewChild('sidenav') public sidenav!: MatSidenav;
+    isExpanded = true;
+    showSubmenu: boolean = false;
+    isShowing = false;
+    showSubSubMenu: boolean = false;
+
+    mouseenter() {
+        if (!this.isExpanded) {
+            this.isShowing = true;
+        }
+    }
+
+    mouseleave() {
+        if (!this.isExpanded) {
+            this.isShowing = false;
+        }
+    }
 }

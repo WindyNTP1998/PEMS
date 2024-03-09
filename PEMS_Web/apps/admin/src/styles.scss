@@ -1,7 +1,120 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 //import css
-@import "~bootstrap/dist/css/bootstrap.css";
+@use '@angular/material' as mat;
+@import 'ngx-toastr/toastr';
+@import '~bootstrap/dist/css/bootstrap.css';
+/* You can add global styles to this file, and also import other style files */
+@import './assets/styles/themes/variables';
+@import './assets/styles/extensions/layout';
+@import './assets/styles/utilities';
+@import './assets/styles/svg-icon';
 
+//overwrites
+@import './assets/styles/overwrites/input';
+@import './assets/styles/overwrites/mat-select';
+@import './assets/styles/overwrites/mat-dialog';
+@import './assets/styles/overwrites/mat-button';
+@import './assets/styles/overwrites/bootraps-overwrites';
+
+@include mat.core();
+
+html, body{
+	height: 100%;
+}
+
+body{
+	margin: 0;
+	font-family: 'Inter', sans-serif;
+
+	*{
+		font-family: 'Inter', sans-serif;
+	}
+}
+
+$my-primary-color: (
+		50: #fbede9,
+		100: #fed7c1,
+		200:#ffbe98,
+		300:#ffa56c,
+		400:#ff9246,
+		500:#ff831d,
+		600:#f77c18,
+		700:#e97413,
+		800:#dc6c10,
+		900:#c45e08,
+		contrast: (
+				50: rgba(black, 0.87),
+				100: rgba(black, 0.87),
+				200: rgba(black, 0.87),
+				300: white,
+				400: white,
+				500: white,
+				600: white,
+				700: white,
+				800: white,
+				900: white,
+		),
+);
+
+$my-accent-color: (
+		50: #e5f6ff,
+		100: #bfe8ff,
+		200:#98d9ff,
+		300:#76cafe,
+		400:#63bffd,
+		500:#5cb3fc,
+		600:#57a5ec,
+		700:#5091d7,
+		800:#4a80c3,
+		900:#3e60a0,
+		contrast: (
+				50: rgba(black, 0.87),
+				100: rgba(black, 0.87),
+				200: rgba(black, 0.87),
+				300: white,
+				400: white,
+				500: white,
+				600: white,
+				700: white,
+				800: white,
+				900: white,
+		),
+);
+$my-warn-color: (
+		50:#ffebf2,
+		100: #ffcdda,
+		200:#ff98a6,
+		300:#fa6e83,
+		400:#ff4764,
+		500:#ff2a4b,
+		600:#ff1f4b,
+		700:#ec0e44,
+		800:#de003c,
+		900:#cf002f,
+		contrast: (
+				50: rgba(black, 0.87),
+				100: rgba(black, 0.87),
+				200: rgba(black, 0.87),
+				300: white,
+				400: white,
+				500: white,
+				600: white,
+				700: white,
+				800: white,
+				900: white,
+		),
+);
+
+$my-primary: mat.define-palette($my-primary-color, 200);
+$my-accent: mat.define-palette($my-accent-color, 200);
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette($my-warn-color, 200);
+$my-theme: mat.define-light-theme((
+		color: (
+				primary: $my-primary,
+				accent: $my-accent,
+				warn: $my-warn,
+		),
+		typography: mat.define-typography-config(),
+		density: 0,
+));
+@include mat.all-component-themes($my-theme)

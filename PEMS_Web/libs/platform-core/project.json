@@ -2,7 +2,6 @@
     "name": "platform-core",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "sourceRoot": "libs/platform-core/src",
-    "prefix": "ng-mf",
     "tags": [],
     "projectType": "library",
     "targets": {
