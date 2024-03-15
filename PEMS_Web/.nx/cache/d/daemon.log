@@ -25811,3 +25811,6 @@ Error: Command failed: %windir%\System32\REG.exe QUERY HKEY_LOCAL_MACHINE\SOFTWA
 [NX Daemon Server] - 2024-03-15T09:06:55.250Z - Established a connection. Number of open connections: 3
 [NX Daemon Server] - 2024-03-15T09:06:55.251Z - Closed a connection. Number of open connections: 2
 [NX Daemon Server] - 2024-03-15T09:06:55.251Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-03-15T09:06:55.555Z - [REQUEST]: Responding to the client. handleRequestFileData
+[NX Daemon Server] - 2024-03-15T09:06:55.555Z - Done responding to the client handleRequestFileData
+[NX Daemon Server] - 2024-03-15T09:06:55.555Z - Handled REQUEST_FILE_DATA. Handling time: 149. Response time: 0.
