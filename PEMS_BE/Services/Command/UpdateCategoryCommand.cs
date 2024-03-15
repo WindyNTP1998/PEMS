@@ -24,21 +24,19 @@ public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryComman
 	public async Task<CategoryDto> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
 	{
 		var toUpdateCategory = request.UpdatedCategory.Id != null
-			? await _unitOfWork.Categories.GetByIdAsync(request.UpdatedCategory.Id)
+			? await _unitOfWork.Categories.GetAsync(query => query.Where(x => x.Id == request.UpdatedCategory.Id))
 			: null;
 
 		if (toUpdateCategory == null) throw new Exception("Not found id for category");
 
-		var updateCategory = toUpdateCategory
-			.With(p => p.Name = request.UpdatedCategory.Name)
-			.With(p => p.ParentId = request.UpdatedCategory.ParentId)
-			.With(p => p.Slug = p.ReplaceLastSlugPart(request.UpdatedCategory.Slug))
-			.With(p => p.Level = request.UpdatedCategory.Level);
+		var updateCategory = request.UpdatedCategory
+			.UpdateToEntity(toUpdateCategory)
+			.With(c => c.LastUpdatedDate = DateTime.UtcNow);
 
-		await _unitOfWork.Categories.Update(updateCategory);
+		await _unitOfWork.Categories.UpdateAsync(updateCategory);
 
 		await _unitOfWork.CompleteAsync();
 
-		return request.UpdatedCategory;
+		return new CategoryDto(updateCategory);
 	}
 }

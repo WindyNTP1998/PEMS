@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx serve admin --port=3239",
+    "startTime": "2024-03-09T11:29:07.752Z",
+    "endTime": "2024-03-11T03:28:50.425Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "admin:serve:development",
+      "target": "serve",
+      "projectName": "admin",
+      "hash": "2030499466998717338",
+      "startTime": "2024-03-09T11:29:07.761Z",
+      "endTime": "2024-03-11T03:28:50.419Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 1
+    }
+  ]
+}

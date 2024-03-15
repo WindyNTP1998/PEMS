@@ -12,6 +12,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 	//Add DB set
 	public DbSet<Brand> Brand { get; set; }
 	public DbSet<Category> Category { get; set; }
+	public DbSet<Product> Product { get; set; }
+	public DbSet<ProductCategory> ProductCategory { get; set; }
 
 	protected override void OnModelCreating(ModelBuilder builder)
 	{
@@ -21,5 +23,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 		builder.ApplyConfiguration(new ApplicationUserConfiguration());
 		builder.ApplyConfiguration(new BrandConfiguration());
 		builder.ApplyConfiguration(new CategoryConfiguration());
+		builder.ApplyConfiguration(new ProductConfiguration());
+		builder.ApplyConfiguration(new ProductCategoryConfiguration());
 	}
 }

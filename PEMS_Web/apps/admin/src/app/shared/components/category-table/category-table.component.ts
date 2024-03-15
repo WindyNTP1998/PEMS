@@ -12,6 +12,7 @@ import {
 	MatHeaderCellDef,
 	MatHeaderRow,
 	MatHeaderRowDef,
+	MatNoDataRow,
 	MatRow,
 	MatRowDef,
 	MatTable
@@ -20,13 +21,14 @@ import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { DialogService } from '@pem/common';
 import { CategoryDetailComponent } from '../category-detail/category-detail.component';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
 	selector: 'category-table',
 	standalone: true,
 	imports: [
 		CommonModule, CdkDropList, MatTable, MatColumnDef, MatHeaderCell, MatCell, MatHeaderCellDef, MatCellDef, MatHeaderRowDef, MatHeaderRow,
-		MatRow, MatRowDef, MatIcon, MatIconButton],
+		MatRow, MatRowDef, MatIcon, MatIconButton, MatProgressSpinner, MatNoDataRow],
 	templateUrl: './category-table.component.html',
 	styleUrl: './category-table.component.scss',
 	encapsulation: ViewEncapsulation.None,
@@ -35,6 +37,7 @@ import { CategoryDetailComponent } from '../category-detail/category-detail.comp
 export class CategoryTableComponent extends PlatformComponent {
 	@Input() public categories: Category[] = [];
 	@Input() public pageInfo: IPageInfo = { pageIndex: 0, pageSize: 0, totalItems: 0, totalPages: 0 };
+	@Input() public isLoading: boolean = false;
 	@Output() public requiredReloadEventChange: EventEmitter<void> = new EventEmitter<void>();
 	
 	displayedColumns: string[] = ['name', 'slug', 'categoryImageUrl', 'parentId', 'action'];

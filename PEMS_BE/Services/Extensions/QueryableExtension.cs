@@ -1,4 +1,6 @@
 ﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace Services.Extensions;
 
@@ -82,6 +84,80 @@ public static class QueryableExtension
 		var selector = Expression.Lambda<Func<T, object>>(prop, item);
 
 		return selector;
+	}
+
+	public static IQueryable<T> IncludeIf<T, TProperty>(
+		this IQueryable<T> query,
+		bool @if,
+		Expression<Func<T, TProperty>> navigationPropertyPath) where T : class
+	{
+		return @if
+			? query.Include(navigationPropertyPath)
+			: query;
+	}
+
+	// public static IQueryable<T> IncludeIf<T, TProperty>( 
+	// 	this IQueryable<T> query,
+	// 	bool @if,
+	// 	Expression<Func<T, TProperty>> navigationPropertyPath,
+	// 	Expression<Func<TProperty, object>> thenIncludeExpression = null) where T : class
+	// {
+	// 	if (@if)
+	// 	{
+	// 		if (thenIncludeExpression != null)
+	// 			query = query.Include(navigationPropertyPath).ThenInclude(thenIncludeExpression);
+	// 		else
+	// 			query = query.Include(navigationPropertyPath);
+	// 	}
+	//
+	// 	return query;
+	// }
+
+	// public static IQueryable<T> IncludeIf<T, TProperty>(
+	// 	this IQueryable<T> query,
+	// 	bool @if,
+	// 	Expression<Func<T, TProperty>> navigationPropertyPath,
+	// 	Expression<Func<ICollection<TProperty>, TProperty>> thenIncludeExpression = null) where T : class
+	// {
+	// 	if (@if)
+	// 	{
+	// 		if (thenIncludeExpression != null)
+	// 			query = query.Include(navigationPropertyPath).ThenInclude(thenIncludeExpression);
+	// 		else
+	// 			query = query.Include(navigationPropertyPath);
+	// 	}
+	//
+	// 	return query;
+	// }
+
+	public static IQueryable<T> IncludeIf<T, TProperty, TProperty2>(
+		this IQueryable<T> query,
+		bool @if,
+		Expression<Func<T, TProperty>> navigationPropertyPath,
+		Expression<Func<TProperty, TProperty2>> thenIncludeExpression = null) where T : class
+	{
+		if (@if)
+		{
+			query = query.Include(navigationPropertyPath);
+			if (thenIncludeExpression != null) query = ((IIncludableQueryable<T, TProperty>)query).ThenInclude(thenIncludeExpression);
+		}
+
+		return query;
+	}
+
+	public static IQueryable<T> IncludeIf<T, TProperty>(
+		this IQueryable<T> query,
+		bool @if,
+		Expression<Func<T, IEnumerable<TProperty>>> navigationPropertyPath,
+		Expression<Func<TProperty, object>> thenIncludeExpression = null) where T : class
+	{
+		if (@if)
+		{
+			query = query.Include(navigationPropertyPath);
+			if (thenIncludeExpression != null) query = query.Include(navigationPropertyPath).ThenInclude(thenIncludeExpression);
+		}
+
+		return query;
 	}
 }
 

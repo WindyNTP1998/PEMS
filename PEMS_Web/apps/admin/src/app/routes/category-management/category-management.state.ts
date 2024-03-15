@@ -1,4 +1,11 @@
-import { immutableUpdate, PlatformPagedResultDto, PlatformVm, PlatformVmStore, tapSkipFirst, Watch } from '@pem/platform-core';
+import {
+    immutableUpdate,
+    PlatformPagedResultDto,
+    PlatformVm,
+    PlatformVmStore,
+    tapSkipFirst,
+    Watch
+} from '@pem/platform-core';
 import { Injectable } from '@angular/core';
 import { IPageInfo } from '../../../../../../libs/common/src/ui-model/table.model';
 import { GetListCategoriesQuery } from '../../../../../../libs/domain/src/admin/api-services/requests/get-list-categories.query';
@@ -35,34 +42,31 @@ export class CategoryManagementStoreStore extends PlatformVmStore<CategoryManage
     public readonly query$ = this.select((state: CategoryManagementState) => state.query);
     public loadCategories = this.effect((query$: Observable<GetListCategoriesQuery>, isReloading?: boolean) => {
         return query$.pipe(
-            switchMap((query) => this.categoryApiService.getCategoryList(query)),
+            switchMap(query => this.categoryApiService.getCategoryList(query)),
             this.observerLoadingErrorState('loadingCategories'),
-            this.tapResponse((result) => {
+            this.tapResponse(result => {
                 this.updateState({ result: result });
             })
         );
     });
-
-    constructor(private categoryApiService: CategoryApiService) {
-        super(new CategoryManagementState({
-                query: new GetListCategoriesQuery({ skipCount: 0, maxResultCount: 20 })
-            }
-        ));
-    }
-
     public reloadOrInitData = () => {
         this.loadCategories(this.currentState.query, true);
     };
-
+    protected onInitVm = () => {
+        this.subscribe(this.query$.pipe(tapSkipFirst(query => this.loadCategories(query))));
+    };
     public vmConstructor = (data?: Partial<CategoryManagementState>) => new CategoryManagementState(data);
+    protected cachedStateKeyName = () => 'CategoryManagementVmStore';
 
     public setPageIndex = (pageIndex: number) => {
         this.updateState({ query: this.currentState.query.withPageIndex(pageIndex) });
     };
 
-    protected onInitVm = () => {
-        this.subscribe(this.query$.pipe(tapSkipFirst(query => this.loadCategories(query))));
-    };
-
-    protected cachedStateKeyName = () => 'CategoryManagementVmStore';
+    constructor(private categoryApiService: CategoryApiService) {
+        super(
+            new CategoryManagementState({
+                query: new GetListCategoriesQuery({ skipCount: 0, maxResultCount: 20 })
+            })
+        );
+    }
 }

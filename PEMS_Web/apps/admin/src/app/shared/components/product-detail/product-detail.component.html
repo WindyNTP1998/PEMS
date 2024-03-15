@@ -1,0 +1,35 @@
+<form
+	*ngIf="form && vm() as vm"
+
+	class="product-detail">
+	<div class="product-detail__header">
+		<span class="product-detail__title">{{ 'Add Product'| translate | titlecase }}</span>
+		<i
+			(click)="onClosePopup()"
+			class="svg-icon close-icon size-16 product-detail__close-icon"
+		></i>
+	</div>
+	<mat-divider class="product-detail__divider"></mat-divider>
+	<div [formGroup]="form" class="product-detail__body">
+		<div class="product-detail__row row pr-3">
+			<div class="product-detail__col col-6 ">
+				<label class="product-detail__form-label">{{ 'Code' | titlecase }}</label>
+				<input
+					[formControl]="form.controls.code"
+					class="product-detail__form-value -input"
+					placeholder="{{'e.g. 123123123' | translate}}"
+					type="text"
+				/>
+			</div>
+			<div class="product-detail__col col-6">
+				<label class="product-detail__form-labe">{{ 'Name' | titlecase }}</label>
+				<input
+					[formControl]="form.controls.name"
+					class="product-detail__form-value -input"
+					placeholder="{{'e.g. Paracetamol 500mg' | translate}}"
+					type="text"
+				/>
+			</div>
+		</div>
+	</div>
+</form>

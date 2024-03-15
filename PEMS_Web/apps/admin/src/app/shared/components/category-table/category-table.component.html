@@ -1,60 +1,72 @@
-<table [dataSource]="categories" class="category-table" mat-table>
+<div class="category-table">
+	<table [dataSource]="categories" class="category-table__table" mat-table>
+		
+		<ng-container matColumnDef="name">
+			<td
+				*matCellDef="let element"
+				class="category-table__table-data-cell " mat-cell
+			> {{ element.name }}
+			</td>
+			<th *matHeaderCellDef class="category-table__table-header-cell --name" mat-header-cell> Name</th>
+		</ng-container>
+		
+		<!-- Name Column -->
+		<ng-container matColumnDef="slug">
+			<td *matCellDef="let element" class="category-table__table-data-cell " mat-cell> {{ element.slug }}</td>
+			<th *matHeaderCellDef class=" category-table__table-header-cell --slug" mat-header-cell> Slug</th>
+		</ng-container>
+		
+		<!-- Weight Column -->
+		<ng-container matColumnDef="categoryImageUrl">
+			<td *matCellDef="let element" class="category-table__table-data-cell " mat-cell>
+				<img
+					[height]="48" [width]="48" alt="image" class="category-table__image"
+					src="{{ element.categoryImageUrl ?? 'assets/icon/picture-icon.svg' }}"
+				>
+			</td>
+			<th *matHeaderCellDef class="category-table__table-header-cell --image" mat-header-cell> Image</th>
+		</ng-container>
+		
+		<ng-container matColumnDef="parentId">
+			<td *matCellDef="let element" class="category-table__table-data-cell" mat-cell>
+				@if (element.parentCategory) {
+					<img
+						[height]="48" [width]="48" alt="parent-image"
+						src="{{ element.parentCategory?.categoryImageUrl ?? './assets/icons/picture-icon.svg' }}"
+					>
+				}
+			</td>
+			<th *matHeaderCellDef class="category-table__table-header-cell --parentId" mat-header-cell> Parent</th>
+		</ng-container>
+		
+		<ng-container matColumnDef="action">
+			<td *matCellDef="let element" class="category-table__table-data-cell" mat-cell>
+				<div class="d-flex align-items-center gap-2 justify-content-end category-table__action-group">
+					@if (!element.isRootCategory) {
+						<button (click)="onClickRemoveCategory(element.id)" mat-icon-button>
+							<i class="svg-icon remove-icon size-24 danger"></i>
+						</button>
+					}
+					
+					<button (click)="onClickUpdateCategory(element.id)" mat-icon-button>
+						<i class="svg-icon writing-icon size-24"></i>
+					</button>
+				</div>
+			</td>
+			<th *matHeaderCellDef class="category-table__table-header-cell --parentId" mat-header-cell> Action</th>
+		</ng-container>
+		
+		<tr *matHeaderRowDef="displayedColumns" class="category-table__header-row" mat-header-row></tr>
+		
+		@if (!isLoading) {
+			<tr *matRowDef="let row; columns: displayedColumns;" class="category-table__row " mat-row></tr>
+		}
 	
-	<!--- Note that these columns can be defined in any order.
-		  The actual rendered columns are set as a property on the row definition" -->
-	
-	<!-- Position Column -->
-	<ng-container matColumnDef="name">
-		<th *matHeaderCellDef class="category-table__table-header-cell --name" mat-header-cell> Name</th>
-		<td
-			*matCellDef="let element"
-			class="category-table__table-data-cell " mat-cell
-		> {{ element.name }}
-		</td>
-	</ng-container>
-	
-	<!-- Name Column -->
-	<ng-container matColumnDef="slug">
-		<th *matHeaderCellDef class=" category-table__table-header-cell --slug" mat-header-cell> Slug</th>
-		<td *matCellDef="let element" class="category-table__table-data-cell " mat-cell> {{ element.slug }}</td>
-	</ng-container>
-	
-	<!-- Weight Column -->
-	<ng-container matColumnDef="categoryImageUrl">
-		<th *matHeaderCellDef class="category-table__table-header-cell --image" mat-header-cell> Image</th>
-		<td *matCellDef="let element" class="category-table__table-data-cell " mat-cell>
-			<img
-				[height]="72" [width]="72" alt="image" class="category-table__image"
-				src="{{ element.categoryImageUrl ?? 'assets/icon/picture-icon.svg' }}"
-			>
-		</td>
-	</ng-container>
-	
-	<ng-container matColumnDef="parentId">
-		<th *matHeaderCellDef class="category-table__table-header-cell --parentId" mat-header-cell> Parent</th>
-		<td
-			*matCellDef="let element" class="category-table__table-data-cell" mat-cell
-		> {{ element.parentCategories?.name }}
-		</td>
-	</ng-container>
-	
-	<ng-container matColumnDef="action">
-		<th *matHeaderCellDef class="category-table__table-header-cell --parentId" mat-header-cell> Action</th>
-		<td *matCellDef="let element" class="category-table__table-data-cell" mat-cell>
-			<div class="d-flex align-items-center gap-2 justify-content-start category-table__action-group">
-				<button (click)="onClickRemoveCategory(element.id)" mat-icon-button>
-					<i class="svg-icon remove-icon size-24 danger"></i>
-				</button>
-				
-				<button (click)="onClickUpdateCategory(element.id)" mat-icon-button>
-					<i class="svg-icon writing-icon size-24"></i>
-				</button>
-			</div>
-		</td>
-	</ng-container>
-	
-	<tr *matHeaderRowDef="displayedColumns" class="category-table__header-row" mat-header-row></tr>
-	<tr *matRowDef="let row; columns: displayedColumns;" class="category-table__row " mat-row></tr>
-</table>
+	</table>
+	@if (isLoading) {
+		<mat-spinner class="category-table__loading"></mat-spinner>
+	}
+
+</div>
 
 

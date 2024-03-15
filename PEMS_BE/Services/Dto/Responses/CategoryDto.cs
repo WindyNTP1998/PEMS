@@ -8,19 +8,20 @@ public class CategoryDto : PlatformEntityDto<Category, string>
 	{
 	}
 
-	public CategoryDto(Category entity)
+	public CategoryDto(Category? entity)
 	{
-		Id = entity.Id;
-		Name = entity.Name;
-		Slug = entity.Slug;
-		IsActive = entity.IsActive;
-		Level = entity.Level;
-		CategoryImageUrl = entity.CategoryImageUrl;
-		ParentId = entity.ParentId;
-		CreatedDate = entity.CreatedDate;
-		LastUpdatedDate = entity.LastUpdatedDate;
-		CreatedBy = entity.CreatedBy;
-		LastUpdatedBy = entity.LastUpdatedBy;
+		Id = entity?.Id;
+		Name = entity?.Name ?? string.Empty;
+		Slug = entity?.Slug ?? string.Empty;
+		IsActive = entity?.IsActive ?? false;
+		Level = entity?.Level ?? 0;
+		CategoryImageUrl = entity?.CategoryImageUrl ?? string.Empty;
+		ParentId = entity?.ParentId;
+		CreatedDate = entity?.CreatedDate ?? DateTime.UtcNow;
+		LastUpdatedDate = entity?.LastUpdatedDate ?? DateTime.UtcNow;
+		CreatedBy = entity?.CreatedBy;
+		LastUpdatedBy = entity?.LastUpdatedBy;
+		IsRootCategory = entity?.IsRootCategory ?? false;
 	}
 
 	public string? Id { get; set; }
@@ -35,20 +36,24 @@ public class CategoryDto : PlatformEntityDto<Category, string>
 	public DateTime LastUpdatedDate { get; set; }
 	public string? CreatedBy { get; set; }
 	public string? LastUpdatedBy { get; set; }
+	public bool IsRootCategory { get; set; }
 
 	//navigate
 	public List<CategoryDto>? ChildCategories { get; set; }
-	public CategoryDto? ParentCategories { get; set; }
+	public CategoryDto? ParentCategory { get; set; }
 
 	protected override Category MapToEntity(Category entity, MapToEntityModes mode)
 	{
-		entity.Id = (mode == MapToEntityModes.MapNewEntity || IsSubmitToCreate() ? Guid.NewGuid().ToString() : Id)!;
+		entity.Id = (mode == MapToEntityModes.MapNewEntity || IsSubmitToCreate()
+			? Guid.NewGuid().ToString()
+			: Id)!;
 		entity.Name = Name;
-		entity.Slug = entity.ReplaceLastSlugPart(Slug);
+		entity.Slug = Slug;
 		entity.IsActive = IsActive;
 		entity.Level = Level;
 		entity.CategoryImageUrl = CategoryImageUrl;
 		entity.ParentId = ParentId;
+		entity.IsRootCategory = IsRootCategory;
 		entity.CreatedDate = mode == MapToEntityModes.MapNewEntity || IsSubmitToCreate()
 			? DateTime.UtcNow
 			: entity.CreatedDate;
@@ -65,7 +70,7 @@ public class CategoryDto : PlatformEntityDto<Category, string>
 
 	public CategoryDto WithParentCategoryDto(CategoryDto parentCategory)
 	{
-		ParentCategories = parentCategory;
+		ParentCategory = parentCategory;
 		return this;
 	}
 }

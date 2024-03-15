@@ -50,7 +50,7 @@ public class GetCategoriesPagingQueryHandler : IRequestHandler<GetCategoriesPagi
 
 	public async Task<GetCategoriesPagingQueryResult> Handle(GetCategoriesPagingQuery request, CancellationToken cancellationToken)
 	{
-		var categories = await _unitOfWork.Categories.GetAllWithQueryAsync(query =>
+		var categories = await _unitOfWork.Categories.GetAllAsync(query =>
 			query.Where(x => x.IsActive)
 				.Include(x => x.ParentCategory)
 				.Include(x => x.ChildCategories)
@@ -60,7 +60,7 @@ public class GetCategoriesPagingQueryHandler : IRequestHandler<GetCategoriesPagi
 				.PipeIf(request.IsPagedRequestValid(),
 					_ => _.PageBy(request.SkipCount, request.MaxResultCount))
 		);
-		var categoryCount = await _unitOfWork.Categories.CountAllAsync(query =>
+		var categoryCount = await _unitOfWork.Categories.CountAsync(query =>
 			query.Where(x => x.IsActive)
 		);
 

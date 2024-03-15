@@ -33,7 +33,7 @@ public class CategoryController : ControllerBase
 	}
 
 	[HttpPost]
-	public async Task<CategoryDto> Add([FromBody] AddCategoryCommand request)
+	public async Task<CategoryDto> Add([FromBody] CreateCategoryCommand request)
 	{
 		return await _mediator.Send(request);
 	}

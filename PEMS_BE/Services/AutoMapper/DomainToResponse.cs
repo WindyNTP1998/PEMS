@@ -15,7 +15,7 @@ public class DomainToResponse : Profile
 					opt.PreCondition(src => src.ChildCategories != null);
 					opt.MapFrom(src => src.ChildCategories!.Select(p => new CategoryDto(p)));
 				})
-			.ForMember(dest => dest.ParentCategories,
+			.ForMember(dest => dest.ParentCategory,
 				opt =>
 				{
 					opt.PreCondition(src => src.ParentCategory != null);

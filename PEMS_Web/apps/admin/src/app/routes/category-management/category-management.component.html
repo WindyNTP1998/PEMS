@@ -13,6 +13,7 @@
 	@if (vm(); as vm) {
 		<category-table
 			[pageInfo]="vm.pageInfo"
+			[isLoading]="vm.isStateLoading"
 			[categories]="vm.result?.items || []"
 			(requiredReloadEventChange)="store.reloadOrInitData()"
 			class="category-management__body"

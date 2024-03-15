@@ -123,3 +123,4 @@ C:\Users\phong.nguyen\Desktop\project\PEMS\PEMS_BE\Services\bin\Debug\net8.0\Sys
 C:\Users\phong.nguyen\Desktop\project\PEMS\PEMS_BE\Services\bin\Debug\net8.0\Scrutor.dll
 C:\Users\phong.nguyen\Desktop\project\PEMS\PEMS_BE\Services\bin\Debug\net8.0\FluentValidation.dll
 C:\Users\phong.nguyen\Desktop\project\PEMS\PEMS_BE\Services\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\phong.nguyen\Desktop\project\PEMS\PEMS_BE\Services\bin\Debug\net8.0\Newtonsoft.Json.dll

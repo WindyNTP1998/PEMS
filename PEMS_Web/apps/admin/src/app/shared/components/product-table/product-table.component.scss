@@ -1,0 +1,66 @@
+product-table{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	background: white;
+}
+
+.product-table{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	background: white;
+
+	--mat-table-header-headline-font: 'Inter', sans-serif;
+	--mat-table-header-container-height: 3rem;
+	--mat-table-header-headline-line-height: 1.5rem;
+	--mat-table-row-item-container-height: auto;
+
+	&__table{
+		border: var(--admin-defaul-border);
+		font-family: 'Inter', sans-serif;
+		border-radius: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
+
+	&__header-row, .mat-mdc-header-row{
+		width: 100%;
+		display: grid;
+		align-items: center;
+		padding: 0.5rem;
+		border-radius: 0.5rem 0.5rem 0 0;
+		border: var(--admin-defaul-border);
+		background: var(--admin-background-color);
+		font-weight: 700;
+		font-size: 16px;
+		text-transform: uppercase;
+	}
+
+	&__table-header-cell{
+		--mat-table-row-item-outline-color: unset;
+		--mat-table-row-item-outline-width: 0px;
+		display: inline-flex;
+		align-items: center;
+		line-height: 24px;
+	}
+
+	&__row{
+		width: 100%;
+		display: grid;
+		align-items: center;
+		padding: 0.5rem;
+		background: var(--admin-background-color);
+		border: var(--admin-defaul-border);
+	}
+
+	&__table-data-cell{
+		--mat-table-row-item-outline-color: unset;
+		--mat-table-row-item-outline-width: 0px;
+	}
+}

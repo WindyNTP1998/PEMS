@@ -1,13 +1,30 @@
 <div class="app-sidenav">
-    <div class="app-sidenav__header">
-        <h1 class="d-inline-flex align-items-center justify-content-center app-sidenav__admin-name">
-            {{ 'Admin name'| uppercase }}
-        </h1>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="app-sidenav__menu">
-        <div class="app-sidenav__menu-item" routerLink=""> {{ 'Dashboard'| uppercase }}</div>
-        <div class="app-sidenav__menu-item" routerLink="category-management"> {{ 'Category Management'| uppercase }}</div>
-    </div>
+	<div class="app-sidenav__header">
+		<h1 class="d-inline-flex align-items-center justify-content-center app-sidenav__admin-name">
+			{{ 'Admin name'| uppercase }}
+		</h1>
+	</div>
+	<mat-divider></mat-divider>
+	<div class="app-sidenav__menu">
+		<div
+			[routerLinkActiveOptions]="{exact:true}"
+			class="app-sidenav__menu-item"
+			routerLink="/"
+			routerLinkActive="app-sidenav__active-route"
+		> {{ 'Dashboard'| uppercase }}
+		</div>
+		<div
+			class="app-sidenav__menu-item" routerLink="/category-management"
+			routerLinkActive="app-sidenav__active-route"
+		>
+			{{ 'Category Management'| uppercase }}
+		</div>
+		<div
+			class="app-sidenav__menu-item" routerLink="/product-management" routerLinkActive="app-sidenav__active-route"
+		>
+			{{ 'Product Management'| uppercase }}
+		</div>
+	
+	</div>
 </div>
 

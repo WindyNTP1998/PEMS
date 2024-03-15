@@ -1,0 +1,40 @@
+@if (vm(); as vm) {
+	<div class="product-management">
+		<header class="product-management__header">
+			<div class="product-management__header-left">
+				<button
+					(click)="onClickAddProduct()"
+					mat-flat-button color="accent" class="product-management__header-left-btn">
+					<div class="product-management__btn-content">
+						<i class="svg-icon add-circle-icon size-24 white product-management__add-btn-icon"></i>
+						<span class="product-management__add-btn-text">Thêm mới</span>
+					</div>
+				</button>
+			</div>
+			<div class="product-management__header-right">
+				<div class="product-management__header-search">
+					<i class="svg-icon search-icon size-24"></i>
+					<input [(ngModel)]="searchText"
+					       (keyup.enter)="startSearch()"
+					       class="product-management__header-search-input -no-border"
+					       placeholder="Tìm tên thuốc, bệnh lý, thực phẩm chức năng..."
+					       type="text"/>
+					@if (searchText != '' || searchText == undefined) {
+						<div (click)="clearSearchText()"
+						     class="product-management__header-search-clear">
+							<i class="svg-icon close-icon-small size-24"></i>
+						</div>
+					}
+				</div>
+
+			</div>
+		</header>
+
+		<product-table
+			class="product-management__product-table"
+			[isLoading]="vm.isStateLoading"
+			[pageInfo]="vm.pageInfo"
+			[products]="vm.result?.items || []">
+		</product-table>
+	</div>
+}

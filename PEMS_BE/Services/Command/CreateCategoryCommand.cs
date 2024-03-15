@@ -7,7 +7,7 @@ using Services.Extensions;
 
 namespace Services.Command;
 
-public class AddCategoryCommand : IRequest<CategoryDto>
+public class CreateCategoryCommand : IRequest<CategoryDto>
 {
 	public string Name { get; set; } = string.Empty;
 	public string? ParentId { get; set; }
@@ -15,21 +15,19 @@ public class AddCategoryCommand : IRequest<CategoryDto>
 	public string CategoryImageUrl { get; set; } = string.Empty;
 }
 
-public class AddCategoryCommandHandler : IRequestHandler<AddCategoryCommand, CategoryDto>
+public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, CategoryDto>
 {
 	private readonly IUnitOfWork _unitOfWork;
-	private readonly IMapper _mapper;
 
-	public AddCategoryCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+	public CreateCategoryCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
 	{
 		_unitOfWork = unitOfWork;
-		_mapper = mapper;
 	}
 
-	public async Task<CategoryDto> Handle(AddCategoryCommand request, CancellationToken cancellationToken)
+	public async Task<CategoryDto> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
 	{
 		var parentCategory = request.ParentId.IsNotNullOrEmpty()
-			? await _unitOfWork.Categories.GetByIdAsync(request.ParentId)
+			? await _unitOfWork.Categories.GetAsync(query => query.Where(x => x.Id == request.ParentId))
 			: null;
 
 		var toCreateCategory = new Category()
@@ -46,7 +44,7 @@ public class AddCategoryCommandHandler : IRequestHandler<AddCategoryCommand, Cat
 			LastUpdatedBy = "System"
 		};
 
-		var createdCategory = await _unitOfWork.Categories.Insert(toCreateCategory);
+		var createdCategory = await _unitOfWork.Categories.CreateAsync(toCreateCategory);
 
 		await _unitOfWork.CompleteAsync();
 

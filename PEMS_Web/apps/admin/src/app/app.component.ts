@@ -28,7 +28,7 @@ import { CategoryManagementComponent } from './routes/category-management/catego
 export class AppComponent extends PlatformComponent {
     title = 'admin';
     @ViewChild('sidenav') public sidenav!: MatSidenav;
-    isExpanded = true;
+    isExpanded = false;
     showSubmenu: boolean = false;
     isShowing = false;
     showSubSubMenu: boolean = false;

@@ -13,97 +13,115 @@ import { MatOption, MatSelect } from '@angular/material/select';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-	selector: 'category-detail',
-	standalone: true,
-	imports: [
-		CommonModule, PlatformDomainModule, BravoCommonModule, MatLabel, MatFormField, MatInput, MatPrefix, MatSuffix, MatIconButton, MatSelect,
-		MatOption, MatButton],
-	templateUrl: './category-detail.component.html',
-	styleUrl: './category-detail.component.scss',
-	encapsulation: ViewEncapsulation.None,
-	changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'category-detail',
+    standalone: true,
+    imports: [
+        CommonModule,
+        PlatformDomainModule,
+        BravoCommonModule,
+        MatLabel,
+        MatFormField,
+        MatInput,
+        MatPrefix,
+        MatSuffix,
+        MatIconButton,
+        MatSelect,
+        MatOption,
+        MatButton
+    ],
+    templateUrl: './category-detail.component.html',
+    styleUrl: './category-detail.component.scss',
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CategoryDetailComponent extends PlatformFormComponent<CategoryDetailFormVm> {
-	
-	@Input() public categoryId: string | undefined = undefined;
-	@Input() public category?: Category;
-	
-	constructor(
-		private categoryApiService: CategoryApiService,
-		private dialogRef: MatDialogRef<CategoryDetailComponent>) {
-		super();
-	}
-	
-	public onsubmit() {
-		this.form.disable();
-		
-		this.categoryApiService
-		    .addCategory(new AddCategoryCommand(this.vm().formData))
-		    .pipe(this.observerLoadingErrorState('addCategory'),
-			    this.tapResponse(() => {
-				    this.toast.success('Add new category successfully!');
-				    this.dialogRef.close(true);
-			    }, () => {
-				    this.toast.error('Add new category failed!');
-				    
-			    }, () => {
-				    this.form.enable();
-			    }))
-		    .subscribe();
-	}
-	
-	public onSave() {
-		this.form.disable();
-		
-		this.categoryApiService
-		    .updateCategory({
-			    updatedCategory: this.vm().mapToCategoryModel()!
-		    })
-		    .pipe(this.observerLoadingErrorState('addCategory'),
-			    this.tapResponse(() => {
-				    this.toast.success('Save new category successfully!');
-				    this.dialogRef.close(true);
-			    }, () => {
-				    this.toast.error('Save new category failed!');
-				    
-			    }, () => {
-				    this.form.enable();
-			    }))
-		    .subscribe();
-	}
-	
-	public onClosePopup() {
-		this.dialogRef.close();
-	}
-	
-	protected onInitVm = () => {
-		return forkJoin([
-			this.categoryId != undefined
-			? this.categoryApiService.getCategory(this.categoryId)
-			: of(this.category),
-			this.categoryApiService.getCategoryList(new GetListCategoriesQuery())
-		]).pipe(
-			this.observerLoadingErrorState('loadingCategory'),
-			map(([category, categories]) => {
-					return new CategoryDetailFormVm({
-						mode: this.mode,
-						category: category,
-						categoryOptions: categories.items
-					});
-				}
-			));
-	};
-	
-	protected initialFormConfig = (): PlatformFormConfig<CategoryDetailFormVm> => {
-		return {
-			controls: {
-				name: new FormControl(this.vm().name, [Validators.required]),
-				slug: new FormControl(this.vm().slug, [Validators.required]),
-				categoryImageUrl: new FormControl(this.vm().categoryImageUrl, [Validators.required]),
-				parentId: new FormControl(this.vm().parentId, [Validators.required])
-			},
-			afterInit: () => {
-			}
-		};
-	};
+    @Input() public categoryId: string | undefined = undefined;
+    @Input() public category?: Category;
+
+    constructor(
+        private categoryApiService: CategoryApiService,
+        private dialogRef: MatDialogRef<CategoryDetailComponent>
+    ) {
+        super();
+    }
+
+    public onsubmit() {
+        this.form.disable();
+
+        this.categoryApiService
+            .addCategory(new AddCategoryCommand(this.vm().formData))
+            .pipe(
+                this.observerLoadingErrorState('addCategory'),
+                this.tapResponse(
+                    () => {
+                        this.toast.success('Add new category successfully!');
+                        this.dialogRef.close(true);
+                    },
+                    () => {
+                        this.toast.error('Add new category failed!');
+                    },
+                    () => {
+                        this.form.enable();
+                    }
+                )
+            )
+            .subscribe();
+    }
+
+    public onSave() {
+        this.form.disable();
+
+        this.categoryApiService
+            .updateCategory({
+                updatedCategory: this.vm().mapToCategoryModel()!
+            })
+            .pipe(
+                this.observerLoadingErrorState('addCategory'),
+                this.tapResponse(
+                    () => {
+                        this.toast.success('Save new category successfully!');
+                        this.dialogRef.close(true);
+                    },
+                    () => {
+                        this.toast.error('Save new category failed!');
+                    },
+                    () => {
+                        this.form.enable();
+                    }
+                )
+            )
+            .subscribe();
+    }
+
+    public onClosePopup() {
+        this.dialogRef.close();
+    }
+
+    protected onInitVm = () => {
+        return forkJoin([
+            this.categoryId != undefined ? this.categoryApiService.getCategory(this.categoryId) : of(this.category),
+            this.categoryApiService.getCategoryList(new GetListCategoriesQuery())
+        ]).pipe(
+            this.observerLoadingErrorState('loadingCategory'),
+            map(([category, categories]) => {
+                return new CategoryDetailFormVm({
+                    mode: this.mode,
+                    category: category,
+                    categoryOptions: categories.items
+                });
+            })
+        );
+    };
+
+    protected initialFormConfig = (): PlatformFormConfig<CategoryDetailFormVm> => {
+        return {
+            controls: {
+                name: new FormControl(this.vm().name, [Validators.required]),
+                slug: new FormControl(this.vm().slug, [Validators.required]),
+                categoryImageUrl: new FormControl(this.vm().categoryImageUrl, [Validators.required]),
+                parentId: new FormControl(this.vm().parentId, [Validators.required])
+            },
+            afterInit: () => {}
+        };
+    };
 }

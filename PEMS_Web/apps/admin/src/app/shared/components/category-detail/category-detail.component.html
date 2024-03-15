@@ -1,6 +1,5 @@
 <form
 	*ngIf="form && vm() as vm"
-	[formGroup]="form"
 	class="category-detail"
 >
 	<div class="category-detail__header">
@@ -14,7 +13,6 @@
 		[formGroup]="form"
 		class="category-detail__body"
 	>
-		{{ form.controls.name.value }}
 		<div class="row category-detail__form-row">
 			<span class="category-detail__form-title form-title col-2">
 				{{ 'Name' }}
@@ -31,7 +29,7 @@
 			/>
 			@if (form.controls.name.touched && formControlsError('name', 'required'); as error) {
 				<div
-					
+
 					class="row category-detail__error "
 				>
 					<span class="category-detail__form-title col-2"> </span>
@@ -39,7 +37,7 @@
 				</div>
 			}
 		</div>
-		
+
 		<div class="row category-detail__form-row">
 			<span class="category-detail__form-title form-title col-2">
 				<span> {{ 'Parent' }} </span>
@@ -104,7 +102,7 @@
 			>
 				{{ 'Save' }}
 			</button>
-			
+
 		} @else if (mode == 'create') {
 			<button
 				(click)="onsubmit()"
@@ -116,6 +114,6 @@
 				{{ 'Add' }}
 			</button>
 		}
-	
+
 	</div>
 </form>

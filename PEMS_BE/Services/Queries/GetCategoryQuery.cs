@@ -24,24 +24,21 @@ public sealed class GetCategoryQueryValidator : AbstractValidator<GetCategoryQue
 public class GetCategoryQueryHandler : IRequestHandler<GetCategoryQuery, CategoryDto>
 {
 	private readonly IUnitOfWork _unitOfWork;
-	private readonly IMapper _mapper;
 	private readonly IValidator<GetCategoryQuery> _validator;
 
 	public GetCategoryQueryHandler(IUnitOfWork unitOfWork, IMapper mapper, IValidator<GetCategoryQuery> validator)
 	{
 		_unitOfWork = unitOfWork;
-		_mapper = mapper;
 		_validator = validator;
 	}
 
 	public async Task<CategoryDto> Handle(GetCategoryQuery request, CancellationToken cancellationToken)
 	{
-		if (request.Id.IsNullOrEmpty())
-			return new CategoryDto();
+		if (request.Id.IsNullOrEmpty()) return new CategoryDto();
 
-		var category = await _unitOfWork.Categories.GetByIdAsync(request.Id);
+		var category = await _unitOfWork.Categories.GetAsync(query => query.Where(x => x.Id == request.Id));
 
 		await _unitOfWork.CompleteAsync();
-		return category != null ? _mapper.Map<Category, CategoryDto>(category) : new CategoryDto();
+		return new CategoryDto(category);
 	}
 }

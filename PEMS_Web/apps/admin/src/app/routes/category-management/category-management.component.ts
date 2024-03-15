@@ -8,11 +8,12 @@ import { PlatformVmStoreComponent } from '@pem/platform-core';
 import { CategoryManagementState, CategoryManagementStoreStore } from './category-management.state';
 import { BravoCommonModule, DialogService } from '@pem/common';
 import { CategoryDetailComponent } from '../../shared/components/category-detail/category-detail.component';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
 	selector: 'category-management',
 	standalone: true,
-	imports: [CommonModule, MatButton, MatIcon, CategoryTableComponent, BravoCommonModule],
+	imports: [CommonModule, MatButton, MatIcon, CategoryTableComponent, BravoCommonModule, MatProgressSpinner],
 	templateUrl: './category-management.component.html',
 	styleUrl: './category-management.component.scss',
 	encapsulation: ViewEncapsulation.None,

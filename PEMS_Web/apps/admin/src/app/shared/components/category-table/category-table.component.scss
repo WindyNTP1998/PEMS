@@ -10,7 +10,7 @@ category-table{
 	flex-direction: column;
 	width: 100%;
 	height: 100%;
-	border-radius: 0.5rem;
+
 	--mat-table-header-headline-font: 'Inter';
 	--mat-table-header-container-height: 3rem;
 	--mat-table-header-headline-line-height: 1.5rem;
@@ -19,6 +19,12 @@ category-table{
 	&__table{
 		border: var(--admin-defaul-border);
 		font-family: 'Inter', sans-serif;
+		border-radius: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		position: relative;
 	}
 
 	&__header-row, .mat-mdc-header-row{
@@ -67,4 +73,12 @@ category-table{
 	}
 
 	&__action-group{}
+
+	&__loading{
+		&.mat-mdc-progress-spinner{
+			position: absolute;
+			top: 40%;
+			left: 50%;
+		}
+	}
 }

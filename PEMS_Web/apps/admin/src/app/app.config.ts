@@ -63,7 +63,6 @@ export const appConfig: ApplicationConfig = {
 					positionClass: 'toast-bottom-right',
 					preventDuplicates: true,
 					enableHtml: true,
-					timeOut: 500000,
 					toastComponent: TranslatedToastComponent
 				},
 				httpOptionsConfigService: AppHttpOptionsConfigService,

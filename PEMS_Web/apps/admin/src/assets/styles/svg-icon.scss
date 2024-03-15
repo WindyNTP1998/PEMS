@@ -20,12 +20,22 @@
 	background-color: var(--active-color) !important;
 }
 
+.svg-icon.white{
+	background-color: white !important;
+}
+
 .svg-icon.disabled{
 	background-color: var(--disable-color) !important;
 }
 
 .svg-icon.danger{
 	background-color: var(--danger-color) !important;
+}
+
+.svg-icon.hover-active{
+	&:hover{
+		background-color: var(--active-color) !important;
+	}
 }
 
 .svg-icon.size-48{
@@ -119,3 +129,13 @@
 .svg-icon.picture-icon{
 	@include webkit-mask-icon('/assets/icons/picture-icon.svg', var(--default-color));
 }
+
+.svg-icon.close-icon-small{
+	@include webkit-mask-icon('/assets/icons/close-icon-small.svg', var(--default-color));
+}
+
+.svg-icon.add-circle-icon{
+	@include webkit-mask-icon('/assets/icons/add-circle-icon.svg', var(--default-color));
+}
+
+

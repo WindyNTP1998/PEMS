@@ -24,11 +24,12 @@ public class DeleteCategoryCommandHandler : IRequestHandler<DeleteCategoryComman
 
 	public async Task<Unit> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
 	{
-		var toDeleteCategory = await _unitOfWork.Categories.GetByIdAsync(request.Id);
+		var toDeleteCategory = await _unitOfWork.Categories.GetAsync(query => query.Where(x => x.Id == request.Id));
 
 		if (toDeleteCategory == null) throw new Exception("Not found id for category");
+		if (toDeleteCategory.IsRootCategory) throw new Exception("Can not remove root category");
 
-		await _unitOfWork.Categories.Delete(toDeleteCategory);
+		await _unitOfWork.Categories.RemoveAsync(toDeleteCategory);
 
 		await _unitOfWork.CompleteAsync();
 

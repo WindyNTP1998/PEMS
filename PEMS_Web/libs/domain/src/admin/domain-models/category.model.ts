@@ -5,7 +5,8 @@ export class Category {
 	isActive!: boolean;
 	level!: number;
 	categoryImageUrl!: string;
-	parentId ?: string;
+	parentId?: string;
+	isRootCategory: boolean = false;
 	
 	//Navigation Properties
 	createdDate?: Date;
@@ -13,7 +14,7 @@ export class Category {
 	createdBy?: string;
 	lastUpdatedBy?: string;
 	childCategories?: Category[];
-	parentCategories?: Category;
+	parentCategory?: Category;
 	
 	constructor(data?: Partial<Category>) {
 		if (data == undefined) return;
@@ -29,6 +30,7 @@ export class Category {
 		if (data.lastUpdatedBy != undefined) this.lastUpdatedBy = data.lastUpdatedBy;
 		if (data.parentId != undefined) this.parentId = data.parentId;
 		if (data.childCategories != undefined) this.childCategories = data.childCategories.map(p => new Category(p));
-		if (data.parentCategories != undefined) this.parentCategories = new Category(data.parentCategories);
+		if (data.parentCategory != undefined) this.parentCategory = new Category(data.parentCategory);
+		if (data.isRootCategory != undefined) this.isRootCategory = data.isRootCategory;
 	}
 }

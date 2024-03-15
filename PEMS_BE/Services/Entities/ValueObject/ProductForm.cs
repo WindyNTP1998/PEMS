@@ -2,12 +2,13 @@
 
 public enum ProductForm
 {
-    Box,
-    Tube,
-    Bag,
-    Piece,
-    Ampoules,
-    Bottle,
-    Can,
-    Blister
+	Box,
+	Tube,
+	Bag,
+	Piece,
+	Ampoules,
+	Bottle,
+	Can,
+	Blister,
+	FilterBag
 }
