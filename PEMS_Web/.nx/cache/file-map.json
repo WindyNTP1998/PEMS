@@ -90,69 +90,820 @@
   },
   "nxJsonPlugins": [],
   "fileMap": {
-    "nonProjectFiles": [
-      {
-        "file": "tsconfig.base.json",
-        "hash": "548708166115957203"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "2178144051909739023"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "3962110897060218671"
-      },
-      {
-        "file": ".vscode/settings.json",
-        "hash": "14310897897296403914"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "3282016660844990555"
-      },
-      {
-        "file": ".eslintrc.json",
-        "hash": "18315524891129148814"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "10420079495110127939"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "7848693104264504795"
-      },
-      {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
-      },
-      {
-        "file": "package.json",
-        "hash": "788244054467553316"
-      },
-      {
-        "file": "README.md",
-        "hash": "4702555707399516295"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "12333515226966617182"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "7118458245419363312"
-      },
-      {
-        "file": "nx.json",
-        "hash": "16837653548081523188"
-      }
-    ],
     "projectFileMap": {
+      "domain": [
+        {
+          "file": "libs/domain/.eslintrc.json",
+          "hash": "16541336710233866689"
+        },
+        {
+          "file": "libs/domain/README.md",
+          "hash": "16933766324442981727"
+        },
+        {
+          "file": "libs/domain/jest.config.ts",
+          "hash": "7473169889187828796"
+        },
+        {
+          "file": "libs/domain/project.json",
+          "hash": "14396049013903745213"
+        },
+        {
+          "file": "libs/domain/src/_shared/api-services/app-http-options-config-service.ts",
+          "hash": "5788193399739240795",
+          "deps": [
+            "platform-core"
+          ]
+        },
+        {
+          "file": "libs/domain/src/_shared/api-services/index.ts",
+          "hash": "6829040075133317026"
+        },
+        {
+          "file": "libs/domain/src/_shared/components/confirm-dialog/confirm-dialog.component.html",
+          "hash": "3672519687977646475"
+        },
+        {
+          "file": "libs/domain/src/_shared/components/confirm-dialog/confirm-dialog.component.scss",
+          "hash": "4006865351979231232"
+        },
+        {
+          "file": "libs/domain/src/_shared/components/confirm-dialog/confirm-dialog.component.ts",
+          "hash": "16462407933442089343",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "platform-core",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "libs/domain/src/_shared/components/index.ts",
+          "hash": "15310335665853807962"
+        },
+        {
+          "file": "libs/domain/src/_shared/index.ts",
+          "hash": "3506265246205640825"
+        },
+        {
+          "file": "libs/domain/src/account/account-api.service.ts",
+          "hash": "6600708120494115238",
+          "deps": [
+            "npm:@angular/core",
+            "ecommerce",
+            "platform-core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/domain/src/account/index.ts",
+          "hash": "16634582983076131428"
+        },
+        {
+          "file": "libs/domain/src/account/request/index.ts",
+          "hash": "9728403026398551949"
+        },
+        {
+          "file": "libs/domain/src/account/request/login.request.ts",
+          "hash": "6707900792410188065"
+        },
+        {
+          "file": "libs/domain/src/admin/api-services/category-api.service.ts",
+          "hash": "98277563876347220",
+          "deps": [
+            "npm:@angular/core",
+            "platform-core",
+            "npm:rxjs",
+            "admin"
+          ]
+        },
+        {
+          "file": "libs/domain/src/admin/api-services/index.ts",
+          "hash": "9717988878234810931"
+        },
+        {
+          "file": "libs/domain/src/admin/api-services/product-api.service.ts",
+          "hash": "12888135723722438036",
+          "deps": [
+            "npm:@angular/core",
+            "platform-core",
+            "admin",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/domain/src/admin/api-services/requests/add-category.command.ts",
+          "hash": "13904954150419340612"
+        },
+        {
+          "file": "libs/domain/src/admin/api-services/requests/get-category.query.ts",
+          "hash": "10470109211181955405"
+        },
+        {
+          "file": "libs/domain/src/admin/api-services/requests/get-list-categories.query.ts",
+          "hash": "9845900425977946026",
+          "deps": [
+            "platform-core"
+          ]
+        },
+        {
+          "file": "libs/domain/src/admin/api-services/requests/get-product-list.query.ts",
+          "hash": "4165490904239342267",
+          "deps": [
+            "platform-core"
+          ]
+        },
+        {
+          "file": "libs/domain/src/admin/api-services/requests/get-product.query.ts",
+          "hash": "6999770386753151438"
+        },
+        {
+          "file": "libs/domain/src/admin/api-services/requests/index.ts",
+          "hash": "3486971833981260317"
+        },
+        {
+          "file": "libs/domain/src/admin/api-services/requests/update-category.command.ts",
+          "hash": "15914215195275829259"
+        },
+        {
+          "file": "libs/domain/src/admin/domain-models/brand.model.ts",
+          "hash": "14495255264778907311"
+        },
+        {
+          "file": "libs/domain/src/admin/domain-models/category.model.ts",
+          "hash": "15506610257386760148"
+        },
+        {
+          "file": "libs/domain/src/admin/domain-models/index.ts",
+          "hash": "11763362497001696002"
+        },
+        {
+          "file": "libs/domain/src/admin/domain-models/product.model.ts",
+          "hash": "4457541157657136615"
+        },
+        {
+          "file": "libs/domain/src/admin/index.ts",
+          "hash": "1900431654307616261"
+        },
+        {
+          "file": "libs/domain/src/index.ts",
+          "hash": "2601347464017360031"
+        },
+        {
+          "file": "libs/domain/src/lib/domain.module.ts",
+          "hash": "8656759624751629617",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "libs/domain/src/test-setup.ts",
+          "hash": "18384032036193434871",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "libs/domain/tsconfig.json",
+          "hash": "3157823844900905278"
+        },
+        {
+          "file": "libs/domain/tsconfig.lib.json",
+          "hash": "18161009681682609428"
+        },
+        {
+          "file": "libs/domain/tsconfig.spec.json",
+          "hash": "8393102975705025092"
+        }
+      ],
+      "platform-core": [
+        {
+          "file": "libs/platform-core/.eslintrc.json",
+          "hash": "16541336710233866689"
+        },
+        {
+          "file": "libs/platform-core/README.md",
+          "hash": "940105264868875656"
+        },
+        {
+          "file": "libs/platform-core/jest.config.ts",
+          "hash": "14462161404327728473"
+        },
+        {
+          "file": "libs/platform-core/project.json",
+          "hash": "14671718677822232479"
+        },
+        {
+          "file": "libs/platform-core/src/index.ts",
+          "hash": "14428353282588746736"
+        },
+        {
+          "file": "libs/platform-core/src/lib/api-services/abstracts/platform.api-error.ts",
+          "hash": "12410817930884687956",
+          "deps": [
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/api-services/abstracts/platform.api-service.ts",
+          "hash": "16040431963205323292",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/api-services/abstracts/platform.http-options-config-service.ts",
+          "hash": "16339353094540234432"
+        },
+        {
+          "file": "libs/platform-core/src/lib/api-services/events/api-error.event-handler.ts",
+          "hash": "9357769149621943688"
+        },
+        {
+          "file": "libs/platform-core/src/lib/api-services/events/api-error.event.ts",
+          "hash": "968031712624692765"
+        },
+        {
+          "file": "libs/platform-core/src/lib/api-services/index.ts",
+          "hash": "11581756384228845446"
+        },
+        {
+          "file": "libs/platform-core/src/lib/app-ui-state/index.ts",
+          "hash": "2726269307757399148"
+        },
+        {
+          "file": "libs/platform-core/src/lib/app-ui-state/platform.app-ui.state-store.ts",
+          "hash": "15413521988657570588",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/app-ui-state/platform.translate.state-store.ts",
+          "hash": "11885454777331964004",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@ngrx/component-store"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/caching/index.ts",
+          "hash": "15648066286629186732"
+        },
+        {
+          "file": "libs/platform-core/src/lib/caching/platform.caching-service.ts",
+          "hash": "18268378937341854264",
+          "deps": [
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/caching/platform.local-storage-cache-caching-service.ts",
+          "hash": "11033308985398135806"
+        },
+        {
+          "file": "libs/platform-core/src/lib/common-types/dictionary.ts",
+          "hash": "4957011828428112625"
+        },
+        {
+          "file": "libs/platform-core/src/lib/common-types/index.ts",
+          "hash": "8142935823477023073"
+        },
+        {
+          "file": "libs/platform-core/src/lib/common-types/pageInfo.ts",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/platform-core/src/lib/common-types/time.ts",
+          "hash": "1698899497111562015"
+        },
+        {
+          "file": "libs/platform-core/src/lib/common-values/index.ts",
+          "hash": "15741825309112525426"
+        },
+        {
+          "file": "libs/platform-core/src/lib/common-values/order-direction.enum.ts",
+          "hash": "16475949845937216573"
+        },
+        {
+          "file": "libs/platform-core/src/lib/common-values/weekdays.const.ts",
+          "hash": "14689195912260475426"
+        },
+        {
+          "file": "libs/platform-core/src/lib/components/abstracts/index.ts",
+          "hash": "6639884327539738073"
+        },
+        {
+          "file": "libs/platform-core/src/lib/components/abstracts/platform.component.ts",
+          "hash": "11445072977074378578",
+          "deps": [
+            "npm:@angular/core",
+            "npm:ngx-toastr",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/components/abstracts/platform.form-component.ts",
+          "hash": "4318571377526124766",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:rxjs",
+            "npm:type-fest"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/components/abstracts/platform.smart-component.ts",
+          "hash": "2960594438185179198",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/components/abstracts/platform.vm-component.ts",
+          "hash": "2970412920671452475",
+          "deps": [
+            "npm:@angular/core",
+            "npm:lodash-es",
+            "npm:rxjs",
+            "npm:type-fest"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/components/abstracts/platform.vm-store-component.ts",
+          "hash": "4548567906865182409",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs",
+            "npm:type-fest"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/components/index.ts",
+          "hash": "14064775537341935105"
+        },
+        {
+          "file": "libs/platform-core/src/lib/components/simple-changes.ts",
+          "hash": "6152436503462194624"
+        },
+        {
+          "file": "libs/platform-core/src/lib/components/watch-input.ts",
+          "hash": "7350810354686012082"
+        },
+        {
+          "file": "libs/platform-core/src/lib/decorators/index.ts",
+          "hash": "12662015619719061425"
+        },
+        {
+          "file": "libs/platform-core/src/lib/decorators/watch.ts",
+          "hash": "10012480488542457518"
+        },
+        {
+          "file": "libs/platform-core/src/lib/directives/abstracts/platform.directive.ts",
+          "hash": "15455200237213523538",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/directives/index.ts",
+          "hash": "5000449600212408782"
+        },
+        {
+          "file": "libs/platform-core/src/lib/directives/swipe-to-scroll.directive.ts",
+          "hash": "10070811679815497384",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/domain/data-model/platform.data-model.ts",
+          "hash": "1774738897057495209"
+        },
+        {
+          "file": "libs/platform-core/src/lib/domain/events/abstracts/repository-error.event-handler.ts",
+          "hash": "11513533911388634769"
+        },
+        {
+          "file": "libs/platform-core/src/lib/domain/events/repository-error.event.ts",
+          "hash": "6565186228931975636"
+        },
+        {
+          "file": "libs/platform-core/src/lib/domain/index.ts",
+          "hash": "16217584424945714269"
+        },
+        {
+          "file": "libs/platform-core/src/lib/domain/platform.repository-context.ts",
+          "hash": "11990274748092553599"
+        },
+        {
+          "file": "libs/platform-core/src/lib/domain/repository/platform.repository.ts",
+          "hash": "11113204394949641486",
+          "deps": [
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/dtos/index.ts",
+          "hash": "1159597659495992488"
+        },
+        {
+          "file": "libs/platform-core/src/lib/dtos/platform.command-dto.ts",
+          "hash": "16631435984048354554"
+        },
+        {
+          "file": "libs/platform-core/src/lib/dtos/platform.query-dto.ts",
+          "hash": "15602347015543247383"
+        },
+        {
+          "file": "libs/platform-core/src/lib/dtos/platform.result-dto.ts",
+          "hash": "16537162783682024013"
+        },
+        {
+          "file": "libs/platform-core/src/lib/events/abstracts/index.ts",
+          "hash": "1178542277287681031"
+        },
+        {
+          "file": "libs/platform-core/src/lib/events/index.ts",
+          "hash": "3048142910188455827"
+        },
+        {
+          "file": "libs/platform-core/src/lib/events/platform.event-manager.ts",
+          "hash": "9794027436956098775",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/form-validators/async-validator.ts",
+          "hash": "16999929627867097635",
+          "deps": [
+            "npm:@angular/forms",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/form-validators/if-validator.ts",
+          "hash": "12686019865123449234",
+          "deps": [
+            "npm:@angular/forms",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/form-validators/index.ts",
+          "hash": "9879265277496576986"
+        },
+        {
+          "file": "libs/platform-core/src/lib/form-validators/models/index.ts",
+          "hash": "165618307362082318"
+        },
+        {
+          "file": "libs/platform-core/src/lib/form-validators/models/validation-error.ts",
+          "hash": "16571247695783402515",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/form-validators/start-end-validator.ts",
+          "hash": "2200333611314943371",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/form-validators/validator.ts",
+          "hash": "9063678491897000473",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/form-validators/white-space-validator.ts",
+          "hash": "7754797020807191988",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/helpers/form.helper.ts",
+          "hash": "8327409849069021335",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/helpers/index.ts",
+          "hash": "7337177877340835971"
+        },
+        {
+          "file": "libs/platform-core/src/lib/helpers/life-cycle.helper.ts",
+          "hash": "5260665048566215442",
+          "deps": [
+            "npm:@angular/core",
+            "npm:lodash-es"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/http-services/abstracts/platform.http-client-options.ts",
+          "hash": "8956995433916750947",
+          "deps": [
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/http-services/abstracts/platform.http-service.ts",
+          "hash": "10712515411708084475",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/http-services/index.ts",
+          "hash": "177731937293460084"
+        },
+        {
+          "file": "libs/platform-core/src/lib/index.ts",
+          "hash": "7149183359053778350"
+        },
+        {
+          "file": "libs/platform-core/src/lib/pipes/abstracts/platform.pipe.ts",
+          "hash": "10437026598548092023",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/pipes/index.ts",
+          "hash": "14689614810158772087"
+        },
+        {
+          "file": "libs/platform-core/src/lib/pipes/log-times-display.pipe.ts",
+          "hash": "14633642713507017143",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/pipes/platform-highlight-search-text.pipe.ts",
+          "hash": "14734987666737301985",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/platform-browser"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/platform-core.config.ts",
+          "hash": "16330699790087091712"
+        },
+        {
+          "file": "libs/platform-core/src/lib/platform-core.module.ts",
+          "hash": "16540865240752281772",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/platform-browser",
+            "npm:@angular/router",
+            "npm:@ngx-translate/core",
+            "npm:ngx-toastr"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/platform-domain.module.ts",
+          "hash": "1970594056491347879",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/platform-global-error-handler.ts",
+          "hash": "10647902643451423023",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/platform-service-worker.ts",
+          "hash": "4920048188156249539"
+        },
+        {
+          "file": "libs/platform-core/src/lib/rxjs/index.ts",
+          "hash": "4930961459331661639"
+        },
+        {
+          "file": "libs/platform-core/src/lib/rxjs/rxjs-distinct-until-object-values-changed.ts",
+          "hash": "8490119217860428606",
+          "deps": [
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/rxjs/rxjs-on-cancel.ts",
+          "hash": "7360458866141565115",
+          "deps": [
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/rxjs/rxjs-tap-once.ts",
+          "hash": "9772336767964901860",
+          "deps": [
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/rxjs/rxjs-tap-skip-first.ts",
+          "hash": "17252246209653011851",
+          "deps": [
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/translations/index.ts",
+          "hash": "11276406723106205290"
+        },
+        {
+          "file": "libs/platform-core/src/lib/translations/platform-translate.service.ts",
+          "hash": "18328469862622928545",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@ngx-translate/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/ui-services/global-spinner.service.ts",
+          "hash": "904974141652494921",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/ui-services/host.sevice.ts",
+          "hash": "661957884517878383",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/ui-services/index.ts",
+          "hash": "16664618044751920141"
+        },
+        {
+          "file": "libs/platform-core/src/lib/utils/_README.md",
+          "hash": "3805851235094714410"
+        },
+        {
+          "file": "libs/platform-core/src/lib/utils/_common-functions.ts",
+          "hash": "5074287662506107951"
+        },
+        {
+          "file": "libs/platform-core/src/lib/utils/index.ts",
+          "hash": "6061566555523048785"
+        },
+        {
+          "file": "libs/platform-core/src/lib/utils/utils.date.ts",
+          "hash": "12129409902488710777",
+          "deps": [
+            "npm:moment"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/utils/utils.dictionary.ts",
+          "hash": "7407780805380643813",
+          "deps": [
+            "npm:lodash-es"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/utils/utils.dom.ts",
+          "hash": "12079175833120981382"
+        },
+        {
+          "file": "libs/platform-core/src/lib/utils/utils.enum.ts",
+          "hash": "1325312106940518657"
+        },
+        {
+          "file": "libs/platform-core/src/lib/utils/utils.file.ts",
+          "hash": "12121749472166590318"
+        },
+        {
+          "file": "libs/platform-core/src/lib/utils/utils.guid.ts",
+          "hash": "5573830002802169023"
+        },
+        {
+          "file": "libs/platform-core/src/lib/utils/utils.list.ts",
+          "hash": "17695288116679250420",
+          "deps": [
+            "npm:lodash-es"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/utils/utils.number.ts",
+          "hash": "17421477827121794956"
+        },
+        {
+          "file": "libs/platform-core/src/lib/utils/utils.object.ts",
+          "hash": "6352329786427761177",
+          "deps": [
+            "npm:lodash-es",
+            "npm:type-fest"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/utils/utils.record.ts",
+          "hash": "10482414540619514610"
+        },
+        {
+          "file": "libs/platform-core/src/lib/utils/utils.task.ts",
+          "hash": "16175443781019829874",
+          "deps": [
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/lib/validation/index.ts",
+          "hash": "11289278626071302513"
+        },
+        {
+          "file": "libs/platform-core/src/lib/validation/validation.ts",
+          "hash": "16649029718918901858"
+        },
+        {
+          "file": "libs/platform-core/src/lib/view-models/form.view-model.ts",
+          "hash": "3879152146490410038"
+        },
+        {
+          "file": "libs/platform-core/src/lib/view-models/generic.view-model.ts",
+          "hash": "250721809510701926"
+        },
+        {
+          "file": "libs/platform-core/src/lib/view-models/index.ts",
+          "hash": "7154622702046889819"
+        },
+        {
+          "file": "libs/platform-core/src/lib/view-models/view-model.store.ts",
+          "hash": "2850125311289175296",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs",
+            "npm:type-fest",
+            "npm:@ngrx/component-store"
+          ]
+        },
+        {
+          "file": "libs/platform-core/src/styles/_platform-functions.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/platform-core/src/styles/_platform-mixins.scss",
+          "hash": "12219307855291976770"
+        },
+        {
+          "file": "libs/platform-core/src/styles/_platform-placeholders.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/platform-core/src/styles/_platform-spacing.less",
+          "hash": "10409821659672012578"
+        },
+        {
+          "file": "libs/platform-core/src/styles/_platform-variables.scss",
+          "hash": "2389649792633880929"
+        },
+        {
+          "file": "libs/platform-core/src/test-setup.ts",
+          "hash": "18384032036193434871",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "libs/platform-core/tsconfig.json",
+          "hash": "3157823844900905278"
+        },
+        {
+          "file": "libs/platform-core/tsconfig.lib.json",
+          "hash": "18161009681682609428"
+        },
+        {
+          "file": "libs/platform-core/tsconfig.spec.json",
+          "hash": "8393102975705025092"
+        }
+      ],
       "admin": [
         {
           "file": "apps/admin/.eslintrc.json",
@@ -168,20 +919,21 @@
         },
         {
           "file": "apps/admin/src/app/app.component.html",
-          "hash": "17017777559880793964"
+          "hash": "7700297510980047460"
         },
         {
           "file": "apps/admin/src/app/app.component.scss",
-          "hash": "15784732016763717368"
+          "hash": "8328529168206934727"
         },
         {
           "file": "apps/admin/src/app/app.component.ts",
-          "hash": "1709510717215024611",
+          "hash": "11247767832822250082",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/material",
             "npm:@angular/router",
-            "platform-core"
+            "platform-core",
+            "npm:@angular/forms"
           ]
         },
         {
@@ -202,14 +954,14 @@
         },
         {
           "file": "apps/admin/src/app/app.routes.ts",
-          "hash": "7453508655736259932",
+          "hash": "6376786222508736863",
           "deps": [
             "npm:@angular/router"
           ]
         },
         {
           "file": "apps/admin/src/app/auth/auth-interceptor.service.ts",
-          "hash": "2833508255243140682",
+          "hash": "7489768706403349365",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -218,7 +970,7 @@
         },
         {
           "file": "apps/admin/src/app/auth/auth.service.ts",
-          "hash": "6357657267264835307",
+          "hash": "14846561435882387894",
           "deps": [
             "domain",
             "npm:@angular/core"
@@ -226,7 +978,7 @@
         },
         {
           "file": "apps/admin/src/app/events/no-permission.api-error-event-handler.ts",
-          "hash": "728231415302123051",
+          "hash": "13816941921678963976",
           "deps": [
             "platform-core",
             "npm:@angular/router",
@@ -236,11 +988,29 @@
         },
         {
           "file": "apps/admin/src/app/route.const.ts",
-          "hash": "11507107690545854393"
+          "hash": "14242259885113787490"
+        },
+        {
+          "file": "apps/admin/src/app/routes/account-management/account-management.component.html",
+          "hash": "3877667543127809417"
+        },
+        {
+          "file": "apps/admin/src/app/routes/account-management/account-management.component.scss",
+          "hash": "13042484477744661043"
+        },
+        {
+          "file": "apps/admin/src/app/routes/account-management/account-management.component.ts",
+          "hash": "5687531231757595080",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "common",
+            "platform-core"
+          ]
         },
         {
           "file": "apps/admin/src/app/routes/admin-dashboard/admin-dashboard.component.html",
-          "hash": "17409246602748107299"
+          "hash": "1878463659403868626"
         },
         {
           "file": "apps/admin/src/app/routes/admin-dashboard/admin-dashboard.component.scss",
@@ -248,7 +1018,7 @@
         },
         {
           "file": "apps/admin/src/app/routes/admin-dashboard/admin-dashboard.component.ts",
-          "hash": "3189246568166767853",
+          "hash": "14120398846782695893",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -261,7 +1031,7 @@
         },
         {
           "file": "apps/admin/src/app/routes/category-management/category-management.component.scss",
-          "hash": "13941302705443234929"
+          "hash": "4025363645739022167"
         },
         {
           "file": "apps/admin/src/app/routes/category-management/category-management.component.ts",
@@ -291,11 +1061,11 @@
         },
         {
           "file": "apps/admin/src/app/routes/product-management/product-management.component.scss",
-          "hash": "4605646837403112586"
+          "hash": "7183817650931909787"
         },
         {
           "file": "apps/admin/src/app/routes/product-management/product-management.component.ts",
-          "hash": "13737131257892109406",
+          "hash": "12749451200943964194",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -306,7 +1076,7 @@
         },
         {
           "file": "apps/admin/src/app/routes/product-management/product-management.state.ts",
-          "hash": "17037069419224617512",
+          "hash": "2147866733242344885",
           "deps": [
             "platform-core",
             "common",
@@ -317,18 +1087,18 @@
         },
         {
           "file": "apps/admin/src/app/routes/product-management/route.ts",
-          "hash": "1225210438387396491",
+          "hash": "6202746810199738565",
           "deps": [
             "npm:@angular/router"
           ]
         },
         {
           "file": "apps/admin/src/app/shared/components/app-side-nav/app-sidenav.component.html",
-          "hash": "5021295870645261047"
+          "hash": "14337057022289866142"
         },
         {
           "file": "apps/admin/src/app/shared/components/app-side-nav/app-sidenav.component.scss",
-          "hash": "5496217213628137897"
+          "hash": "519904984180249084"
         },
         {
           "file": "apps/admin/src/app/shared/components/app-side-nav/app-sidenav.component.ts",
@@ -343,7 +1113,7 @@
         },
         {
           "file": "apps/admin/src/app/shared/components/category-detail/categogy-detail.view-model.ts",
-          "hash": "6993278757321141156",
+          "hash": "8578487277391415480",
           "deps": [
             "domain",
             "platform-core"
@@ -351,15 +1121,15 @@
         },
         {
           "file": "apps/admin/src/app/shared/components/category-detail/category-detail.component.html",
-          "hash": "4946826935738783680"
+          "hash": "16518513852901587651"
         },
         {
           "file": "apps/admin/src/app/shared/components/category-detail/category-detail.component.scss",
-          "hash": "11891340010991733969"
+          "hash": "15262818556740498726"
         },
         {
           "file": "apps/admin/src/app/shared/components/category-detail/category-detail.component.ts",
-          "hash": "3511077336880106683",
+          "hash": "14029958815790328011",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -373,15 +1143,15 @@
         },
         {
           "file": "apps/admin/src/app/shared/components/category-table/category-table.component.html",
-          "hash": "15390638904264435294"
+          "hash": "6013722269861269625"
         },
         {
           "file": "apps/admin/src/app/shared/components/category-table/category-table.component.scss",
-          "hash": "14310887026990593206"
+          "hash": "16317204164589417666"
         },
         {
           "file": "apps/admin/src/app/shared/components/category-table/category-table.component.ts",
-          "hash": "17781321815427942845",
+          "hash": "10255327584490417041",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -393,16 +1163,46 @@
           ]
         },
         {
+          "file": "apps/admin/src/app/shared/components/product-detail/product-detail.component.html",
+          "hash": "13895177348753506878"
+        },
+        {
+          "file": "apps/admin/src/app/shared/components/product-detail/product-detail.component.scss",
+          "hash": "18160096055650096875"
+        },
+        {
+          "file": "apps/admin/src/app/shared/components/product-detail/product-detail.component.ts",
+          "hash": "6651106217002854659",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "platform-core",
+            "npm:rxjs",
+            "domain",
+            "npm:@angular/forms",
+            "npm:@ngx-translate/core",
+            "common"
+          ]
+        },
+        {
+          "file": "apps/admin/src/app/shared/components/product-detail/product-detail.view-model.ts",
+          "hash": "8769286800757143834",
+          "deps": [
+            "platform-core",
+            "domain"
+          ]
+        },
+        {
           "file": "apps/admin/src/app/shared/components/product-table/product-table.component.html",
-          "hash": "8296810920378899950"
+          "hash": "437392006137409812"
         },
         {
           "file": "apps/admin/src/app/shared/components/product-table/product-table.component.scss",
-          "hash": "3152316473063622961"
+          "hash": "12094410839710094751"
         },
         {
           "file": "apps/admin/src/app/shared/components/product-table/product-table.component.ts",
-          "hash": "9235654908228390360",
+          "hash": "5088152753815404881",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -425,6 +1225,10 @@
           "hash": "3244421341483603138"
         },
         {
+          "file": "apps/admin/src/assets/icons/add-circle-icon.svg",
+          "hash": "10243466959750126416"
+        },
+        {
           "file": "apps/admin/src/assets/icons/bravoGROWTH.zip",
           "hash": "10045341282626515517"
         },
@@ -433,16 +1237,20 @@
           "hash": "3135878058900460199"
         },
         {
+          "file": "apps/admin/src/assets/icons/close-icon-small.svg",
+          "hash": "8363607799365736989"
+        },
+        {
           "file": "apps/admin/src/assets/icons/close-icon.svg",
           "hash": "7645546693549093133"
         },
         {
           "file": "apps/admin/src/assets/icons/ellipsis.svg",
-          "hash": "1987737278697897084"
+          "hash": "5608262342323697890"
         },
         {
           "file": "apps/admin/src/assets/icons/login-icon.svg",
-          "hash": "7558015065926934498"
+          "hash": "12246106832791705226"
         },
         {
           "file": "apps/admin/src/assets/icons/picture-icon.svg",
@@ -454,7 +1262,7 @@
         },
         {
           "file": "apps/admin/src/assets/icons/search-icon.svg",
-          "hash": "5041368114367741353"
+          "hash": "3239684204543148205"
         },
         {
           "file": "apps/admin/src/assets/icons/writing-icon.svg",
@@ -466,47 +1274,47 @@
         },
         {
           "file": "apps/admin/src/assets/styles/extensions/layout.scss",
-          "hash": "11305636650657778179"
+          "hash": "14699633017543369481"
         },
         {
           "file": "apps/admin/src/assets/styles/overwrites/bootraps-overwrites.scss",
-          "hash": "11458878081179810308"
+          "hash": "1752557691294447057"
         },
         {
           "file": "apps/admin/src/assets/styles/overwrites/input.scss",
-          "hash": "9561172836363579974"
+          "hash": "8020864145601351590"
         },
         {
           "file": "apps/admin/src/assets/styles/overwrites/mat-button.scss",
-          "hash": "4858517591063855945"
+          "hash": "15623327806547095613"
         },
         {
           "file": "apps/admin/src/assets/styles/overwrites/mat-dialog.scss",
-          "hash": "2126709788464674472"
+          "hash": "4063005712891659112"
         },
         {
           "file": "apps/admin/src/assets/styles/overwrites/mat-select.scss",
-          "hash": "13822541063884900604"
+          "hash": "14647387142956425029"
         },
         {
           "file": "apps/admin/src/assets/styles/reset.scss",
-          "hash": "8518419855904183308"
+          "hash": "7587332396229745368"
         },
         {
           "file": "apps/admin/src/assets/styles/svg-icon.scss",
-          "hash": "13176527848882560446"
+          "hash": "16138727859281906139"
         },
         {
           "file": "apps/admin/src/assets/styles/themes/variables.scss",
-          "hash": "17067073241719908531"
+          "hash": "14718700056823314380"
         },
         {
           "file": "apps/admin/src/assets/styles/utilities.scss",
-          "hash": "15549703058317142926"
+          "hash": "5782561983294862009"
         },
         {
           "file": "apps/admin/src/environments/environments.ts",
-          "hash": "15779783205353715536"
+          "hash": "5417757859512477241"
         },
         {
           "file": "apps/admin/src/favicon.ico",
@@ -514,7 +1322,7 @@
         },
         {
           "file": "apps/admin/src/index.html",
-          "hash": "2992142379104766396"
+          "hash": "7147550118194915468"
         },
         {
           "file": "apps/admin/src/main.ts",
@@ -536,7 +1344,7 @@
         },
         {
           "file": "apps/admin/src/type.d.ts",
-          "hash": "16273476743837586865"
+          "hash": "7742226519206757352"
         },
         {
           "file": "apps/admin/tsconfig.app.json",
@@ -552,935 +1360,6 @@
         },
         {
           "file": "apps/admin/tsconfig.spec.json",
-          "hash": "8393102975705025092"
-        },
-        {
-          "file": "apps/admin/src/assets/icons/close-icon-small.svg",
-          "hash": "8363607799365736989"
-        },
-        {
-          "file": "apps/admin/src/assets/icons/add-circle-icon.svg",
-          "hash": "10243466959750126416"
-        },
-        {
-          "file": "apps/admin/src/app/shared/components/product-detail/product-detail.component.scss",
-          "hash": "6915224478406822250"
-        },
-        {
-          "file": "apps/admin/src/app/shared/components/product-detail/product-detail.component.ts",
-          "hash": "2119414206407675707",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common",
-            "platform-core",
-            "npm:rxjs",
-            "domain",
-            "npm:@angular/forms",
-            "npm:@ngx-translate/core",
-            "common",
-            "npm:@angular/material"
-          ]
-        },
-        {
-          "file": "apps/admin/src/app/shared/components/product-detail/product-detail.component.html",
-          "hash": "144802052863195379"
-        },
-        {
-          "file": "apps/admin/src/app/shared/components/product-detail/product-detail.view-model.ts",
-          "hash": "8769286800757143834",
-          "deps": [
-            "platform-core",
-            "domain"
-          ]
-        }
-      ],
-      "platform-core": [
-        {
-          "file": "libs/platform-core/.eslintrc.json",
-          "hash": "16541336710233866689"
-        },
-        {
-          "file": "libs/platform-core/README.md",
-          "hash": "940105264868875656"
-        },
-        {
-          "file": "libs/platform-core/jest.config.ts",
-          "hash": "14462161404327728473"
-        },
-        {
-          "file": "libs/platform-core/project.json",
-          "hash": "14671718677822232479"
-        },
-        {
-          "file": "libs/platform-core/src/index.ts",
-          "hash": "15968023470311959829"
-        },
-        {
-          "file": "libs/platform-core/src/lib/api-services/abstracts/platform.api-error.ts",
-          "hash": "17096567402981598837",
-          "deps": [
-            "npm:@angular/common"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/api-services/abstracts/platform.api-service.ts",
-          "hash": "17527511327607858360",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/api-services/abstracts/platform.http-options-config-service.ts",
-          "hash": "14440739542479440846"
-        },
-        {
-          "file": "libs/platform-core/src/lib/api-services/events/api-error.event-handler.ts",
-          "hash": "1121347735197649335"
-        },
-        {
-          "file": "libs/platform-core/src/lib/api-services/events/api-error.event.ts",
-          "hash": "4248404875865760197"
-        },
-        {
-          "file": "libs/platform-core/src/lib/api-services/index.ts",
-          "hash": "8103607622875759285"
-        },
-        {
-          "file": "libs/platform-core/src/lib/app-ui-state/index.ts",
-          "hash": "11703247569673020272"
-        },
-        {
-          "file": "libs/platform-core/src/lib/app-ui-state/platform.app-ui.state-store.ts",
-          "hash": "2223426832908285797",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/app-ui-state/platform.translate.state-store.ts",
-          "hash": "8953398807269722237",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@ngrx/component-store"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/caching/index.ts",
-          "hash": "17111950260935217582"
-        },
-        {
-          "file": "libs/platform-core/src/lib/caching/platform.caching-service.ts",
-          "hash": "14038316009675173617",
-          "deps": [
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/caching/platform.local-storage-cache-caching-service.ts",
-          "hash": "7216949269093589766"
-        },
-        {
-          "file": "libs/platform-core/src/lib/common-types/dictionary.ts",
-          "hash": "13495714596806790811"
-        },
-        {
-          "file": "libs/platform-core/src/lib/common-types/index.ts",
-          "hash": "15226943637167622225"
-        },
-        {
-          "file": "libs/platform-core/src/lib/common-types/pageInfo.ts",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "libs/platform-core/src/lib/common-types/time.ts",
-          "hash": "6665701108939136151"
-        },
-        {
-          "file": "libs/platform-core/src/lib/common-values/index.ts",
-          "hash": "2398819226190854873"
-        },
-        {
-          "file": "libs/platform-core/src/lib/common-values/order-direction.enum.ts",
-          "hash": "16609927367433680266"
-        },
-        {
-          "file": "libs/platform-core/src/lib/common-values/weekdays.const.ts",
-          "hash": "10665404771665845078"
-        },
-        {
-          "file": "libs/platform-core/src/lib/components/abstracts/index.ts",
-          "hash": "500212444949284033"
-        },
-        {
-          "file": "libs/platform-core/src/lib/components/abstracts/platform.component.ts",
-          "hash": "2615275598835673426",
-          "deps": [
-            "npm:@angular/core",
-            "npm:ngx-toastr",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/components/abstracts/platform.form-component.ts",
-          "hash": "4318571377526124766",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/forms",
-            "npm:rxjs",
-            "npm:type-fest"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/components/abstracts/platform.smart-component.ts",
-          "hash": "12214060450918147968",
-          "deps": [
-            "npm:@angular/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/components/abstracts/platform.vm-component.ts",
-          "hash": "14730908851311294435",
-          "deps": [
-            "npm:@angular/core",
-            "npm:lodash-es",
-            "npm:rxjs",
-            "npm:type-fest"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/components/abstracts/platform.vm-store-component.ts",
-          "hash": "8491560079343831882",
-          "deps": [
-            "npm:@angular/core",
-            "npm:rxjs",
-            "npm:type-fest"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/components/index.ts",
-          "hash": "8785198265850206194"
-        },
-        {
-          "file": "libs/platform-core/src/lib/components/simple-changes.ts",
-          "hash": "13751888534703668715"
-        },
-        {
-          "file": "libs/platform-core/src/lib/components/watch-input.ts",
-          "hash": "8276919367707930055"
-        },
-        {
-          "file": "libs/platform-core/src/lib/decorators/index.ts",
-          "hash": "6244493726042470724"
-        },
-        {
-          "file": "libs/platform-core/src/lib/decorators/watch.ts",
-          "hash": "4032266085965391630"
-        },
-        {
-          "file": "libs/platform-core/src/lib/directives/abstracts/platform.directive.ts",
-          "hash": "8465656580696108685",
-          "deps": [
-            "npm:@angular/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/directives/index.ts",
-          "hash": "12970392072162867924"
-        },
-        {
-          "file": "libs/platform-core/src/lib/directives/swipe-to-scroll.directive.ts",
-          "hash": "7290308338128701303",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/domain/data-model/platform.data-model.ts",
-          "hash": "14270004136753141954"
-        },
-        {
-          "file": "libs/platform-core/src/lib/domain/events/abstracts/repository-error.event-handler.ts",
-          "hash": "17523008206965519083"
-        },
-        {
-          "file": "libs/platform-core/src/lib/domain/events/repository-error.event.ts",
-          "hash": "6715486998098775526"
-        },
-        {
-          "file": "libs/platform-core/src/lib/domain/index.ts",
-          "hash": "14459110622478460430"
-        },
-        {
-          "file": "libs/platform-core/src/lib/domain/platform.repository-context.ts",
-          "hash": "9744620342247175468"
-        },
-        {
-          "file": "libs/platform-core/src/lib/domain/repository/platform.repository.ts",
-          "hash": "15865010650002815775",
-          "deps": [
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/dtos/index.ts",
-          "hash": "9087175556200107622"
-        },
-        {
-          "file": "libs/platform-core/src/lib/dtos/platform.command-dto.ts",
-          "hash": "11418808836839081509"
-        },
-        {
-          "file": "libs/platform-core/src/lib/dtos/platform.query-dto.ts",
-          "hash": "7882029632196581927"
-        },
-        {
-          "file": "libs/platform-core/src/lib/dtos/platform.result-dto.ts",
-          "hash": "7618671782429161402"
-        },
-        {
-          "file": "libs/platform-core/src/lib/events/abstracts/index.ts",
-          "hash": "15050862031754909429"
-        },
-        {
-          "file": "libs/platform-core/src/lib/events/index.ts",
-          "hash": "8770656075986697021"
-        },
-        {
-          "file": "libs/platform-core/src/lib/events/platform.event-manager.ts",
-          "hash": "7478960259081075227",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/form-validators/async-validator.ts",
-          "hash": "13096342407791755040",
-          "deps": [
-            "npm:@angular/forms",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/form-validators/if-validator.ts",
-          "hash": "8110271136803756186",
-          "deps": [
-            "npm:@angular/forms",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/form-validators/index.ts",
-          "hash": "11357400928104745445"
-        },
-        {
-          "file": "libs/platform-core/src/lib/form-validators/models/index.ts",
-          "hash": "14150112266892011437"
-        },
-        {
-          "file": "libs/platform-core/src/lib/form-validators/models/validation-error.ts",
-          "hash": "16310794700231407108",
-          "deps": [
-            "npm:@angular/forms"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/form-validators/start-end-validator.ts",
-          "hash": "1850899139068960517",
-          "deps": [
-            "npm:@angular/forms"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/form-validators/validator.ts",
-          "hash": "14235396456025571230",
-          "deps": [
-            "npm:@angular/forms"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/form-validators/white-space-validator.ts",
-          "hash": "16653114602660350015",
-          "deps": [
-            "npm:@angular/forms"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/helpers/form.helper.ts",
-          "hash": "15362565401602844506",
-          "deps": [
-            "npm:@angular/forms"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/helpers/index.ts",
-          "hash": "10224049672203639147"
-        },
-        {
-          "file": "libs/platform-core/src/lib/helpers/life-cycle.helper.ts",
-          "hash": "14875938478448292341",
-          "deps": [
-            "npm:@angular/core",
-            "npm:lodash-es"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/http-services/abstracts/platform.http-client-options.ts",
-          "hash": "427473913668031078",
-          "deps": [
-            "npm:@angular/common"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/http-services/abstracts/platform.http-service.ts",
-          "hash": "5011246419730754494",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/http-services/index.ts",
-          "hash": "10240262292894053704"
-        },
-        {
-          "file": "libs/platform-core/src/lib/index.ts",
-          "hash": "18055765733150005754"
-        },
-        {
-          "file": "libs/platform-core/src/lib/pipes/abstracts/platform.pipe.ts",
-          "hash": "16513803146672588590",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/pipes/index.ts",
-          "hash": "2272254477181728621"
-        },
-        {
-          "file": "libs/platform-core/src/lib/pipes/log-times-display.pipe.ts",
-          "hash": "14362392693532458785",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/pipes/platform-highlight-search-text.pipe.ts",
-          "hash": "12638629068297590608",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/platform-browser"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/platform-core.config.ts",
-          "hash": "3513121985385015072"
-        },
-        {
-          "file": "libs/platform-core/src/lib/platform-core.module.ts",
-          "hash": "6229808938721039010",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core",
-            "npm:@angular/forms",
-            "npm:@angular/platform-browser",
-            "npm:@angular/router",
-            "npm:@ngx-translate/core",
-            "npm:ngx-toastr"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/platform-domain.module.ts",
-          "hash": "11154859220506624164",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core",
-            "npm:@angular/forms"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/platform-global-error-handler.ts",
-          "hash": "12488133690447313764",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/platform-service-worker.ts",
-          "hash": "15020918721356525311"
-        },
-        {
-          "file": "libs/platform-core/src/lib/rxjs/index.ts",
-          "hash": "12916607689567214775"
-        },
-        {
-          "file": "libs/platform-core/src/lib/rxjs/rxjs-distinct-until-object-values-changed.ts",
-          "hash": "18399523035354239163",
-          "deps": [
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/rxjs/rxjs-on-cancel.ts",
-          "hash": "9404010878163505518",
-          "deps": [
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/rxjs/rxjs-tap-once.ts",
-          "hash": "4019850675196731416",
-          "deps": [
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/rxjs/rxjs-tap-skip-first.ts",
-          "hash": "5906473184072003280",
-          "deps": [
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/translations/index.ts",
-          "hash": "9161680412297724660"
-        },
-        {
-          "file": "libs/platform-core/src/lib/translations/platform-translate.service.ts",
-          "hash": "6517919910324185833",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@ngx-translate/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/ui-services/global-spinner.service.ts",
-          "hash": "15809126726705704324",
-          "deps": [
-            "npm:@angular/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/ui-services/host.sevice.ts",
-          "hash": "10653445467261388521",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/ui-services/index.ts",
-          "hash": "11587421608097317930"
-        },
-        {
-          "file": "libs/platform-core/src/lib/utils/_README.md",
-          "hash": "13905615684603426465"
-        },
-        {
-          "file": "libs/platform-core/src/lib/utils/_common-functions.ts",
-          "hash": "13166422444786484966"
-        },
-        {
-          "file": "libs/platform-core/src/lib/utils/index.ts",
-          "hash": "16981697119167270829"
-        },
-        {
-          "file": "libs/platform-core/src/lib/utils/utils.date.ts",
-          "hash": "8494532935748569363",
-          "deps": [
-            "npm:moment"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/utils/utils.dictionary.ts",
-          "hash": "5818079317084866476",
-          "deps": [
-            "npm:lodash-es"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/utils/utils.dom.ts",
-          "hash": "1089652070507999039"
-        },
-        {
-          "file": "libs/platform-core/src/lib/utils/utils.enum.ts",
-          "hash": "13666868716468420449"
-        },
-        {
-          "file": "libs/platform-core/src/lib/utils/utils.file.ts",
-          "hash": "15056124050922821643"
-        },
-        {
-          "file": "libs/platform-core/src/lib/utils/utils.guid.ts",
-          "hash": "6507483246011069162"
-        },
-        {
-          "file": "libs/platform-core/src/lib/utils/utils.list.ts",
-          "hash": "16465266222830577513",
-          "deps": [
-            "npm:lodash-es"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/utils/utils.number.ts",
-          "hash": "3746202728393296223"
-        },
-        {
-          "file": "libs/platform-core/src/lib/utils/utils.object.ts",
-          "hash": "12567486269171804672",
-          "deps": [
-            "npm:lodash-es",
-            "npm:type-fest"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/utils/utils.record.ts",
-          "hash": "6071637476204973314"
-        },
-        {
-          "file": "libs/platform-core/src/lib/utils/utils.task.ts",
-          "hash": "6695943964881934706",
-          "deps": [
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/lib/validation/index.ts",
-          "hash": "14898832325345222328"
-        },
-        {
-          "file": "libs/platform-core/src/lib/validation/validation.ts",
-          "hash": "2755206207290665457"
-        },
-        {
-          "file": "libs/platform-core/src/lib/view-models/form.view-model.ts",
-          "hash": "13134966976622896597"
-        },
-        {
-          "file": "libs/platform-core/src/lib/view-models/generic.view-model.ts",
-          "hash": "15264602688264944715"
-        },
-        {
-          "file": "libs/platform-core/src/lib/view-models/index.ts",
-          "hash": "8218061247366774577"
-        },
-        {
-          "file": "libs/platform-core/src/lib/view-models/view-model.store.ts",
-          "hash": "18169212676823200802",
-          "deps": [
-            "npm:@angular/core",
-            "npm:rxjs",
-            "npm:type-fest",
-            "npm:@ngrx/component-store"
-          ]
-        },
-        {
-          "file": "libs/platform-core/src/styles/_platform-functions.scss",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "libs/platform-core/src/styles/_platform-mixins.scss",
-          "hash": "11303645209353517021"
-        },
-        {
-          "file": "libs/platform-core/src/styles/_platform-placeholders.scss",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "libs/platform-core/src/styles/_platform-spacing.less",
-          "hash": "5618020020712470647"
-        },
-        {
-          "file": "libs/platform-core/src/styles/_platform-variables.scss",
-          "hash": "13507771050233238638"
-        },
-        {
-          "file": "libs/platform-core/src/test-setup.ts",
-          "hash": "18384032036193434871",
-          "deps": [
-            "npm:jest-preset-angular"
-          ]
-        },
-        {
-          "file": "libs/platform-core/tsconfig.json",
-          "hash": "3157823844900905278"
-        },
-        {
-          "file": "libs/platform-core/tsconfig.lib.json",
-          "hash": "18161009681682609428"
-        },
-        {
-          "file": "libs/platform-core/tsconfig.spec.json",
-          "hash": "8393102975705025092"
-        }
-      ],
-      "common": [
-        {
-          "file": "libs/common/.eslintrc.json",
-          "hash": "16541336710233866689"
-        },
-        {
-          "file": "libs/common/README.md",
-          "hash": "2200719060512274419"
-        },
-        {
-          "file": "libs/common/jest.config.ts",
-          "hash": "16539766200920175763"
-        },
-        {
-          "file": "libs/common/project.json",
-          "hash": "9786932848085072798"
-        },
-        {
-          "file": "libs/common/src/abstracts/base.component.ts",
-          "hash": "3547655654678872851",
-          "deps": [
-            "npm:@angular/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/common/src/abstracts/base.directive.ts",
-          "hash": "15748156003648560828",
-          "deps": [
-            "npm:@angular/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/common/src/bravo-common-module.config.ts",
-          "hash": "17733125567009025579"
-        },
-        {
-          "file": "libs/common/src/bravo-common-root.module.ts",
-          "hash": "10153501175890804613",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common",
-            "npm:@angular/forms",
-            "npm:@angular/router",
-            "npm:@ngx-translate/core",
-            "npm:@angular/material"
-          ]
-        },
-        {
-          "file": "libs/common/src/bravo-common.module.ts",
-          "hash": "2053938486150195995",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/forms",
-            "npm:@angular/core",
-            "npm:@angular/router",
-            "npm:ngx-pagination",
-            "npm:@ng-select/ng-select",
-            "npm:@ngneat/input-mask",
-            "npm:@angular/flex-layout",
-            "npm:@ngx-translate/core"
-          ]
-        },
-        {
-          "file": "libs/common/src/components/dialog/dialog-config.ts",
-          "hash": "16538138932220558026",
-          "deps": [
-            "npm:@angular/material",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/common/src/components/dialog/dialog.service.ts",
-          "hash": "10736246694471387791",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/material",
-            "npm:@angular/cdk",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/common/src/components/index.ts",
-          "hash": "8768494282426739851"
-        },
-        {
-          "file": "libs/common/src/components/toast/toast.component.html",
-          "hash": "935502846153469585"
-        },
-        {
-          "file": "libs/common/src/components/toast/toast.component.scss",
-          "hash": "7128184769924075083"
-        },
-        {
-          "file": "libs/common/src/components/toast/toast.component.ts",
-          "hash": "13044770787647498034",
-          "deps": [
-            "npm:@angular/animations",
-            "npm:@angular/common",
-            "npm:@angular/core",
-            "npm:@ngx-translate/core",
-            "npm:ngx-toastr"
-          ]
-        },
-        {
-          "file": "libs/common/src/index.ts",
-          "hash": "54074788722409192"
-        },
-        {
-          "file": "libs/common/src/lib/common.module.ts",
-          "hash": "6606575186844308481",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/common/src/material.module.ts",
-          "hash": "18264035786153399605",
-          "deps": [
-            "npm:@angular/cdk",
-            "npm:@angular/core",
-            "npm:@angular/material"
-          ]
-        },
-        {
-          "file": "libs/common/src/services/dynamic-component.service.ts",
-          "hash": "14783102282018711254",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/common/src/test-setup.ts",
-          "hash": "18384032036193434871",
-          "deps": [
-            "npm:jest-preset-angular"
-          ]
-        },
-        {
-          "file": "libs/common/src/typings.ts",
-          "hash": "9026950234294485057"
-        },
-        {
-          "file": "libs/common/src/ui-model/table.model.ts",
-          "hash": "913070878000860608",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "libs/common/src/utils/_common-functions.ts",
-          "hash": "13166422444786484966"
-        },
-        {
-          "file": "libs/common/src/utils/array-util.ts",
-          "hash": "3894167522440592436",
-          "deps": [
-            "npm:lodash-es"
-          ]
-        },
-        {
-          "file": "libs/common/src/utils/caching-util.ts",
-          "hash": "4300021491195507737"
-        },
-        {
-          "file": "libs/common/src/utils/clipboard-util.ts",
-          "hash": "3608131361567114909"
-        },
-        {
-          "file": "libs/common/src/utils/date-util.ts",
-          "hash": "14943111910864063433",
-          "deps": [
-            "npm:moment"
-          ]
-        },
-        {
-          "file": "libs/common/src/utils/guid-util.ts",
-          "hash": "4793948259338188160"
-        },
-        {
-          "file": "libs/common/src/utils/html-util.ts",
-          "hash": "8446357031267337764"
-        },
-        {
-          "file": "libs/common/src/utils/keyboard-util.ts",
-          "hash": "12256818214599352883"
-        },
-        {
-          "file": "libs/common/src/utils/language-util.ts",
-          "hash": "1000722407913493047"
-        },
-        {
-          "file": "libs/common/src/utils/life-cycle.util.ts",
-          "hash": "14875938478448292341",
-          "deps": [
-            "npm:@angular/core",
-            "npm:lodash-es"
-          ]
-        },
-        {
-          "file": "libs/common/src/utils/mouse-util.ts",
-          "hash": "10425780588316563671"
-        },
-        {
-          "file": "libs/common/src/utils/name-util.ts",
-          "hash": "13206812283993865567"
-        },
-        {
-          "file": "libs/common/src/utils/number-util.ts",
-          "hash": "5365883432089715136"
-        },
-        {
-          "file": "libs/common/src/utils/object-util.ts",
-          "hash": "10190732799017337832",
-          "deps": [
-            "npm:lodash-es",
-            "platform-core"
-          ]
-        },
-        {
-          "file": "libs/common/src/utils/process-util.ts",
-          "hash": "2175502955287359535",
-          "deps": [
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/common/src/utils/promise-util.ts",
-          "hash": "3106668435355114938"
-        },
-        {
-          "file": "libs/common/src/utils/string-util.ts",
-          "hash": "17025743312744682432"
-        },
-        {
-          "file": "libs/common/src/utils/style-sheet-util.ts",
-          "hash": "6699155625589168512",
-          "deps": [
-            "npm:highcharts"
-          ]
-        },
-        {
-          "file": "libs/common/src/utils/tree-util.ts",
-          "hash": "12309011177805282933"
-        },
-        {
-          "file": "libs/common/src/utils/window-util.ts",
-          "hash": "8060107821194694299"
-        },
-        {
-          "file": "libs/common/tsconfig.json",
-          "hash": "3157823844900905278"
-        },
-        {
-          "file": "libs/common/tsconfig.lib.json",
-          "hash": "18161009681682609428"
-        },
-        {
-          "file": "libs/common/tsconfig.spec.json",
           "hash": "8393102975705025092"
         }
       ],
@@ -1499,15 +1378,15 @@
         },
         {
           "file": "apps/ecommerce/src/app/app.component.html",
-          "hash": "8119561451762578238"
+          "hash": "15941535295607129007"
         },
         {
           "file": "apps/ecommerce/src/app/app.component.scss",
-          "hash": "6887015879278379462"
+          "hash": "9205668298308070650"
         },
         {
           "file": "apps/ecommerce/src/app/app.component.ts",
-          "hash": "17461093163414464913",
+          "hash": "13733062829514652126",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/router",
@@ -1517,7 +1396,7 @@
         },
         {
           "file": "apps/ecommerce/src/app/app.config.ts",
-          "hash": "7834752805635572446",
+          "hash": "13748130876498052647",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/router",
@@ -1527,19 +1406,20 @@
             "npm:@angular/common",
             "npm:@ngx-translate/http-loader",
             "common",
-            "domain"
+            "domain",
+            "npm:@angular/material"
           ]
         },
         {
           "file": "apps/ecommerce/src/app/app.routes.ts",
-          "hash": "4186121172531309191",
+          "hash": "5562766915563604849",
           "deps": [
             "npm:@angular/router"
           ]
         },
         {
           "file": "apps/ecommerce/src/app/auth/auth-interceptor.service.ts",
-          "hash": "3788491330909170084",
+          "hash": "17829213533863439090",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -1548,7 +1428,7 @@
         },
         {
           "file": "apps/ecommerce/src/app/auth/auth.service.ts",
-          "hash": "18330686865593742316",
+          "hash": "14998053416798341896",
           "deps": [
             "npm:@angular/common",
             "domain",
@@ -1557,7 +1437,7 @@
         },
         {
           "file": "apps/ecommerce/src/app/events/no-permission.api-error-event-handler.ts",
-          "hash": "728231415302123051",
+          "hash": "13816941921678963976",
           "deps": [
             "platform-core",
             "npm:@angular/router",
@@ -1567,19 +1447,19 @@
         },
         {
           "file": "apps/ecommerce/src/app/route.const.ts",
-          "hash": "8742676476606092444"
+          "hash": "9730853573581059930"
         },
         {
           "file": "apps/ecommerce/src/app/route/home-page/home-page.component.html",
-          "hash": "443835841726924841"
+          "hash": "1299000523221895574"
         },
         {
           "file": "apps/ecommerce/src/app/route/home-page/home-page.component.scss",
-          "hash": "13394337546219253273"
+          "hash": "10260252037721064227"
         },
         {
           "file": "apps/ecommerce/src/app/route/home-page/home-page.component.ts",
-          "hash": "5193554338879201994",
+          "hash": "14193089700040358717",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -1608,7 +1488,7 @@
         },
         {
           "file": "apps/ecommerce/src/app/shared/components/app-header/app-header.component.scss",
-          "hash": "7153041667712980401"
+          "hash": "8493888241471613805"
         },
         {
           "file": "apps/ecommerce/src/app/shared/components/app-header/app-header.component.ts",
@@ -1626,7 +1506,7 @@
         },
         {
           "file": "apps/ecommerce/src/app/shared/components/search-product/search-product.component.scss",
-          "hash": "9632968482266274956"
+          "hash": "10518230042531464721"
         },
         {
           "file": "apps/ecommerce/src/app/shared/components/search-product/search-product.component.ts",
@@ -1684,11 +1564,11 @@
         },
         {
           "file": "apps/ecommerce/src/assets/icons/ellipsis.svg",
-          "hash": "1987737278697897084"
+          "hash": "5608262342323697890"
         },
         {
           "file": "apps/ecommerce/src/assets/icons/login-icon.svg",
-          "hash": "7558015065926934498"
+          "hash": "12246106832791705226"
         },
         {
           "file": "apps/ecommerce/src/assets/icons/remove-icon.svg",
@@ -1696,7 +1576,7 @@
         },
         {
           "file": "apps/ecommerce/src/assets/icons/search-icon.svg",
-          "hash": "5041368114367741353"
+          "hash": "3239684204543148205"
         },
         {
           "file": "apps/ecommerce/src/assets/images/logo.png",
@@ -1708,19 +1588,19 @@
         },
         {
           "file": "apps/ecommerce/src/assets/styles/extensions/layout.scss",
-          "hash": "11305636650657778179"
+          "hash": "14699633017543369481"
         },
         {
           "file": "apps/ecommerce/src/assets/styles/reset.scss",
-          "hash": "8518419855904183308"
+          "hash": "7587332396229745368"
         },
         {
           "file": "apps/ecommerce/src/assets/styles/svg-icon.scss",
-          "hash": "17522755464768095972"
+          "hash": "8522698306667344122"
         },
         {
           "file": "apps/ecommerce/src/assets/styles/themes/variables.scss",
-          "hash": "8248302363562157182"
+          "hash": "1321801508439004208"
         },
         {
           "file": "apps/ecommerce/src/assets/styles/utilities.scss",
@@ -1728,7 +1608,7 @@
         },
         {
           "file": "apps/ecommerce/src/environments/environments.ts",
-          "hash": "15779783205353715536"
+          "hash": "5417757859512477241"
         },
         {
           "file": "apps/ecommerce/src/favicon.ico",
@@ -1736,11 +1616,11 @@
         },
         {
           "file": "apps/ecommerce/src/index.html",
-          "hash": "5204628512322780212"
+          "hash": "18301199791733560668"
         },
         {
           "file": "apps/ecommerce/src/main.ts",
-          "hash": "8060102740304671444",
+          "hash": "10300702331445756274",
           "deps": [
             "npm:@angular/platform-browser"
           ]
@@ -1758,7 +1638,7 @@
         },
         {
           "file": "apps/ecommerce/src/type.d.ts",
-          "hash": "16273476743837586865"
+          "hash": "7742226519206757352"
         },
         {
           "file": "apps/ecommerce/tsconfig.app.json",
@@ -1777,192 +1657,331 @@
           "hash": "8393102975705025092"
         }
       ],
-      "domain": [
+      "common": [
         {
-          "file": "libs/domain/.eslintrc.json",
+          "file": "libs/common/.eslintrc.json",
           "hash": "16541336710233866689"
         },
         {
-          "file": "libs/domain/README.md",
-          "hash": "16933766324442981727"
+          "file": "libs/common/README.md",
+          "hash": "2200719060512274419"
         },
         {
-          "file": "libs/domain/jest.config.ts",
-          "hash": "7473169889187828796"
+          "file": "libs/common/jest.config.ts",
+          "hash": "16539766200920175763"
         },
         {
-          "file": "libs/domain/project.json",
-          "hash": "14396049013903745213"
+          "file": "libs/common/project.json",
+          "hash": "9786932848085072798"
         },
         {
-          "file": "libs/domain/src/_shared/api-services/app-http-options-config-service.ts",
-          "hash": "10903433207597908715",
+          "file": "libs/common/src/abstracts/base.component.ts",
+          "hash": "1113293832650833612",
           "deps": [
-            "platform-core"
+            "npm:@angular/core",
+            "npm:rxjs"
           ]
         },
         {
-          "file": "libs/domain/src/_shared/api-services/index.ts",
-          "hash": "9113377753520811374"
+          "file": "libs/common/src/abstracts/base.directive.ts",
+          "hash": "13352158485308440527",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
         },
         {
-          "file": "libs/domain/src/_shared/components/confirm-dialog/confirm-dialog.component.html",
-          "hash": "3672519687977646475"
+          "file": "libs/common/src/bravo-common-module.config.ts",
+          "hash": "4385654934229203638"
         },
         {
-          "file": "libs/domain/src/_shared/components/confirm-dialog/confirm-dialog.component.scss",
-          "hash": "7133308958551096231"
-        },
-        {
-          "file": "libs/domain/src/_shared/components/confirm-dialog/confirm-dialog.component.ts",
-          "hash": "16462407933442089343",
+          "file": "libs/common/src/bravo-common-root.module.ts",
+          "hash": "15312929629249491871",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
-            "platform-core",
+            "npm:@angular/forms",
+            "npm:@angular/router",
+            "npm:@ngx-translate/core",
             "npm:@angular/material"
           ]
         },
         {
-          "file": "libs/domain/src/_shared/components/index.ts",
-          "hash": "15310335665853807962"
-        },
-        {
-          "file": "libs/domain/src/_shared/index.ts",
-          "hash": "9823937594900550621"
-        },
-        {
-          "file": "libs/domain/src/account/account-api.service.ts",
-          "hash": "12343036868783220470",
+          "file": "libs/common/src/bravo-common.module.ts",
+          "hash": "4942222930373714509",
           "deps": [
+            "npm:@angular/common",
+            "npm:@angular/forms",
             "npm:@angular/core",
-            "ecommerce",
-            "platform-core",
+            "npm:@angular/router",
+            "npm:ngx-pagination",
+            "npm:@ng-select/ng-select",
+            "npm:@ngneat/input-mask",
+            "npm:@angular/flex-layout",
+            "npm:@ngx-translate/core"
+          ]
+        },
+        {
+          "file": "libs/common/src/components/dialog/dialog-config.ts",
+          "hash": "15226621989748630446",
+          "deps": [
+            "npm:@angular/material",
             "npm:rxjs"
           ]
         },
         {
-          "file": "libs/domain/src/account/index.ts",
-          "hash": "8994757377681270126"
-        },
-        {
-          "file": "libs/domain/src/account/request/index.ts",
-          "hash": "1402852774997789263"
-        },
-        {
-          "file": "libs/domain/src/account/request/login.request.ts",
-          "hash": "275769594693385533"
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/category-api.service.ts",
-          "hash": "13848840459639775481",
+          "file": "libs/common/src/components/dialog/dialog.service.ts",
+          "hash": "16963200644375127869",
           "deps": [
             "npm:@angular/core",
-            "platform-core",
-            "npm:rxjs",
-            "admin"
-          ]
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/index.ts",
-          "hash": "1915378931979262166"
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/product-api.service.ts",
-          "hash": "12888135723722438036",
-          "deps": [
-            "npm:@angular/core",
-            "platform-core",
-            "admin",
+            "npm:@angular/material",
+            "npm:@angular/cdk",
             "npm:rxjs"
           ]
         },
         {
-          "file": "libs/domain/src/admin/api-services/requests/add-category.command.ts",
-          "hash": "17612750787521041681"
+          "file": "libs/common/src/components/index.ts",
+          "hash": "14850609897202938948"
         },
         {
-          "file": "libs/domain/src/admin/api-services/requests/get-category.query.ts",
-          "hash": "12683945199012983875"
+          "file": "libs/common/src/components/toast/toast.component.html",
+          "hash": "5504489340419131956"
         },
         {
-          "file": "libs/domain/src/admin/api-services/requests/get-list-categories.query.ts",
-          "hash": "10861995137033965161",
+          "file": "libs/common/src/components/toast/toast.component.scss",
+          "hash": "7269468288386189537"
+        },
+        {
+          "file": "libs/common/src/components/toast/toast.component.ts",
+          "hash": "15954956839014374752",
           "deps": [
-            "platform-core"
-          ]
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/requests/get-product-list.query.ts",
-          "hash": "4165490904239342267",
-          "deps": [
-            "platform-core"
-          ]
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/requests/index.ts",
-          "hash": "3486971833981260317"
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/requests/update-category.command.ts",
-          "hash": "7712293369406222805"
-        },
-        {
-          "file": "libs/domain/src/admin/domain-models/brand.model.ts",
-          "hash": "11463028695637179134"
-        },
-        {
-          "file": "libs/domain/src/admin/domain-models/category.model.ts",
-          "hash": "13055392349664689839"
-        },
-        {
-          "file": "libs/domain/src/admin/domain-models/index.ts",
-          "hash": "16191955734082752592"
-        },
-        {
-          "file": "libs/domain/src/admin/domain-models/product.model.ts",
-          "hash": "4457541157657136615"
-        },
-        {
-          "file": "libs/domain/src/admin/index.ts",
-          "hash": "12731074325275856061"
-        },
-        {
-          "file": "libs/domain/src/index.ts",
-          "hash": "2601347464017360031"
-        },
-        {
-          "file": "libs/domain/src/lib/domain.module.ts",
-          "hash": "8656759624751629617",
-          "deps": [
+            "npm:@angular/animations",
+            "npm:@angular/common",
             "npm:@angular/core",
-            "npm:@angular/common"
+            "npm:@ngx-translate/core",
+            "npm:ngx-toastr"
           ]
         },
         {
-          "file": "libs/domain/src/test-setup.ts",
+          "file": "libs/common/src/index.ts",
+          "hash": "54074788722409192"
+        },
+        {
+          "file": "libs/common/src/lib/common.module.ts",
+          "hash": "6606575186844308481",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/common/src/material.module.ts",
+          "hash": "14405009138686874575",
+          "deps": [
+            "npm:@angular/cdk",
+            "npm:@angular/core",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "libs/common/src/services/dynamic-component.service.ts",
+          "hash": "81514983978105839",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/common/src/test-setup.ts",
           "hash": "18384032036193434871",
           "deps": [
             "npm:jest-preset-angular"
           ]
         },
         {
-          "file": "libs/domain/tsconfig.json",
+          "file": "libs/common/src/typings.ts",
+          "hash": "775337825664314475"
+        },
+        {
+          "file": "libs/common/src/ui-model/table.model.ts",
+          "hash": "12211596774482842825",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "libs/common/src/utils/_common-functions.ts",
+          "hash": "5074287662506107951"
+        },
+        {
+          "file": "libs/common/src/utils/array-util.ts",
+          "hash": "15101715051593206151",
+          "deps": [
+            "npm:lodash-es"
+          ]
+        },
+        {
+          "file": "libs/common/src/utils/caching-util.ts",
+          "hash": "16458600118354448287"
+        },
+        {
+          "file": "libs/common/src/utils/clipboard-util.ts",
+          "hash": "7868707020121237080"
+        },
+        {
+          "file": "libs/common/src/utils/date-util.ts",
+          "hash": "1922734413660298286",
+          "deps": [
+            "npm:moment"
+          ]
+        },
+        {
+          "file": "libs/common/src/utils/guid-util.ts",
+          "hash": "7092742353115345741"
+        },
+        {
+          "file": "libs/common/src/utils/html-util.ts",
+          "hash": "1213153687242691991"
+        },
+        {
+          "file": "libs/common/src/utils/keyboard-util.ts",
+          "hash": "14249928740951348055"
+        },
+        {
+          "file": "libs/common/src/utils/language-util.ts",
+          "hash": "11966927526204682159"
+        },
+        {
+          "file": "libs/common/src/utils/life-cycle.util.ts",
+          "hash": "5260665048566215442",
+          "deps": [
+            "npm:@angular/core",
+            "npm:lodash-es"
+          ]
+        },
+        {
+          "file": "libs/common/src/utils/mouse-util.ts",
+          "hash": "14096853097441455178"
+        },
+        {
+          "file": "libs/common/src/utils/name-util.ts",
+          "hash": "12419306908822381419"
+        },
+        {
+          "file": "libs/common/src/utils/number-util.ts",
+          "hash": "1354497953277833282"
+        },
+        {
+          "file": "libs/common/src/utils/object-util.ts",
+          "hash": "15524730311718752196",
+          "deps": [
+            "npm:lodash-es",
+            "platform-core"
+          ]
+        },
+        {
+          "file": "libs/common/src/utils/process-util.ts",
+          "hash": "15553922829709357407",
+          "deps": [
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "libs/common/src/utils/promise-util.ts",
+          "hash": "5072530286395750398"
+        },
+        {
+          "file": "libs/common/src/utils/string-util.ts",
+          "hash": "9792279822979382685"
+        },
+        {
+          "file": "libs/common/src/utils/style-sheet-util.ts",
+          "hash": "14496993562178739982",
+          "deps": [
+            "npm:highcharts"
+          ]
+        },
+        {
+          "file": "libs/common/src/utils/tree-util.ts",
+          "hash": "3994240906099304035"
+        },
+        {
+          "file": "libs/common/src/utils/window-util.ts",
+          "hash": "15538145054955008990"
+        },
+        {
+          "file": "libs/common/tsconfig.json",
           "hash": "3157823844900905278"
         },
         {
-          "file": "libs/domain/tsconfig.lib.json",
+          "file": "libs/common/tsconfig.lib.json",
           "hash": "18161009681682609428"
         },
         {
-          "file": "libs/domain/tsconfig.spec.json",
+          "file": "libs/common/tsconfig.spec.json",
           "hash": "8393102975705025092"
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/requests/get-product.query.ts",
-          "hash": "6999770386753151438"
         }
       ]
-    }
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".editorconfig",
+        "hash": "10420079495110127939"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "18315524891129148814"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "2178144051909739023"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "7848693104264504795"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "7118458245419363312"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "3962110897060218671"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "6453326762939377826"
+      },
+      {
+        "file": "README.md",
+        "hash": "4702555707399516295"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "12333515226966617182"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "nx.json",
+        "hash": "16837653548081523188"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "3282016660844990555"
+      },
+      {
+        "file": "package.json",
+        "hash": "788244054467553316"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "548708166115957203"
+      }
+    ]
   }
 }

@@ -13819,12 +13819,12 @@
       },
       {
         "source": "ecommerce",
-        "target": "npm:rxjs",
+        "target": "npm:@angular/material",
         "type": "static"
       },
       {
         "source": "ecommerce",
-        "target": "npm:@angular/material",
+        "target": "npm:rxjs",
         "type": "static"
       },
       {
@@ -13995,6 +13995,11 @@
       },
       {
         "source": "admin",
+        "target": "npm:@angular/forms",
+        "type": "static"
+      },
+      {
+        "source": "admin",
         "target": "npm:@angular/common",
         "type": "static"
       },
@@ -14026,11 +14031,6 @@
       {
         "source": "admin",
         "target": "npm:rxjs",
-        "type": "static"
-      },
-      {
-        "source": "admin",
-        "target": "npm:@angular/forms",
         "type": "static"
       },
       {

@@ -7,6 +7,10 @@ import { RouterOutlet } from '@angular/router';
 import { AppSidenavComponent } from './shared/components/app-side-nav/app-sidenav.component';
 import { PlatformComponent } from '@pem/platform-core';
 import { CategoryManagementComponent } from './routes/category-management/category-management.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
     standalone: true,
@@ -19,7 +23,11 @@ import { CategoryManagementComponent } from './routes/category-management/catego
         RouterOutlet,
         MatSidenavModule,
         AppSidenavComponent,
-        CategoryManagementComponent
+        CategoryManagementComponent,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        MatButtonModule
     ],
     selector: 'pem-root',
     templateUrl: './app.component.html',

@@ -15,7 +15,7 @@ export class ProductManagementState extends PlatformVm {
     public pageInfo: IPageInfo = { pageIndex: 0, pageSize: 0, totalItems: 0, totalPages: 0 };
 
     @Watch<ProductManagementState>('updatePageInfo')
-    public query: GetProductListQuery = new GetProductListQuery();
+    public query: GetProductListQuery = new GetProductListQuery({ maxResultCount: 20 });
     @Watch<ProductManagementState>('updatePageInfo')
     public result?: PlatformPagedResultDto<Product>;
 

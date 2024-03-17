@@ -15,9 +15,7 @@ import {
     MatRowDef,
     MatTable
 } from '@angular/material/table';
-import { MatIcon } from '@angular/material/icon';
-import { MatIconButton } from '@angular/material/button';
-import { MatCheckbox } from '@angular/material/checkbox';
+import { MaterialModule } from '@pem/common';
 
 @Component({
     selector: 'product-table',
@@ -34,9 +32,7 @@ import { MatCheckbox } from '@angular/material/checkbox';
         MatCellDef,
         MatHeaderCell,
         MatHeaderCellDef,
-        MatIcon,
-        MatIconButton,
-        MatCheckbox
+        MaterialModule
     ],
     templateUrl: './product-table.component.html',
     styleUrl: './product-table.component.scss',

@@ -6,13 +6,12 @@ import { forkJoin, map, of } from 'rxjs';
 import { Product, ProductApiService } from '@pem/domain';
 import { FormControl, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { BravoCommonModule } from '@pem/common';
-import { MatDivider } from '@angular/material/divider';
+import { BravoCommonModule, MaterialModule } from '@pem/common';
 
 @Component({
     selector: 'product-detail',
     standalone: true,
-    imports: [CommonModule, TranslateModule, BravoCommonModule, MatDivider],
+    imports: [CommonModule, TranslateModule, BravoCommonModule, MaterialModule],
     templateUrl: './product-detail.component.html',
     styleUrl: './product-detail.component.scss',
     encapsulation: ViewEncapsulation.None,

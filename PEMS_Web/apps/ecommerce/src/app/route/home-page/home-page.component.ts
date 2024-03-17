@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PlatformComponent } from '@pem/platform-core';
 
 @Component({
-    selector: 'pem-home-page-page',
+    selector: 'pem-home-page',
     standalone: true,
     imports: [CommonModule],
     templateUrl: './home-page.component.html',
@@ -11,5 +11,4 @@ import { PlatformComponent } from '@pem/platform-core';
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomePageComponent extends PlatformComponent {
-}
+export class HomePageComponent extends PlatformComponent {}

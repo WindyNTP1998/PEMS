@@ -1,71 +1,196 @@
 <div class="product-table">
-	<table [dataSource]="products" class="product-table__table" mat-table>
-		<ng-container matColumnDef="check">
-			<th *matHeaderCellDef class="product-table__table-header-cell -check" mat-header-cell>
-				<mat-checkbox></mat-checkbox>
-			</th>
-			<td *matCellDef="let element" class="product-table__table-data-cell -check" mat-cell>
-				<mat-checkbox></mat-checkbox>
-			</td>
-		</ng-container>
-		<ng-container matColumnDef="code">
-			<th *matHeaderCellDef class="product-table__table-header-cell -code" mat-header-cell>
-				{{ 'Code' | titlecase }}
-			</th>
-			<td *matCellDef="let element" class="product-table__table-data-cell -code" mat-cell>{{ element.code }}</td>
-		</ng-container>
-		<ng-container matColumnDef="name">
-			<th *matHeaderCellDef class="product-table__table-header-cell -name" mat-header-cell>
-				{{ 'Name'| titlecase }}
-			</th>
-			<td *matCellDef="let element" class="product-table__table-data-cell -name" mat-cell>{{ element.name }}</td>
-		</ng-container>
-		<ng-container matColumnDef="category">
-			<th *matHeaderCellDef class="product-table__table-header-cell -cate" mat-header-cell>
-				{{ 'Category'| titlecase }}
-			</th>
-			<td *matCellDef="let element" class="product-table__table-data-cell -cate" mat-cell>{{
-					element.lastCategory.name }}
-			</td>
-		</ng-container>
-		<ng-container matColumnDef="image">
-			<th *matHeaderCellDef class="product-table__table-header-cell -image" mat-header-cell>
-				{{ 'Image'| titlecase }}
-			</th>
-			<td *matCellDef="let element" class="product-table__table-data-cell -image" mat-cell>
-				<img [src]="element.image" alt="product image" class="product-table__table-image" height="160"
-				     width="160"/>
-			</td>
-		</ng-container>
-		<ng-container matColumnDef="price">
-			<th *matHeaderCellDef class="product-table__table-header-cell -price" mat-header-cell>
-				{{ 'Price'| titlecase }}
-			</th>
-			<td *matCellDef="let element" class="product-table__table-data-cell -price" mat-cell>{{ element.price }}
-			</td>
-		</ng-container>
-		<ng-container matColumnDef="actions">
-			<th *matHeaderCellDef class="product-table__table-header-cell -actions" mat-header-cell>
-				{{ 'Actions'| titlecase }}
-			</th>
-			<td *matCellDef="let element" class="product-table__table-data-cell -actions" mat-cell>
-				<button (click)="editProduct(element)" color="primary" mat-icon-button>
-					<mat-icon>edit</mat-icon>
-				</button>
-				<button (click)="deleteProduct(element)" color="warn" mat-icon-button>
-					<mat-icon>delete</mat-icon>
-				</button>
-			</td>
-		</ng-container>
+    <table [dataSource]="products" class="product-table__table" mat-table>
+        <ng-container matColumnDef="check">
+            <th *matHeaderCellDef class="product-table__table-header-cell -check" mat-header-cell>
+                <mat-checkbox></mat-checkbox>
+            </th>
+            <td *matCellDef="let element" class="product-table__table-data-cell -check" mat-cell>
+                <mat-checkbox></mat-checkbox>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="code">
+            <th *matHeaderCellDef class="product-table__table-header-cell -code" mat-header-cell>
+                {{ 'Code' | titlecase }}
+            </th>
+            <td *matCellDef="let element" class="product-table__table-data-cell -code" mat-cell>{{ element.code }}</td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th *matHeaderCellDef class="product-table__table-header-cell -name" mat-header-cell>
+                {{ 'Name'| titlecase }}
+            </th>
+            <td *matCellDef="let element" class="product-table__table-data-cell -name" mat-cell>{{ element.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="category">
+            <th *matHeaderCellDef class="product-table__table-header-cell -cate" mat-header-cell>
+                {{ 'Category'| titlecase }}
+            </th>
+            <td *matCellDef="let element" class="product-table__table-data-cell -cate" mat-cell>{{
+                element.lastCategory.name }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="image">
+            <th *matHeaderCellDef class="product-table__table-header-cell -image" mat-header-cell>
+                {{ 'Image'| titlecase }}
+            </th>
+            <td *matCellDef="let element" class="product-table__table-data-cell -image" mat-cell>
+                <img [src]="element.image" alt="product image" class="product-table__table-image" height="160"
+                    width="160" />
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="price">
+            <th *matHeaderCellDef class="product-table__table-header-cell -price" mat-header-cell>
+                {{ 'Price'| titlecase }}
+            </th>
+            <td *matCellDef="let element" class="product-table__table-data-cell -price" mat-cell>{{ element.price }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <th *matHeaderCellDef class="product-table__table-header-cell -actions" mat-header-cell>
+                {{ 'Actions'| titlecase }}
+            </th>
+            <td *matCellDef="let element" class="product-table__table-data-cell -actions" mat-cell>
+                <button (click)="editProduct(element)" color="primary" mat-icon-button>
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button (click)="deleteProduct(element)" color="warn" mat-icon-button>
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
 
-		<tr *matHeaderRowDef="displayedColumns" [ngStyle]="{'grid-template-columns': gridTemplateColumns}"
-		    class="product-table__header-row"
-		    mat-header-row
-		></tr>
+        <tr *matHeaderRowDef="displayedColumns" [ngStyle]="{'grid-template-columns': gridTemplateColumns}"
+            class="product-table__header-row" mat-header-row></tr>
 
-		@if (!isLoading) {
-			<tr *matRowDef="let row; columns: displayedColumns;" class="product-table__row "
-			    [ngStyle]="{'grid-template-columns': gridTemplateColumns}" mat-row></tr>
-		}
-	</table>
+        @if (!isLoading) {
+        <tr *matRowDef="let row; columns: displayedColumns;" class="product-table__row "
+            [ngStyle]="{'grid-template-columns': gridTemplateColumns}" mat-row></tr>
+        }
+    </table>
+
+    <div class="abc w-100" [ngStyle]="{'grid-template-columns': gridTemplateColumns}">
+        <mat-checkbox class="p-0"></mat-checkbox>
+        <span>320203</span>
+        <span>Paracetamol 500mg</span>
+        <img [height]="60" [width]="60" alt="parent-image"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
+        <img [height]="60" [width]="60" alt="parent-image"
+            src="https://duocphamtw3.com/wp-content/uploads/2023/07/PARACETAMOL-31.7.png">
+        <span>500 VND</span>
+        <div class="d-flex -actionn">
+            <button color="primary" mat-icon-button>
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button color="warn" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="abc w-100" [ngStyle]="{'grid-template-columns': gridTemplateColumns}">
+        <mat-checkbox class="p-0"></mat-checkbox>
+        <span>320203</span>
+        <span>Paracetamol 500mg</span>
+        <img [height]="60" [width]="60" alt="parent-image"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
+        <img [height]="60" [width]="60" alt="parent-image"
+            src="https://duocphamtw3.com/wp-content/uploads/2023/07/PARACETAMOL-31.7.png">
+        <span>500 VND</span>
+        <div class="d-flex -actionn">
+            <button color="primary" mat-icon-button>
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button color="warn" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="abc w-100" [ngStyle]="{'grid-template-columns': gridTemplateColumns}">
+        <mat-checkbox class="p-0"></mat-checkbox>
+        <span>320203</span>
+        <span>Paracetamol 500mg</span>
+        <img [height]="60" [width]="60" alt="parent-image"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
+        <img [height]="60" [width]="60" alt="parent-image"
+            src="https://duocphamtw3.com/wp-content/uploads/2023/07/PARACETAMOL-31.7.png">
+        <span>500 VND</span>
+        <div class="d-flex -actionn">
+            <button color="primary" mat-icon-button>
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button color="warn" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="abc w-100" [ngStyle]="{'grid-template-columns': gridTemplateColumns}">
+        <mat-checkbox class="p-0"></mat-checkbox>
+        <span>320203</span>
+        <span>Paracetamol 500mg</span>
+        <img [height]="60" [width]="60" alt="parent-image"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
+        <img [height]="60" [width]="60" alt="parent-image"
+            src="https://duocphamtw3.com/wp-content/uploads/2023/07/PARACETAMOL-31.7.png">
+        <span>500 VND</span>
+        <div class="d-flex -actionn">
+            <button color="primary" mat-icon-button>
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button color="warn" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="abc w-100" [ngStyle]="{'grid-template-columns': gridTemplateColumns}">
+        <mat-checkbox class="p-0"></mat-checkbox>
+        <span>320203</span>
+        <span>Paracetamol 500mg</span>
+        <img [height]="60" [width]="60" alt="parent-image"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
+        <img [height]="60" [width]="60" alt="parent-image"
+            src="https://duocphamtw3.com/wp-content/uploads/2023/07/PARACETAMOL-31.7.png">
+        <span>500 VND</span>
+        <div class="d-flex -actionn">
+            <button color="primary" mat-icon-button>
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button color="warn" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="abc w-100" [ngStyle]="{'grid-template-columns': gridTemplateColumns}">
+        <mat-checkbox class="p-0"></mat-checkbox>
+        <span>320203</span>
+        <span>Paracetamol 500mg</span>
+        <img [height]="60" [width]="60" alt="parent-image"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
+        <img [height]="60" [width]="60" alt="parent-image"
+            src="https://duocphamtw3.com/wp-content/uploads/2023/07/PARACETAMOL-31.7.png">
+        <span>500 VND</span>
+        <div class="d-flex -actionn">
+            <button color="primary" mat-icon-button>
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button color="warn" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="abc w-100" [ngStyle]="{'grid-template-columns': gridTemplateColumns}">
+        <mat-checkbox class="p-0"></mat-checkbox>
+        <span>320203</span>
+        <span>Paracetamol 500mg</span>
+        <img [height]="60" [width]="60" alt="parent-image"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
+        <img [height]="60" [width]="60" alt="parent-image"
+            src="https://duocphamtw3.com/wp-content/uploads/2023/07/PARACETAMOL-31.7.png">
+        <span>500 VND</span>
+        <div class="d-flex -actionn">
+            <button color="primary" mat-icon-button>
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button color="warn" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </div>
 </div>

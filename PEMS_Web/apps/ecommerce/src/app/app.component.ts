@@ -7,7 +7,7 @@ import { AppHeaderComponent } from './shared/components/app-header/app-header.co
 @Component({
     standalone: true,
     imports: [RouterModule, HttpClientModule, AppHeaderComponent],
-    selector: 'pem-root',
+    selector: 'app',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,

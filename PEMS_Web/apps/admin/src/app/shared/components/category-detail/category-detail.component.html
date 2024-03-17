@@ -1,119 +1,90 @@
-<form
-	*ngIf="form && vm() as vm"
-	class="category-detail"
->
-	<div class="category-detail__header">
-		<span class="category-detail__title">{{ 'Add category'| translate | titlecase }}</span>
-		<i
-			(click)="onClosePopup()"
-			class="svg-icon close-icon size-16"
-		></i>
-	</div>
-	<div
-		[formGroup]="form"
-		class="category-detail__body"
-	>
-		<div class="row category-detail__form-row">
-			<span class="category-detail__form-title form-title col-2">
-				{{ 'Name' }}
-				<span
-					*ngIf="!isViewMode"
-					class="required-mark"
-				>*</span>
-			</span>
-			<input
-				[formControl]="form.controls.name"
-				class="category-detail__form-value -input col-10"
-				placeholder="{{'e.g. Thuốc Tim Mạch' | translate}}"
-				type="text"
-			/>
-			@if (form.controls.name.touched && formControlsError('name', 'required'); as error) {
-				<div
+<form *ngIf="form && vm() as vm" class="category-detail">
+    <div class="category-detail__header">
+        <span class="category-detail__title">{{ 'Add category'| translate | titlecase }}</span>
+        <i (click)="onClosePopup()" class="svg-icon close-icon size-16"></i>
+    </div>
+    <div [formGroup]="form" class="category-detail__body">
+        <div class="row category-detail__form-row">
+            <span class="category-detail__form-title form-title col-2">
+                {{ 'Name' }}
+                <span *ngIf="!isViewMode" class="required-mark">*</span>
+            </span>
+            <input [formControl]="form.controls.name" class="category-detail__form-value -input col-10"
+                placeholder="{{'e.g. Thuốc Tim Mạch' | translate}}" type="text" />
+            @if (form.controls.name.touched && formControlsError('name', 'required'); as error) {
+            <div class="row category-detail__error ">
+                <span class="category-detail__form-title col-2"> </span>
+                <span class="col-10"> {{ 'required' }} </span>
+            </div>
+            }
+        </div>
 
-					class="row category-detail__error "
-				>
-					<span class="category-detail__form-title col-2"> </span>
-					<span class="col-10"> {{ 'required' }} </span>
-				</div>
-			}
-		</div>
+        <div class="row category-detail__form-row">
+            <span class="category-detail__form-title form-title col-2">
+                <span> {{ 'Parent' }} </span>
+                <span *ngIf="!isViewMode" class="required-mark">*</span>
+            </span>
+            <div class="category-detail__form-value -parent col-10">
+                <mat-select [formControl]="form.controls.parentId">
+                    @for (item of vm.categoryOptions; track item.id) {
+                    <mat-option value="{{item.id}}">{{ item.name }}</mat-option>
+                    }
+                </mat-select>
+            </div>
+        </div>
+        <div class="row category-detail__form-row">
+            <span class="category-detail__form-title form-title col-2">
+                {{ 'Slug' }}
+                <span *ngIf="!isViewMode" class="required-mark">*</span>
+            </span>
+            <input [formControl]="form.controls.slug" class="category-detail__form-value -input col-10"
+                placeholder="{{'e.g. tim-mach' | translate}}" type="text" />
+        </div>
+        <div class="row category-detail__form-row">
+            <span class="category-detail__form-title form-title col-2"> {{ 'Full path' | titlecase }}
+            </span>
+            <input class="category-detail__form-value -input col-10 cursor-default" placeholder="{{vm.fullSlug}}"
+                readonly type="text" />
+        </div>
+        <div class="row category-detail__form-row">
+            <span class="category-detail__form-title form-title col-2"> {{ 'Thumbnail' | titlecase }}<span
+                    *ngIf="!isViewMode" class="required-mark">*</span> </span>
+            <input [formControl]="form.controls.categoryImageUrl" class="category-detail__form-value -input col-10"
+                placeholder="{{'e.g. https://gravatar.com/avatar/d05ea16....' | translate}}" type="text" />
+        </div>
+        <div class="row category-detail__form-row">
+            <!-- <span class="category-detail__form-title form-title col-2"> {{ 'Thumbnail' | titlecase }}<span
+        				*ngIf="!isViewMode"
+        				class="required-mark"
+        			>*</span> </span>
+        			<input
+        				[formControl]="form.controls.categoryImageUrl"
+        				class="category-detail__form-value -input col-10"
+        				placeholder="{{'e.g. https://gravatar.com/avatar/d05ea16....' | translate}}"
+        				type="text"
+        			/> -->
+            <!-- <div>
+                <img width="64" src="https://cih.com.vn/images/09.2019/tim-mach-1.jpg" />
+            </div> -->
+        </div>
+    </div>
+    <div class="category-detail__footer">
+        <!-- @if (mode == 'update') {
+        <button (click)="onSave()" class="category-detail__footer--btn" color="warn" mat-flat-button>
+            {{ 'Save' }}
+        </button>
 
-		<div class="row category-detail__form-row">
-			<span class="category-detail__form-title form-title col-2">
-				<span> {{ 'Parent' }} </span>
-				<span
-					*ngIf="!isViewMode"
-					class="required-mark"
-				>*</span>
-			</span>
-			<div class="category-detail__form-value -parent col-10">
-				<mat-select [formControl]="form.controls.parentId">
-					@for (item of vm.categoryOptions; track item.id) {
-						<mat-option value="{{item.id}}">{{ item.name }}</mat-option>
-					}
-				</mat-select>
-			</div>
-		</div>
-		<div class="row category-detail__form-row">
-			<span class="category-detail__form-title form-title col-2">
-				{{ 'Slug' }}
-				<span
-					*ngIf="!isViewMode"
-					class="required-mark"
-				>*</span>
-			</span>
-			<input
-				[formControl]="form.controls.slug"
-				class="category-detail__form-value -input col-10"
-				placeholder="{{'e.g. tim-mach' | translate}}"
-				type="text"
-			/>
-		</div>
-		<div class="row category-detail__form-row">
-			<span class="category-detail__form-title form-title col-2"> {{ 'Full path' | titlecase }}
-			</span>
-			<input
-				class="category-detail__form-value -input col-10 cursor-default"
-				placeholder="{{vm.fullSlug}}"
-				readonly
-				type="text"
-			/>
-		</div>
-		<div class="row category-detail__form-row">
-			<span class="category-detail__form-title form-title col-2"> {{ 'Thumbnail' | titlecase }}<span
-				*ngIf="!isViewMode"
-				class="required-mark"
-			>*</span> </span>
-			<input
-				[formControl]="form.controls.categoryImageUrl"
-				class="category-detail__form-value -input col-10"
-				placeholder="{{'e.g. https://gravatar.com/avatar/d05ea16....' | translate}}"
-				type="text"
-			/>
-		</div>
-	</div>
-	<div class="category-detail__footer">
-		@if (mode == 'update') {
-			<button
-				(click)="onSave()"
-				class="category-detail__footer--btn"
-				color="warn"
-				mat-flat-button
-			>
-				{{ 'Save' }}
-			</button>
+        } @else if (mode == 'create') {
+        <button (click)="onsubmit()" [disabled]="form.invalid" class="category-detail__footer--btn" color="primary"
+            mat-flat-button>
+            {{ 'Add' }}
+        </button>
+        } -->
+        <button (click)="onSave()" class="category-detail__footer--btn" color="warn" mat-flat-button>
+            {{ 'Save' }}
+        </button>
 
-		} @else if (mode == 'create') {
-			<button
-				(click)="onsubmit()"
-				[disabled]="form.invalid"
-				class="category-detail__footer--btn"
-				color="primary"
-				mat-flat-button
-			>
-				{{ 'Add' }}
-			</button>
-		}
+    </div>
 
-	</div>
+    <img class="bg-img" src="https://cih.com.vn/images/09.2019/tim-mach-1.jpg" />
 </form>

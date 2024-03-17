@@ -11,5 +11,4 @@ import { PlatformComponent } from '@pem/platform-core';
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AdminDashboardComponent extends PlatformComponent {
-}
+export class AdminDashboardComponent extends PlatformComponent {}

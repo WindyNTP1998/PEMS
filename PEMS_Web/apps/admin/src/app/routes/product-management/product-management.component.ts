@@ -47,7 +47,7 @@ export class ProductManagementComponent
             {},
             {
                 autoFocus: false,
-                disableClose: true,
+                disableClose: false,
                 closeOn$: this.destroyed$
             }
         );
