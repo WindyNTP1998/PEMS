@@ -1,19 +1,35 @@
 <div class="app-header">
-    <img alt="logo" class="app-header__logo" src="assets/images/logo.png">
+	<div class="app-header__container container">
+		<img
+			alt="logo"
+			class="app-header__logo"
+			src="assets/images/logo.png"
+		>
 
-    <pem-search-product class="w-100 app-header__search">
-    </pem-search-product>
+		<pem-search-product class="w-100 app-header__search">
+		</pem-search-product>
 
-    <div class="d-flex align-items-center justify-end gap-3  app-header__menu">
-        <button class="bg-white d-inline-flex rounded-pill app-header__login-btn" color="primary" mat-stroked-button>
-            <div class="d-flex align-items-center justify-center gap-2 p-1 app-header__login-btn">
-                <i class="svg-icon login-icon size-24 active"></i>
-                <span class="app-header__login-btn-text">{{ 'Login'| translate }}</span></div>
-        </button>
-        <button class="bg-white d-inline-flex rounded-pill app-header__login-btn" color="primary" mat-stroked-button>
-            <div class="d-flex align-items-center justify-center gap-2 p-1 app-header__login-btn">
-                <i class="svg-icon cart size-24 active"></i>
-                <span class="app-header__login-btn-text">{{ 'Cart'| translate }}</span></div>
-        </button>
-    </div>
+		<div class="d-flex align-items-center justify-end gap-3 app-header__menu">
+			@if(authService.getUserData() != null){
+				
+			} @else {
+				<div
+					(click)="onClickLogin()"
+					class=" d-flex rounded-pill app-header__login-btn"
+				>
+					<i class="svg-icon user-icon size-24 white"></i>
+					<span class="app-header__login-btn-text">
+                        {{ 'Đăng nhập'| translate | titlecase }}
+                </span>
+				</div>
+			}
+			<div class=" d-flex rounded-pill app-header__login-btn">
+				<i class="svg-icon cart size-24 white "></i>
+				<span class="app-header__login-btn-text">
+                        {{ 'Giỏ hàng'| translate | titlecase }}
+				</span>
+			</div>
+
+		</div>
+	</div>
 </div>

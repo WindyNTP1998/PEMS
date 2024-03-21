@@ -1,5 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { computed, Directive, EnvironmentInjector, EventEmitter, inject, Input, OnInit, Output, QueryList, signal, Signal } from '@angular/core';
+import {
+	computed,
+	Directive,
+	EnvironmentInjector,
+	EventEmitter,
+	inject,
+	Input,
+	OnInit,
+	Output,
+	QueryList,
+	signal,
+	Signal
+} from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 import { asyncScheduler, distinctUntilChanged, filter, map, merge, Observable, throttleTime } from 'rxjs';
@@ -182,7 +194,8 @@ export abstract class PlatformFormComponent<TViewModel extends IPlatformVm>
 			if (this.formConfig == null && this.form == null) {
 				if (this.initiated$.value && this.vm() != null) {
 					this.initForm();
-				} else {
+				}
+				else {
 					// Init empty form
 					this._form = new FormGroup<PlatformFormGroupControls<TViewModel>>(<any>{});
 					
@@ -192,7 +205,8 @@ export abstract class PlatformFormComponent<TViewModel extends IPlatformVm>
 						})
 					);
 				}
-			} else {
+			}
+			else {
 				this.setUpInputForm();
 			}
 		});
@@ -287,8 +301,10 @@ export abstract class PlatformFormComponent<TViewModel extends IPlatformVm>
 	): boolean {
 		const invalidChildFormsGroup = forms.find(childFormOrFormsGroup =>
 			childFormOrFormsGroup instanceof QueryList
-			? childFormOrFormsGroup.find(formComponent => !formComponent.isFormValid()) != undefined
-			: !childFormOrFormsGroup.isFormValid()
+				?
+				childFormOrFormsGroup.find(formComponent => !formComponent.isFormValid()) != undefined
+				:
+				!childFormOrFormsGroup.isFormValid()
 		);
 		
 		return invalidChildFormsGroup == undefined;
@@ -305,8 +321,10 @@ export abstract class PlatformFormComponent<TViewModel extends IPlatformVm>
 	): boolean {
 		const invalidChildFormsGroup = forms.find(childFormOrFormsGroup =>
 			childFormOrFormsGroup instanceof QueryList
-			? childFormOrFormsGroup.find(formComponent => !formComponent.validateForm()) != undefined
-			: !childFormOrFormsGroup.validateForm()
+				?
+				childFormOrFormsGroup.find(formComponent => !formComponent.validateForm()) != undefined
+				:
+				!childFormOrFormsGroup.validateForm()
 		);
 		
 		return invalidChildFormsGroup == undefined;
@@ -362,7 +380,8 @@ export abstract class PlatformFormComponent<TViewModel extends IPlatformVm>
 					formControl instanceof FormArray &&
 					vmFormKeyValue instanceof Array &&
 					formControl.length != vmFormKeyValue.length
-				) {
+				)
+				{
 					const listControlformConfig = <
 						PlatformFormGroupControlConfigPropArray<ArrayElement<TViewModel[keyof TViewModel]>>
 						>this.formConfig.controls[vmFormKey];
@@ -722,7 +741,9 @@ export abstract class PlatformFormComponent<TViewModel extends IPlatformVm>
 		errorKey: string,
 		onlyWhenTouchedOrDirty: boolean = false
 	): IPlatformFormValidationError | null {
-		const form = this.form != null ? this.formControls(controlKey) : undefined;
+		const form = this.form != null ?
+			this.formControls(controlKey) :
+			undefined;
 		if (onlyWhenTouchedOrDirty && form?.touched == false && form?.dirty == false) return null;
 		
 		return form?.errors?.[errorKey];
@@ -767,7 +788,8 @@ export abstract class PlatformFormComponent<TViewModel extends IPlatformVm>
 		formGroupName: string,
 		formGroup: FormGroup<PlatformFormGroupControls<TFormModel>>,
 		formControlKey: keyof TFormModel
-	) {
+	)
+	{
 		if (groupValidations == null) return;
 		
 		this.cancelStoredSubscription(`processGroupValidation_${formControlKey.toString()}`);
@@ -806,7 +828,8 @@ export abstract class PlatformFormComponent<TViewModel extends IPlatformVm>
 		formGroupName: string,
 		formGroup: FormGroup<PlatformFormGroupControls<TFormModel>>,
 		formControlKey: keyof TFormModel
-	) {
+	)
+	{
 		if (dependentValidations == null) return;
 		
 		this.cancelStoredSubscription(`processDependentValidations_${formControlKey.toString()}`);
@@ -1049,7 +1072,8 @@ export abstract class PlatformFormComponent<TViewModel extends IPlatformVm>
 			| PlatformPartialFormGroupControlsConfig<TViewModel[keyof TViewModel]>
 	):
 		| FormGroup<PlatformFormGroupControls<TViewModel>>
-		| FormGroup<PlatformFormGroupControls<TViewModel[keyof TViewModel]>> {
+		| FormGroup<PlatformFormGroupControls<TViewModel[keyof TViewModel]>>
+	{
 		const formConfig = <PlatformFormConfig<TViewModel>>formOrInnerFromGroupConfig;
 		
 		if (formConfig.controls != undefined) {
@@ -1072,10 +1096,12 @@ export abstract class PlatformFormComponent<TViewModel extends IPlatformVm>
 					(<FormControl<TViewModel[keyof TViewModel]>>controls[key]) = <
 						FormControl<TViewModel[keyof TViewModel]>
 						>formControlConfigItem;
-				} else if (
+				}
+				else if (
 					formArrayConfigItem.itemControl != undefined &&
 					formArrayConfigItem.modelItems != undefined
-				) {
+				)
+				{
 					(<PlatformFormGroupControlsFormArray<TViewModel[keyof TViewModel]>>controls[key]) = new FormArray(
 						formArrayConfigItem.modelItems().map((modelItem, index) => {
 							return this.buildFromArrayControlItem(key, formArrayConfigItem, modelItem, index);
@@ -1092,7 +1118,8 @@ export abstract class PlatformFormComponent<TViewModel extends IPlatformVm>
 			});
 			
 			return new FormGroup(controls);
-		} else {
+		}
+		else {
 			const controls = <PlatformFormGroupControls<TViewModel[keyof TViewModel]>>formOrInnerFromGroupConfig;
 			
 			return new FormGroup(controls);
@@ -1109,17 +1136,20 @@ export abstract class PlatformFormComponent<TViewModel extends IPlatformVm>
 		
 		const result =
 			formControlOrGroup instanceof FormControl
-			? <PlatformFormSingleControlOrGroupItem<TItemModel>>formControlOrGroup
-			: <PlatformFormSingleControlOrGroupItem<TItemModel>>(
-				new FormGroup(<PlatformFormGroupControls<TItemModel>>formControlOrGroup)
-			);
+				?
+				<PlatformFormSingleControlOrGroupItem<TItemModel>>formControlOrGroup
+				:
+				<PlatformFormSingleControlOrGroupItem<TItemModel>>(
+					new FormGroup(<PlatformFormGroupControls<TItemModel>>formControlOrGroup)
+				);
 		
 		// Setup form array item validations
 		if (
 			(formConfigControlsConfigArrayItem.groupValidations != undefined ||
-			 formConfigControlsConfigArrayItem.dependentValidations != undefined) &&
+				formConfigControlsConfigArrayItem.dependentValidations != undefined) &&
 			result instanceof FormGroup
-		) {
+		)
+		{
 			keys(result.controls).forEach(formControlKey => {
 				this.cancelStoredSubscription(
 					buildFromArrayControlItemValueChangesSubscriptionKey(formArrayControlKey, formControlKey)
@@ -1261,18 +1291,18 @@ export type PlatformFormConfig<TFormModel> = {
 
 export type PlatformPartialFormGroupControlsConfig<TFormModel> = {
 	[P in keyof TFormModel]?: TFormModel[P] extends unknown[]
-	                          ?
-	                          | FormControl<TFormModel[P] | null | undefined>
-		                          | PlatformFormGroupControlConfigPropArray<ArrayElement<TFormModel[P]>>
-	                          : FormControl<TFormModel[P] | null | undefined>;
+		?
+		| FormControl<TFormModel[P] | null | undefined>
+		| PlatformFormGroupControlConfigPropArray<ArrayElement<TFormModel[P]>>
+		: FormControl<TFormModel[P] | null | undefined>;
 };
 
 // Need to be code duplicated used in "export type PlatformPartialFormGroupControlsConfig<TFormModel> = {"
 // "[P in keyof TFormModel]?: TFormModel[P] ..." should be equal to PlatformFormGroupControlConfigProp<TFormModel[P]>
 // dont know why it will get type errors when using if TFormModel[P] is enum
 export type PlatformFormGroupControlConfigProp<TFormModelProp> = TFormModelProp extends unknown[]
-                                                                 ? FormControl<TFormModelProp> | PlatformFormGroupControlConfigPropArray<ArrayElement<TFormModelProp>>
-                                                                 : FormControl<TFormModelProp | null | undefined>;
+	? FormControl<TFormModelProp> | PlatformFormGroupControlConfigPropArray<ArrayElement<TFormModelProp>>
+	: FormControl<TFormModelProp | null | undefined>;
 
 export type PlatformFormGroupControlConfigPropArray<TItemModel> = {
 	modelItems: () => TItemModel[];
@@ -1320,8 +1350,8 @@ export type PlatformFormGroupControlConfigPropArrayItemControlFn<TItemModel> = (
 
 export type PlatformFormGroupControls<TFormModel> = {
 	[P in keyof TFormModel]: TFormModel[P] extends unknown[]
-	                         ? FormControl<TFormModel[P]> | PlatformFormGroupControlsFormArray<TFormModel[P]>
-	                         : FormControl<TFormModel[P] | null | undefined>;
+		? FormControl<TFormModel[P]> | PlatformFormGroupControlsFormArray<TFormModel[P]>
+		: FormControl<TFormModel[P] | null | undefined>;
 };
 
 // Temp comment to find out how to support inner child form group
@@ -1333,8 +1363,8 @@ export type PlatformFormGroupControlsFormArray<T> = FormArray<PlatformFormSingle
 
 export type PlatformPartialFormGroupControls<TFormModel> = {
 	[P in keyof TFormModel]?: TFormModel[P] extends unknown[]
-	                          ? FormControl<TFormModel[P]> | FormArray<PlatformFormSingleControlOrGroupItem<ArrayElement<TFormModel[P]>>>
-	                          : FormControl<TFormModel[P] | null | undefined>;
+		? FormControl<TFormModel[P]> | FormArray<PlatformFormSingleControlOrGroupItem<ArrayElement<TFormModel[P]>>>
+		: FormControl<TFormModel[P] | null | undefined>;
 };
 
 // Need to be code duplicated used in "export type PlatformFormGroupControls<TFormModel> = {", "export type
@@ -1342,5 +1372,5 @@ export type PlatformPartialFormGroupControls<TFormModel> = {
 // PlatformFormGroupControlProp<TFormModel[P]> dont know why it will get type errors when using if TFormModel[P] is
 // enum, boolean
 export type PlatformFormGroupControlProp<TFormModelProp> = TFormModelProp extends unknown[]
-                                                           ? FormControl<TFormModelProp> | PlatformFormGroupControlsFormArray<TFormModelProp>
-                                                           : FormControl<TFormModelProp | null | undefined>;
+	? FormControl<TFormModelProp> | PlatformFormGroupControlsFormArray<TFormModelProp>
+	: FormControl<TFormModelProp | null | undefined>;

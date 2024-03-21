@@ -1,0 +1,125 @@
+
+register {
+	display: flex;
+	gap: 0.5rem;
+	height: 100%;
+	border-radius: 0.5rem;
+}
+
+.register {
+	display: flex;
+	gap: 0.5rem;
+	height: 100%;
+	border-radius: 0.5rem;
+	
+	&__panel {
+		width: 40%;
+		background-size: cover;
+	}
+	
+	&__title {
+		font-size: 1.5rem;
+		text-transform: uppercase;
+		font-weight: 400;
+		color: var(--text-base-color);
+		margin-bottom: 1rem;
+	}
+	
+	&__content {
+		width: 60%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 3rem;
+		gap: 1rem;
+	}
+	
+	&__form {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+	
+	&__form-group {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		width: 100%;
+		
+		select::-ms-expand {
+			display: none;
+		}
+	}
+	
+	&__form-input {
+		border: 1px solid #d1d3e2;
+		padding: 1.25rem 2rem;
+		color: var(--text-base-color);
+		
+		&.-datepicker {
+			border: none;
+			padding: unset;
+			width: 100%;
+			
+			&:focus {
+				border: none;
+				box-shadow: none;
+			}
+		}
+		
+		&:focus {
+			background-color: #ffffff;
+			border-color: #bac8f3;
+			outline: 0;
+			box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, .25);
+		}
+	}
+	
+	&__form-select {
+		border: 1px solid #d1d3e2;
+		padding: 1.25rem 2rem;
+		color: var(--text-base-color);
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		text-indent: 1px;
+		text-overflow: '';
+		
+		&:focus {
+			background-color: #ffffff;
+			border-color: #bac8f3;
+			outline: 0;
+			box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, .25);
+		}
+		
+	}
+	
+	&__login-btn {
+		--mdc-filled-button-container-height: 48px;
+		display: inline-flex;
+		padding: 0.75rem 1rem;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+	}
+	
+	&__datepicker {
+		border: 1px solid #d1d3e2;
+		padding: 0.5rem 1rem;
+		color: var(--text-base-color);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	
+	&__errors {
+		color: red;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		
+	}
+	
+}

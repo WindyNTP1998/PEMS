@@ -1,0 +1,113 @@
+<div *ngIf="form != undefined && vm() as vm" class="register">
+	<img alt="panel" class="register__panel" src="assets/images/register-panel.jpg">
+	<div class="register__content">
+		<span class="register__title">{{ 'Tạo mới tài khoản'| uppercase }}</span>
+
+		<ul class="register__errors">
+			@for (error of errors; track error) {
+				<li class="text-error">{{ error?.description }}</li>
+			}
+			@if (form?.controls?.password?.errors?.['pattern'] && form?.controls?.password?.touched) {
+				<li>Password must contain at least one uppercase</li>
+				<li>Password must contain at least one lowercase</li>
+				<li>Password must contain at least one digit</li>
+				<li>Password must contain at least one special character</li>
+				<li>Password must between 8 to 15 characters</li>
+			}
+
+
+			<li
+				*ngIf="form?.controls?.password?.errors?.['invalidConfirmPassword']"
+				class="form-text text-danger"
+			>Password and Confirm Password must match.
+			</li>
+			<li
+				*ngIf="(form?.controls?.confirmPassword?.errors?.['invalidConfirmPassword'] ||
+						form?.controls?.password?.errors?.['invalidConfirmPassword'])"
+				class="text-error"
+			>{{ 'Xác nhận mật khẩu không chính xác' }}
+			</li>
+			<li
+				*ngIf="form?.controls?.email?.touched &&
+						form?.controls?.email?.errors?.['required']"
+				class="text-error"
+			>{{ 'Email bắt buộc' }}
+			</li>
+			<li
+				*ngIf="form?.controls?.password?.touched &&
+						form?.controls?.password?.errors?.['required']"
+				class="text-error"
+			>{{ 'Mật khẩu bắt buộc' }}
+			</li>
+			<li
+				*ngIf="form?.controls?.confirmPassword?.touched &&
+						form?.controls?.confirmPassword?.errors?.['required']"
+				class="text-error"
+			>{{ 'Xác nhận mật khẩu bắt buộc' }}
+			</li>
+
+		</ul>
+		@if (form != undefined) {
+			<form [formGroup]="form" class="register__form">
+				<div class="register__form-group ">
+					<input
+						required
+						class="register__form-input rounded-pill w-50" [formControl]="form.controls.firstName"
+						placeholder="Tên"
+						type="text"
+					/>
+					<input
+						required
+						class="register__form-input rounded-pill w-50" [formControl]="form.controls.lastName"
+						placeholder="Họ và tên đệm" type="text"
+					/>
+				</div>
+				<div class="register__form-group ">
+					<input
+						required
+						class="register__form-input rounded-pill w-100" [formControl]="form.controls.email"
+						placeholder="Địa chỉ email"
+						type="text"
+					/>
+				</div>
+				<div class="register__form-group ">
+					<input
+						required
+						class="register__form-input rounded-pill w-50" [formControl]="form.controls.password"
+						placeholder="Mật khẩu"
+						type="password"
+					/>
+					<input
+						required
+						class="register__form-input  rounded-pill w-50" [formControl]="form.controls.confirmPassword"
+						placeholder="Xác nhận mật khẩu" type="password"
+					/>
+				</div>
+
+				<div class="register__form-group ">
+					<select [formControl]="form.controls.gender" class="register__form-select w-50 rounded-pill">
+						<option value="{{Gender.Male}}">{{ GENDER_DISPLAY[Gender.Male] }}</option>
+						<option value="{{Gender.Female}}">{{ GENDER_DISPLAY[Gender.Female] }}</option>
+						<option value="{{Gender.Other}}">{{ GENDER_DISPLAY[Gender.Other] }}</option>
+					</select>
+
+					<div class="w-50 rounded-pill register__datepicker">
+						<input
+							[formControl]="form.controls.dateOfBirth"
+							class="register__form-input -datepicker" placeholder="Ngày sinh" matInput
+							[matDatepicker]="picker"
+						>
+						<mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+						<mat-datepicker #picker></mat-datepicker>
+					</div>
+				</div>
+			</form>
+			<button
+				(click)="register()"
+				class="register__login-btn rounded-pill" color="primary" mat-flat-button
+			>
+				{{ 'Đăng ký' | titlecase }}
+			</button>
+		}
+	</div>
+</div>

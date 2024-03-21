@@ -1,5 +1,62 @@
-:root{
-    --ecom-primary-color: #4084e8;
-    --font-base: 'Inter', sans-serif
+:root {
+	--ecom-primary-bg: #4084e8;
+	--primary-50: #e8eaf6;
+	--primary-100: #c5cae9;
+	--primary-200: #9fa8da;
+	--primary-300: #7986cb;
+	--primary-400: #5c6bc0;
+	--primary-500: #3f51b5;
+	--primary: #3f51b5;
+	--primary-600: #3949ab;
+	--primary-700: #303f9f;
+	--primary-800: #283593;
+	--primary-900: #1a237e;
+	--font-base: 'Inter', sans-serif;
+	--gray-100: #f8f9fc;
+	--gray-200: #eaecf4;
+	--gray-300: #dddfeb;
+	--gray-400: #d1d3e2;
+	--gray-500: #b7b9cc;
+	--gray-600: #858796;
+	--gray-700: #6e707e;
+	--gray-800: #5a5c69;
+	--gray-900: #3a3b45;
+	--black: #000000;
+	--white: #ffffff;
+	--blue: #4e73df;
+	--indigo: #6610f2;
+	--purple: #6f42c1;
+	--pink: #e83e8c;
+	--red: #e74a3b;
+	--orange: #fd7e14;
+	--yellow: #f6c23e;
+	--green: #1cc88a;
+	--teal: #20c9a6;
+	--cyan: #36b9cc;
+	--text-base-color: #3a3b45;
+	--font-family: 'Inter', sans-serif;
+	
+	$white: #ffffff !default;
+	$gray-100: #f8f9fc !default;
+	$gray-200: #eaecf4 !default;
+	$gray-300: #dddfeb !default;
+	$gray-400: #d1d3e2 !default;
+	$gray-500: #b7b9cc !default;
+	$gray-600: #858796 !default;
+	$gray-700: #6e707e !default;
+	$gray-800: #5a5c69 !default;
+	$gray-900: #3a3b45 !default;
+	$black: #000000 !default;
+	
+	$blue: #4e73df !default;
+	$indigo: #6610f2 !default;
+	$purple: #6f42c1 !default;
+	$pink: #e83e8c !default;
+	$red: #e74a3b !default;
+	$orange: #fd7e14 !default;
+	$yellow: #f6c23e !default;
+	$green: #1cc88a !default;
+	$teal: #20c9a6 !default;
+	$cyan: #36b9cc !default;
 }
 

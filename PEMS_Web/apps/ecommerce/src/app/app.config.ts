@@ -12,12 +12,9 @@ import { PlatformCoreModule, PlatformLanguageItem, PlatformTranslateConfig } fro
 import { TranslateLoader } from '@ngx-translate/core';
 import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslatedToastComponent } from '../../../../libs/common/src/components/toast/toast.component';
-import { AppHttpOptionsConfigService } from '@pem/domain';
 import { NoPermissionApiErrorEventHandler } from './events/no-permission.api-error-event-handler';
 import { AuthInterceptor } from './auth/auth-interceptor.service';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { BravoCommonRootModule } from '@pem/common';
+import { BravoCommonRootModule, TranslatedToastComponent } from '@pem/common';
 import { MatNativeDateModule } from '@angular/material/core';
 
 export const BASE_URL = new InjectionToken<string>('Base url of ecommerce service');
@@ -29,7 +26,6 @@ export function TranslateHttpLoaderFactory(http: HttpClient) {
 export const appConfig: ApplicationConfig = {
     providers: [
         provideRouter(ecommerceRoutes, withComponentInputBinding()),
-
         provideHttpClient(),
         {
             provide: BASE_URL,
@@ -72,7 +68,7 @@ export const appConfig: ApplicationConfig = {
                     enableHtml: true,
                     toastComponent: TranslatedToastComponent
                 },
-                httpOptionsConfigService: AppHttpOptionsConfigService,
+                //httpOptionsConfigService: AppHttpOptionsConfigService,
                 appApiErrorEventHandlers: [NoPermissionApiErrorEventHandler]
             }),
             RouterModule.forRoot(ecommerceRoutes, { bindToComponentInputs: true }),

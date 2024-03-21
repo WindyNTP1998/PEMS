@@ -1,0 +1,26 @@
+<div class="login">
+	<img alt="panel" class="login__panel" src="assets/images/login-panel.jpg" />
+	<div class="login__content">
+		<div class="login__title ">{{ 'Đăng nhập' | translate | titlecase }}</div>
+		<form
+			action=""
+			class="login__form"
+		>
+			<div class="login__form-group">
+				<input class="login__form-input rounded-pill" placeholder="username, email,..." type="text" />
+			</div>
+			<div class="login__form-group">
+				<input class="login__form-input rounded-pill" placeholder="password" type="password" />
+			</div>
+		</form>
+		<button
+			class="login__login-btn rounded-pill" color="primary" mat-flat-button
+		>
+			{{ 'Đăng nhập' | titlecase }}
+		</button>
+		<div class="login__action">
+			<span (click)="onclickForgotPassword()" class="login__action-text">{{ 'Quên mật khẩu' }}</span>
+			<span (click)="onClickRegister()" class="login__action-text">{{ 'Tạo mới tài khoản' }}</span>
+		</div>
+	</div>
+</div>

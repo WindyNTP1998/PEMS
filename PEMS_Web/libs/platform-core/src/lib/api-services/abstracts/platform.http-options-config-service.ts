@@ -1,4 +1,5 @@
-import { HttpClientOptions } from '../../http-services';
+import { HttpClientOptions } from '@pem/platform-core';
+
 
 export abstract class PlatformHttpOptionsConfigService {
     public abstract configOptions(options?: HttpClientOptions): HttpClientOptions;
