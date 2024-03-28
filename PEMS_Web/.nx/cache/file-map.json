@@ -1,6 +1,6 @@
 {
   "version": "6.0",
-  "nxVersion": "18.0.6",
+  "nxVersion": "18.1.3",
   "deps": {
     "@angular/animations": "~17.2.3",
     "@angular/cdk": "~17.2.1",
@@ -22,7 +22,7 @@
     "@ngrx/component-store": "^17.1.1",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
-    "@nx/angular": "18.0.5",
+    "@nx/angular": "18.1.3",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "jwt-decode": "^4.0.0",
@@ -43,11 +43,11 @@
     "@angular/cli": "^17.2.2",
     "@angular/compiler-cli": "~17.2.3",
     "@angular/language-service": "~17.2.3",
-    "@nx/eslint-plugin": "^18.1.0",
-    "@nx/jest": "18.0.6",
-    "@nx/js": "18.0.6",
-    "@nx/linter": "18.0.6",
-    "@nx/workspace": "18.0.6",
+    "@nx/eslint-plugin": "18.1.3",
+    "@nx/jest": "18.1.3",
+    "@nx/js": "18.1.3",
+    "@nx/linter": "18.1.3",
+    "@nx/workspace": "18.1.3",
     "@schematics/angular": "~17.2.2",
     "@types/jest": "^29.5.12",
     "@types/lodash-es": "^4.17.12",
@@ -60,11 +60,11 @@
     "eslint-config-prettier": "9.1.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "jest-preset-angular": "~14.0.3",
+    "jest-preset-angular": "14.0.3",
     "jsonc-eslint-parser": "^2.4.0",
     "ng-packagr": "~17.2.0",
-    "nx": "18.0.6",
-    "nx-cloud": "latest",
+    "nx": "18.1.3",
+    "nx-cloud": "18.0.0",
     "postcss": "^8.4.35",
     "postcss-import": "~16.0.1",
     "postcss-preset-env": "~9.4.0",
@@ -139,16 +139,20 @@
         "hash": "7473220183190921152"
       },
       {
+        "file": "migrations.json",
+        "hash": "7692245281849988793"
+      },
+      {
         "file": "nx.json",
         "hash": "6175541115809509031"
       },
       {
         "file": "package-lock.json",
-        "hash": "15224029488675291420"
+        "hash": "14293319123932475330"
       },
       {
         "file": "package.json",
-        "hash": "15035584449293176884"
+        "hash": "3826524722373258725"
       },
       {
         "file": "tsconfig.base.json",
@@ -419,167 +423,6 @@
           "hash": "909786933494483870"
         }
       ],
-      "domain": [
-        {
-          "file": "libs/domain/.eslintrc.json",
-          "hash": "3096817938660329924"
-        },
-        {
-          "file": "libs/domain/README.md",
-          "hash": "3134042498682553177"
-        },
-        {
-          "file": "libs/domain/jest.config.ts",
-          "hash": "15890196157767892923"
-        },
-        {
-          "file": "libs/domain/project.json",
-          "hash": "11047484269170159639"
-        },
-        {
-          "file": "libs/domain/src/_shared/api-services/app-http-options-config-service.ts",
-          "hash": "11955009764717426015"
-        },
-        {
-          "file": "libs/domain/src/_shared/api-services/index.ts",
-          "hash": "18126255630842420108"
-        },
-        {
-          "file": "libs/domain/src/_shared/components/confirm-dialog/confirm-dialog.component.html",
-          "hash": "4645615634639597521"
-        },
-        {
-          "file": "libs/domain/src/_shared/components/confirm-dialog/confirm-dialog.component.scss",
-          "hash": "7133308958551096231"
-        },
-        {
-          "file": "libs/domain/src/_shared/components/confirm-dialog/confirm-dialog.component.ts",
-          "hash": "11654054057829271165",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common",
-            "platform-core",
-            "npm:@angular/material"
-          ]
-        },
-        {
-          "file": "libs/domain/src/_shared/components/index.ts",
-          "hash": "15310335665853807962"
-        },
-        {
-          "file": "libs/domain/src/_shared/index.ts",
-          "hash": "13990513168269067474"
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/category-api.service.ts",
-          "hash": "13848840459639775481",
-          "deps": [
-            "npm:@angular/core",
-            "platform-core",
-            "npm:rxjs",
-            "admin"
-          ]
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/index.ts",
-          "hash": "1915378931979262166"
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/product-api.service.ts",
-          "hash": "8783868329902871507",
-          "deps": [
-            "npm:@angular/core",
-            "platform-core",
-            "admin",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/requests/add-category.command.ts",
-          "hash": "17612750787521041681"
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/requests/get-category.query.ts",
-          "hash": "12683945199012983875"
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/requests/get-list-categories.query.ts",
-          "hash": "10861995137033965161",
-          "deps": [
-            "platform-core"
-          ]
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/requests/get-product-list.query.ts",
-          "hash": "15518864766674656478",
-          "deps": [
-            "platform-core"
-          ]
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/requests/get-product.query.ts",
-          "hash": "5603766968505370611"
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/requests/index.ts",
-          "hash": "1607483374761258713"
-        },
-        {
-          "file": "libs/domain/src/admin/api-services/requests/update-category.command.ts",
-          "hash": "7712293369406222805"
-        },
-        {
-          "file": "libs/domain/src/admin/domain-models/brand.model.ts",
-          "hash": "11463028695637179134"
-        },
-        {
-          "file": "libs/domain/src/admin/domain-models/category.model.ts",
-          "hash": "13055392349664689839"
-        },
-        {
-          "file": "libs/domain/src/admin/domain-models/index.ts",
-          "hash": "16191955734082752592"
-        },
-        {
-          "file": "libs/domain/src/admin/domain-models/product.model.ts",
-          "hash": "6999596927136827876"
-        },
-        {
-          "file": "libs/domain/src/admin/index.ts",
-          "hash": "12731074325275856061"
-        },
-        {
-          "file": "libs/domain/src/index.ts",
-          "hash": "16550799642952528728"
-        },
-        {
-          "file": "libs/domain/src/lib/domain.module.ts",
-          "hash": "11007662066546493501",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common"
-          ]
-        },
-        {
-          "file": "libs/domain/src/test-setup.ts",
-          "hash": "4022486634036225089",
-          "deps": [
-            "npm:jest-preset-angular"
-          ]
-        },
-        {
-          "file": "libs/domain/tsconfig.json",
-          "hash": "17064124518112358651"
-        },
-        {
-          "file": "libs/domain/tsconfig.lib.json",
-          "hash": "16193240188755591850"
-        },
-        {
-          "file": "libs/domain/tsconfig.spec.json",
-          "hash": "909786933494483870"
-        }
-      ],
       "platform-core": [
         {
           "file": "libs/platform-core/.eslintrc.json",
@@ -701,7 +544,7 @@
         },
         {
           "file": "libs/platform-core/src/lib/components/abstracts/platform.component.ts",
-          "hash": "2615275598835673426",
+          "hash": "11947022319957626836",
           "deps": [
             "npm:@angular/core",
             "npm:ngx-toastr",
@@ -1207,363 +1050,181 @@
           "hash": "909786933494483870"
         }
       ],
-      "ecommerce": [
+      "domain": [
         {
-          "file": "apps/ecommerce/.eslintrc.json",
+          "file": "libs/domain/.eslintrc.json",
           "hash": "3096817938660329924"
         },
         {
-          "file": "apps/ecommerce/jest.config.ts",
-          "hash": "7762474057537479750"
+          "file": "libs/domain/README.md",
+          "hash": "3134042498682553177"
         },
         {
-          "file": "apps/ecommerce/project.json",
-          "hash": "8294183776178718288"
+          "file": "libs/domain/jest.config.ts",
+          "hash": "15890196157767892923"
         },
         {
-          "file": "apps/ecommerce/src/app/app.component.html",
-          "hash": "10329829857262725241"
+          "file": "libs/domain/project.json",
+          "hash": "11047484269170159639"
         },
         {
-          "file": "apps/ecommerce/src/app/app.component.scss",
-          "hash": "6887015879278379462"
+          "file": "libs/domain/src/_shared/api-services/app-http-options-config-service.ts",
+          "hash": "11955009764717426015"
         },
         {
-          "file": "apps/ecommerce/src/app/app.component.ts",
-          "hash": "5961801858733137076",
+          "file": "libs/domain/src/_shared/api-services/index.ts",
+          "hash": "18126255630842420108"
+        },
+        {
+          "file": "libs/domain/src/_shared/components/confirm-dialog/confirm-dialog.component.html",
+          "hash": "4645615634639597521"
+        },
+        {
+          "file": "libs/domain/src/_shared/components/confirm-dialog/confirm-dialog.component.scss",
+          "hash": "7133308958551096231"
+        },
+        {
+          "file": "libs/domain/src/_shared/components/confirm-dialog/confirm-dialog.component.ts",
+          "hash": "11654054057829271165",
           "deps": [
             "npm:@angular/core",
-            "npm:@angular/router",
-            "platform-core",
-            "npm:@angular/common"
-          ]
-        },
-        {
-          "file": "apps/ecommerce/src/app/app.config.ts",
-          "hash": "9299967642232811760",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/router",
-            "npm:@angular/platform-browser",
-            "platform-core",
-            "npm:@ngx-translate/core",
             "npm:@angular/common",
-            "npm:@ngx-translate/http-loader",
-            "common",
+            "platform-core",
             "npm:@angular/material"
           ]
         },
         {
-          "file": "apps/ecommerce/src/app/app.routes.ts",
-          "hash": "3316774502967913315",
+          "file": "libs/domain/src/_shared/components/index.ts",
+          "hash": "17026136474682416541"
+        },
+        {
+          "file": "libs/domain/src/_shared/components/table-pagination/table-pagination.component.html",
+          "hash": "14671979732568253582"
+        },
+        {
+          "file": "libs/domain/src/_shared/components/table-pagination/table-pagination.component.scss",
+          "hash": "12809239107469479233"
+        },
+        {
+          "file": "libs/domain/src/_shared/components/table-pagination/table-pagination.component.ts",
+          "hash": "7500853140768871506",
           "deps": [
-            "npm:@angular/router"
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "platform-core",
+            "common",
+            "npm:ngx-pagination"
           ]
         },
         {
-          "file": "apps/ecommerce/src/app/auth/auth-interceptor.service.ts",
-          "hash": "2833508255243140682",
+          "file": "libs/domain/src/_shared/index.ts",
+          "hash": "13990513168269067474"
+        },
+        {
+          "file": "libs/domain/src/api-services/category-api.service.ts",
+          "hash": "18123609173133272477",
           "deps": [
-            "npm:@angular/common",
             "npm:@angular/core",
+            "platform-core",
             "npm:rxjs"
           ]
         },
         {
-          "file": "apps/ecommerce/src/app/auth/auth.service.ts",
-          "hash": "13624214806380906",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core",
-            "npm:rxjs",
-            "npm:jwt-decode",
-            "platform-core"
-          ]
+          "file": "libs/domain/src/api-services/index.ts",
+          "hash": "11823594351039389702"
         },
         {
-          "file": "apps/ecommerce/src/app/events/no-permission.api-error-event-handler.ts",
-          "hash": "728231415302123051",
+          "file": "libs/domain/src/api-services/product-api.service.ts",
+          "hash": "14291230760679081779",
           "deps": [
+            "npm:@angular/core",
             "platform-core",
-            "npm:@angular/router",
-            "npm:@angular/common",
-            "npm:@angular/core"
+            "npm:rxjs"
           ]
         },
         {
-          "file": "apps/ecommerce/src/app/route.const.ts",
-          "hash": "8742676476606092444"
+          "file": "libs/domain/src/domains/brand.model.ts",
+          "hash": "11463028695637179134"
         },
         {
-          "file": "apps/ecommerce/src/app/route/home-page/home-page.component.html",
-          "hash": "8293589499042885953"
+          "file": "libs/domain/src/domains/category.model.ts",
+          "hash": "8064958464175672510"
         },
         {
-          "file": "apps/ecommerce/src/app/route/home-page/home-page.component.scss",
-          "hash": "13394337546219253273"
+          "file": "libs/domain/src/domains/index.ts",
+          "hash": "12424450025183552033"
         },
         {
-          "file": "apps/ecommerce/src/app/route/home-page/home-page.component.ts",
-          "hash": "5808235866184665079",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common",
-            "platform-core"
-          ]
+          "file": "libs/domain/src/domains/product.model.ts",
+          "hash": "6999596927136827876"
         },
         {
-          "file": "apps/ecommerce/src/app/route/product-detail/product-detail.component.html",
-          "hash": "3249086705663454056"
+          "file": "libs/domain/src/index.ts",
+          "hash": "16167111107283301834"
         },
         {
-          "file": "apps/ecommerce/src/app/route/product-detail/product-detail.component.scss",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/ecommerce/src/app/route/product-detail/product-detail.component.ts",
-          "hash": "1090453232316512267",
+          "file": "libs/domain/src/lib/domain.module.ts",
+          "hash": "11007662066546493501",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common"
           ]
         },
         {
-          "file": "apps/ecommerce/src/app/shared/components/app-header/app-header.component.html",
-          "hash": "17798599195409350738"
+          "file": "libs/domain/src/requests/add-category.command.ts",
+          "hash": "17612750787521041681"
         },
         {
-          "file": "apps/ecommerce/src/app/shared/components/app-header/app-header.component.scss",
-          "hash": "10073636372998058562"
+          "file": "libs/domain/src/requests/get-category.query.ts",
+          "hash": "12683945199012983875"
         },
         {
-          "file": "apps/ecommerce/src/app/shared/components/app-header/app-header.component.ts",
-          "hash": "8849231098435165476",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common",
-            "npm:@angular/material",
-            "npm:@ngx-translate/core",
-            "platform-core",
-            "common"
-          ]
-        },
-        {
-          "file": "apps/ecommerce/src/app/shared/components/login/login.component.html",
-          "hash": "5369134932840889271"
-        },
-        {
-          "file": "apps/ecommerce/src/app/shared/components/login/login.component.scss",
-          "hash": "9404101955938401367"
-        },
-        {
-          "file": "apps/ecommerce/src/app/shared/components/login/login.component.ts",
-          "hash": "16984258085585911903",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common",
-            "platform-core",
-            "common",
-            "npm:@angular/material"
-          ]
-        },
-        {
-          "file": "apps/ecommerce/src/app/shared/components/register/register.component.html",
-          "hash": "3182211134191046779"
-        },
-        {
-          "file": "apps/ecommerce/src/app/shared/components/register/register.component.scss",
-          "hash": "11968298881429953163"
-        },
-        {
-          "file": "apps/ecommerce/src/app/shared/components/register/register.component.ts",
-          "hash": "1468196340631730307",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common",
-            "platform-core",
-            "common",
-            "npm:@angular/material",
-            "npm:@angular/forms",
-            "npm:@ng-bootstrap/ng-bootstrap"
-          ]
-        },
-        {
-          "file": "apps/ecommerce/src/app/shared/components/register/register.view-model.ts",
-          "hash": "9613768821701142402",
+          "file": "libs/domain/src/requests/get-list-categories.query.ts",
+          "hash": "10861995137033965161",
           "deps": [
             "platform-core"
           ]
         },
         {
-          "file": "apps/ecommerce/src/app/shared/components/search-product/search-product.component.html",
-          "hash": "14591015028554802233"
-        },
-        {
-          "file": "apps/ecommerce/src/app/shared/components/search-product/search-product.component.scss",
-          "hash": "9632968482266274956"
-        },
-        {
-          "file": "apps/ecommerce/src/app/shared/components/search-product/search-product.component.ts",
-          "hash": "17348944529455439900",
+          "file": "libs/domain/src/requests/get-product-list.query.ts",
+          "hash": "15518864766674656478",
           "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common",
-            "platform-core",
-            "npm:@angular/forms",
-            "npm:@angular/material"
+            "platform-core"
           ]
         },
         {
-          "file": "apps/ecommerce/src/app/shared/components/test/test.component.html",
-          "hash": "10841845368283051821"
+          "file": "libs/domain/src/requests/get-product.query.ts",
+          "hash": "5603766968505370611"
         },
         {
-          "file": "apps/ecommerce/src/app/shared/components/test/test.component.scss",
-          "hash": "3244421341483603138"
+          "file": "libs/domain/src/requests/get-sub-categories.query.ts",
+          "hash": "10148116317816731929"
         },
         {
-          "file": "apps/ecommerce/src/app/shared/components/test/test.component.spec.ts",
-          "hash": "4424444127458925954",
-          "deps": [
-            "npm:@angular/core"
-          ]
+          "file": "libs/domain/src/requests/index.ts",
+          "hash": "9639857210562184219"
         },
         {
-          "file": "apps/ecommerce/src/app/shared/components/test/test.component.ts",
-          "hash": "10724233554110509094",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common"
-          ]
+          "file": "libs/domain/src/requests/update-category.command.ts",
+          "hash": "7712293369406222805"
         },
         {
-          "file": "apps/ecommerce/src/app/shared/constants/gender.enum.ts",
-          "hash": "15839239502683351008"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/i18n/en.json",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/i18n/vi.json",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/icons/cart-icon.svg",
-          "hash": "3135878058900460199"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/icons/close-icon.svg",
-          "hash": "7645546693549093133"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/icons/ellipsis.svg",
-          "hash": "1987737278697897084"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/icons/login-icon.svg",
-          "hash": "7558015065926934498"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/icons/remove-icon.svg",
-          "hash": "6690511446337479416"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/icons/search-icon.svg",
-          "hash": "5041368114367741353"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/icons/user-icon.svg",
-          "hash": "6026650631185510573"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/images/login-panel.jpg",
-          "hash": "15262618174828890855"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/images/logo.png",
-          "hash": "3752897796650987331"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/images/register-panel.jpg",
-          "hash": "14324663517639578336"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/images/writing_icon.svg",
-          "hash": "12339882659179207082"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/styles/extensions/layout.scss",
-          "hash": "11305636650657778179"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/styles/reset.scss",
-          "hash": "8518419855904183308"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/styles/svg-icon.scss",
-          "hash": "2811874367556126267"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/styles/themes/variables.scss",
-          "hash": "9428826132694570536"
-        },
-        {
-          "file": "apps/ecommerce/src/assets/styles/utilities.scss",
-          "hash": "759828448796135707"
-        },
-        {
-          "file": "apps/ecommerce/src/environments/environments.ts",
-          "hash": "15779783205353715536"
-        },
-        {
-          "file": "apps/ecommerce/src/favicon.ico",
-          "hash": "9303420814833116677"
-        },
-        {
-          "file": "apps/ecommerce/src/index.html",
-          "hash": "4158085219897387191"
-        },
-        {
-          "file": "apps/ecommerce/src/main.ts",
-          "hash": "10687762295803056490",
-          "deps": [
-            "npm:@angular/platform-browser"
-          ]
-        },
-        {
-          "file": "apps/ecommerce/src/styles.scss",
-          "hash": "1540832534527373365"
-        },
-        {
-          "file": "apps/ecommerce/src/test-setup.ts",
+          "file": "libs/domain/src/test-setup.ts",
           "hash": "4022486634036225089",
           "deps": [
             "npm:jest-preset-angular"
           ]
         },
         {
-          "file": "apps/ecommerce/src/type.d.ts",
-          "hash": "16273476743837586865"
+          "file": "libs/domain/tsconfig.json",
+          "hash": "17064124518112358651"
         },
         {
-          "file": "apps/ecommerce/tsconfig.app.json",
-          "hash": "15653528167176752309"
+          "file": "libs/domain/tsconfig.lib.json",
+          "hash": "16193240188755591850"
         },
         {
-          "file": "apps/ecommerce/tsconfig.editor.json",
-          "hash": "8984170464723205240"
-        },
-        {
-          "file": "apps/ecommerce/tsconfig.json",
-          "hash": "3583436009924177909"
-        },
-        {
-          "file": "apps/ecommerce/tsconfig.spec.json",
+          "file": "libs/domain/tsconfig.spec.json",
           "hash": "909786933494483870"
         }
       ],
@@ -1689,26 +1350,27 @@
         },
         {
           "file": "apps/admin/src/app/routes/category-management/category-management.component.html",
-          "hash": "17357059568540585716"
+          "hash": "9139042725831142599"
         },
         {
           "file": "apps/admin/src/app/routes/category-management/category-management.component.scss",
-          "hash": "13941302705443234929"
+          "hash": "16936292175061487600"
         },
         {
           "file": "apps/admin/src/app/routes/category-management/category-management.component.ts",
-          "hash": "8902296523315707289",
+          "hash": "45815825416801201",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
             "npm:@angular/material",
             "platform-core",
-            "common"
+            "common",
+            "domain"
           ]
         },
         {
           "file": "apps/admin/src/app/routes/category-management/category-management.state.ts",
-          "hash": "6274404093026980187",
+          "hash": "3167544336573477345",
           "deps": [
             "platform-core",
             "npm:@angular/core",
@@ -1775,7 +1437,7 @@
         },
         {
           "file": "apps/admin/src/app/shared/components/category-detail/categogy-detail.view-model.ts",
-          "hash": "10091275292393625961",
+          "hash": "8699943074524566194",
           "deps": [
             "domain",
             "platform-core"
@@ -1783,7 +1445,7 @@
         },
         {
           "file": "apps/admin/src/app/shared/components/category-detail/category-detail.component.html",
-          "hash": "13532444365594420466"
+          "hash": "365648461382295170"
         },
         {
           "file": "apps/admin/src/app/shared/components/category-detail/category-detail.component.scss",
@@ -1791,7 +1453,7 @@
         },
         {
           "file": "apps/admin/src/app/shared/components/category-detail/category-detail.component.ts",
-          "hash": "12644316405790053653",
+          "hash": "12791485576978879383",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -1805,15 +1467,15 @@
         },
         {
           "file": "apps/admin/src/app/shared/components/category-table/category-table.component.html",
-          "hash": "2164403616113808691"
+          "hash": "16686645689213793488"
         },
         {
           "file": "apps/admin/src/app/shared/components/category-table/category-table.component.scss",
-          "hash": "7639262178153162593"
+          "hash": "3394548958979505930"
         },
         {
           "file": "apps/admin/src/app/shared/components/category-table/category-table.component.ts",
-          "hash": "494101330958255994",
+          "hash": "16660507575911747843",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -1964,7 +1626,7 @@
         },
         {
           "file": "apps/admin/src/assets/styles/svg-icon.scss",
-          "hash": "13176527848882560446"
+          "hash": "12778221849321096567"
         },
         {
           "file": "apps/admin/src/assets/styles/themes/variables.scss",
@@ -2022,6 +1684,430 @@
         },
         {
           "file": "apps/admin/tsconfig.spec.json",
+          "hash": "909786933494483870"
+        }
+      ],
+      "ecommerce": [
+        {
+          "file": "apps/ecommerce/.eslintrc.json",
+          "hash": "3096817938660329924"
+        },
+        {
+          "file": "apps/ecommerce/jest.config.ts",
+          "hash": "7762474057537479750"
+        },
+        {
+          "file": "apps/ecommerce/project.json",
+          "hash": "8294183776178718288"
+        },
+        {
+          "file": "apps/ecommerce/src/app/app.component.html",
+          "hash": "10329829857262725241"
+        },
+        {
+          "file": "apps/ecommerce/src/app/app.component.scss",
+          "hash": "6887015879278379462"
+        },
+        {
+          "file": "apps/ecommerce/src/app/app.component.ts",
+          "hash": "5961801858733137076",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "platform-core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/app.config.ts",
+          "hash": "9299967642232811760",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:@angular/platform-browser",
+            "platform-core",
+            "npm:@ngx-translate/core",
+            "npm:@angular/common",
+            "npm:@ngx-translate/http-loader",
+            "common",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/app.routes.ts",
+          "hash": "3316774502967913315",
+          "deps": [
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/auth/auth-interceptor.service.ts",
+          "hash": "2833508255243140682",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/auth/auth.service.ts",
+          "hash": "13102485053421819572",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:rxjs",
+            "npm:jwt-decode",
+            "platform-core"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/events/no-permission.api-error-event-handler.ts",
+          "hash": "728231415302123051",
+          "deps": [
+            "platform-core",
+            "npm:@angular/router",
+            "npm:@angular/common",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/route.const.ts",
+          "hash": "8742676476606092444"
+        },
+        {
+          "file": "apps/ecommerce/src/app/route/home-page/home-page.component.html",
+          "hash": "1287778829057479740"
+        },
+        {
+          "file": "apps/ecommerce/src/app/route/home-page/home-page.component.scss",
+          "hash": "9943224721195649551"
+        },
+        {
+          "file": "apps/ecommerce/src/app/route/home-page/home-page.component.ts",
+          "hash": "11116914624761976084",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "platform-core",
+            "domain"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/route/product-detail/product-detail.component.html",
+          "hash": "3249086705663454056"
+        },
+        {
+          "file": "apps/ecommerce/src/app/route/product-detail/product-detail.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/ecommerce/src/app/route/product-detail/product-detail.component.ts",
+          "hash": "1090453232316512267",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/app-header/app-header.component.html",
+          "hash": "1949436414301170115"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/app-header/app-header.component.scss",
+          "hash": "16071289265107725627"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/app-header/app-header.component.ts",
+          "hash": "230885699337819284",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/material",
+            "npm:@ngx-translate/core",
+            "platform-core",
+            "common"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/login/login.component.html",
+          "hash": "5369134932840889271"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/login/login.component.scss",
+          "hash": "9404101955938401367"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/login/login.component.ts",
+          "hash": "16984258085585911903",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "platform-core",
+            "common",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/page-menu/category-menu-content/category-menu-content.component.html",
+          "hash": "14647833923221371593"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/page-menu/category-menu-content/category-menu-content.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/page-menu/category-menu-content/category-menu-content.component.ts",
+          "hash": "18127350909062825593",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "platform-core",
+            "domain"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/page-menu/category-menu/category-menu.component.html",
+          "hash": "8735234426829273068"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/page-menu/category-menu/category-menu.component.scss",
+          "hash": "3528478648705495469"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/page-menu/category-menu/category-menu.component.ts",
+          "hash": "8920961615853473441",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "platform-core",
+            "domain",
+            "npm:@ng-bootstrap/ng-bootstrap"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/page-menu/page-menu.component.html",
+          "hash": "4689809470855876624"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/page-menu/page-menu.component.scss",
+          "hash": "11416105788733343877"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/page-menu/page-menu.component.ts",
+          "hash": "5319768055436242256",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "platform-core",
+            "domain"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/register/register.component.html",
+          "hash": "17851319456621929255"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/register/register.component.scss",
+          "hash": "11968298881429953163"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/register/register.component.ts",
+          "hash": "11864451994443170831",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "platform-core",
+            "common",
+            "npm:@angular/material",
+            "npm:@angular/forms",
+            "npm:@ng-bootstrap/ng-bootstrap"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/register/register.view-model.ts",
+          "hash": "9613768821701142402",
+          "deps": [
+            "platform-core"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/search-product/search-product.component.html",
+          "hash": "14591015028554802233"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/search-product/search-product.component.scss",
+          "hash": "9632968482266274956"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/search-product/search-product.component.ts",
+          "hash": "17348944529455439900",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "platform-core",
+            "npm:@angular/forms",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/test/test.component.html",
+          "hash": "10841845368283051821"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/test/test.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/test/test.component.spec.ts",
+          "hash": "4424444127458925954",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/components/test/test.component.ts",
+          "hash": "10724233554110509094",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/app/shared/constants/gender.enum.ts",
+          "hash": "15839239502683351008"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/i18n/en.json",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/i18n/vi.json",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/icons/cart-icon.svg",
+          "hash": "3135878058900460199"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/icons/chevron-down-icon.svg",
+          "hash": "7912031544529371623"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/icons/close-icon.svg",
+          "hash": "7645546693549093133"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/icons/ellipsis.svg",
+          "hash": "1987737278697897084"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/icons/login-icon.svg",
+          "hash": "7558015065926934498"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/icons/remove-icon.svg",
+          "hash": "6690511446337479416"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/icons/search-icon.svg",
+          "hash": "5041368114367741353"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/icons/user-icon.svg",
+          "hash": "6026650631185510573"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/images/login-panel.jpg",
+          "hash": "15262618174828890855"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/images/logo.png",
+          "hash": "3752897796650987331"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/images/register-panel.jpg",
+          "hash": "14324663517639578336"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/images/writing_icon.svg",
+          "hash": "12339882659179207082"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/styles/extensions/layout.scss",
+          "hash": "11305636650657778179"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/styles/overwrites/popover.scss",
+          "hash": "17411334687132459718"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/styles/reset.scss",
+          "hash": "8518419855904183308"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/styles/svg-icon.scss",
+          "hash": "15389343244697108650"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/styles/themes/variables.scss",
+          "hash": "10854637473444296612"
+        },
+        {
+          "file": "apps/ecommerce/src/assets/styles/utilities.scss",
+          "hash": "759828448796135707"
+        },
+        {
+          "file": "apps/ecommerce/src/environments/environments.ts",
+          "hash": "15779783205353715536"
+        },
+        {
+          "file": "apps/ecommerce/src/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/ecommerce/src/index.html",
+          "hash": "4158085219897387191"
+        },
+        {
+          "file": "apps/ecommerce/src/main.ts",
+          "hash": "10687762295803056490",
+          "deps": [
+            "npm:@angular/platform-browser"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/styles.scss",
+          "hash": "8962140836426302215"
+        },
+        {
+          "file": "apps/ecommerce/src/test-setup.ts",
+          "hash": "4022486634036225089",
+          "deps": [
+            "npm:jest-preset-angular"
+          ]
+        },
+        {
+          "file": "apps/ecommerce/src/type.d.ts",
+          "hash": "16273476743837586865"
+        },
+        {
+          "file": "apps/ecommerce/tsconfig.app.json",
+          "hash": "15653528167176752309"
+        },
+        {
+          "file": "apps/ecommerce/tsconfig.editor.json",
+          "hash": "8984170464723205240"
+        },
+        {
+          "file": "apps/ecommerce/tsconfig.json",
+          "hash": "3583436009924177909"
+        },
+        {
+          "file": "apps/ecommerce/tsconfig.spec.json",
           "hash": "909786933494483870"
         }
       ]

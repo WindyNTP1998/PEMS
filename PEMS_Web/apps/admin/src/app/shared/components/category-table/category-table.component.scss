@@ -3,6 +3,7 @@ category-table {
     flex-direction: column;
     width: 100%;
     height: 100%;
+    overflow: auto;
 }
 
 .category-table {
@@ -10,6 +11,7 @@ category-table {
     flex-direction: column;
     width: 100%;
     height: 100%;
+    overflow: auto;
 
     --mat-table-header-headline-font: 'Inter';
     --mat-table-header-container-height: 3rem;
@@ -25,6 +27,11 @@ category-table {
         width: 100%;
         // /height: 100%;
         position: relative;
+        overflow: auto;
+
+        .mdc-data-table__content {
+            overflow: auto;
+        }
     }
 
     &__header-row,

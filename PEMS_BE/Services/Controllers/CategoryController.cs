@@ -11,42 +11,54 @@ namespace Services.Controllers;
 [Route("api/[controller]")]
 public class CategoryController : ControllerBase
 {
-	private readonly IMediator _mediator;
+    private readonly IMediator _mediator;
 
-	public CategoryController(IMediator mediator)
-	{
-		_mediator = mediator;
-	}
+    public CategoryController(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
 
-	[HttpGet]
-	public async Task<GetCategoriesPagingQueryResult> GetAll([FromQuery] GetCategoriesPagingQuery query)
-	{
-		var result = await _mediator.Send(query);
-		return result;
-	}
+    [HttpGet]
+    public async Task<GetCategoriesPagingQueryResult> GetAll([FromQuery] GetCategoriesPagingQuery query)
+    {
+        var result = await _mediator.Send(query);
+        return result;
+    }
 
-	[HttpGet("{id}")]
-	public async Task<CategoryDto> Get(string id)
-	{
-		var result = await _mediator.Send(new GetCategoryQuery() { Id = id });
-		return result;
-	}
+    [HttpGet("{id}")]
+    public async Task<CategoryDto> Get(string id)
+    {
+        var result = await _mediator.Send(new GetCategoryQuery { Id = id });
+        return result;
+    }
 
-	[HttpPost]
-	public async Task<CategoryDto> Add([FromBody] CreateCategoryCommand request)
-	{
-		return await _mediator.Send(request);
-	}
+    [HttpPost]
+    public async Task<CategoryDto> Add([FromBody] CreateCategoryCommand request)
+    {
+        return await _mediator.Send(request);
+    }
 
-	[HttpPost("delete")]
-	public async Task Delete([FromBody] DeleteCategoryCommand request)
-	{
-		await _mediator.Send(request);
-	}
+    [HttpPost("delete")]
+    public async Task Delete([FromBody] DeleteCategoryCommand request)
+    {
+        await _mediator.Send(request);
+    }
 
-	[HttpPost("update")]
-	public async Task Delete([FromBody] UpdateCategoryCommand request)
-	{
-		await _mediator.Send(request);
-	}
+    [HttpPost("update")]
+    public async Task Delete([FromBody] UpdateCategoryCommand request)
+    {
+        await _mediator.Send(request);
+    }
+
+    [HttpGet("roots")]
+    public async Task<List<CategoryDto>> GetRootCategories()
+    {
+        return await _mediator.Send(new GetRootCategories());
+    }
+
+    [HttpGet("childs")]
+    public async Task<List<CategoryDto>> GetSubCategories([FromQuery] GetSubCategoriesQuery request)
+    {
+        return await _mediator.Send(request);
+    }
 }

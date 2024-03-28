@@ -55,6 +55,7 @@ export class RegisterComponent extends PlatformFormComponent<RegisterFormVm> imp
 		this.authService.register(this.vm().mapToRequestModel())
 			.subscribe((result) => {
 					this.toast.success('Register successfully');
+					this.authService.login(this.vm()?.email!, this.vm()?.password!);
 					this.dialogRef.close();
 				},
 				(errors: HttpErrorResponse) => {

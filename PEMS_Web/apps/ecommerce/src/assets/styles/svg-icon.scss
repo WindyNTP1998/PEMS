@@ -111,3 +111,7 @@
 .svg-icon.user-icon {
     @include webkit-mask-icon('/assets/icons/user-icon.svg', var(--default-color));
 }
+
+.svg-icon.chevron-down-icon {
+    @include webkit-mask-icon('/assets/icons/chevron-down-icon.svg', var(--default-color));
+}

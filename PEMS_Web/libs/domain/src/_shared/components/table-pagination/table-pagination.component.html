@@ -1,0 +1,20 @@
+@if (pageInfo.totalItems > 0 && items.length > 0) {
+    <pagination-controls
+        class="table-pagination"
+        [previousLabel]="''"
+        [nextLabel]="''"
+        (pageChange)="onPageChange($event)"
+    ></pagination-controls>
+}
+
+<ng-container
+    *ngFor="
+        let item of items || []
+            | paginate
+                : {
+                      itemsPerPage: pageInfo.pageSize || 0,
+                      currentPage: pageInfo.pageIndex + 1 || 0,
+                      totalItems: pageInfo.totalItems || 0
+                  }
+    "
+></ng-container>

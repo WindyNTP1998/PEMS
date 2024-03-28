@@ -1,0 +1,28 @@
+table-pagination {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 16px;
+}
+
+.table-pagination {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid #ececec;
+    padding: 4px 24px 4px 16px;
+
+    .ngx-pagination {
+        margin-bottom: unset;
+    }
+
+    .current {
+        border-radius: 50%;
+    }
+
+    pagination-template {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}

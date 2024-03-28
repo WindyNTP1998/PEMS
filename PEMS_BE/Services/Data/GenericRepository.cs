@@ -4,177 +4,202 @@ using Microsoft.EntityFrameworkCore;
 namespace Services.Data;
 
 public interface IGenericRepository<T>
-	where T : class
+    where T : class
 {
-	IQueryable<T> GetQuery(params Expression<Func<T, object?>>[] loadRelatedEntities);
-	Func<IQueryable<T>, IQueryable<T>> GetQueryBuilder(Expression<Func<T, bool>> predicate);
-	Func<IQueryable<T>, IQueryable<TResult>> GetQueryBuilder<TResult>(Func<IQueryable<T>, IQueryable<TResult>> builderFn);
+    IQueryable<T> GetQuery(params Expression<Func<T, object?>>[] loadRelatedEntities);
+    Func<IQueryable<T>, IQueryable<T>> GetQueryBuilder(Expression<Func<T, bool>> predicate);
 
-	Task<List<T>> GetAllAsync(
-		Func<IQueryable<T>, IQueryable<T>>? queryBuilder,
-		params Expression<Func<T, object>>[] includeProperties);
+    Func<IQueryable<T>, IQueryable<TResult>> GetQueryBuilder<TResult>(
+        Func<IQueryable<T>, IQueryable<TResult>> builderFn);
 
-	// Task<List<TSelector>> GetAllAsync<TSelector>(
-	// 	Func<IQueryable<T>, IQueryable<TSelector>>? queryBuilder,
-	// 	params Expression<Func<T, object>>[] includeProperties); 
-	Task<T?> GetAsync(
-		Func<IQueryable<T>, IQueryable<T>>? queryBuilder,
-		params Expression<Func<T, object>>[] includeProperties);
+    Task<List<T>> GetAllAsync(
+        Func<IQueryable<T>, IQueryable<T>>? queryBuilder,
+        params Expression<Func<T, object>>[] includeProperties);
 
-	Task<T?> GetAsync(
-		Expression<Func<T, bool>> predicate,
-		params Expression<Func<T, object>>[] includeProperties);
+    Task<List<TSelector>> GetAllAsync<TSelector>(
+        Func<IQueryable<T>, IQueryable<TSelector>>? queryBuilder,
+        params Expression<Func<T, object>>[] includeProperties);
 
-	Task<T> CreateAsync(T entity);
-	Task<List<T>> CreateManyAsync(List<T> entities);
+    Task<T?> GetAsync(
+        Func<IQueryable<T>, IQueryable<T>>? queryBuilder,
+        params Expression<Func<T, object>>[] includeProperties);
 
-	Task UpdateAsync(T entity);
-	Task<List<T>> UpdateManyAsync(List<T> entities);
+    Task<T?> GetAsync(
+        Expression<Func<T, bool>> predicate,
+        params Expression<Func<T, object>>[] includeProperties);
 
-	Task RemoveAsync(T entity);
-	Task RemoveManyAsync(List<T> entities);
+    Task<T> CreateAsync(T entity);
+    Task<List<T>> CreateManyAsync(List<T> entities);
 
-	Task<int> CountAsync(Func<IQueryable<T>, IQueryable<T>> queryBuilder);
+    Task UpdateAsync(T entity);
+    Task<List<T>> UpdateManyAsync(List<T> entities);
 
-	Task SaveChangesAsync();
+    Task RemoveAsync(T entity);
+    Task RemoveManyAsync(List<T> entities);
+
+    Task<int> CountAsync(Func<IQueryable<T>, IQueryable<T>> queryBuilder);
+
+    Task SaveChangesAsync();
 }
 
 public class GenericRepository<T> : IGenericRepository<T>
-	where T : class
+    where T : class
 {
-	private readonly ApplicationDbContext _context;
-	internal readonly DbSet<T> _dbSet;
-	public readonly ILogger _logger;
+    private readonly ApplicationDbContext _context;
+    internal readonly DbSet<T> _dbSet;
+    public readonly ILogger _logger;
 
-	public GenericRepository(ApplicationDbContext context, ILogger<GenericRepository<T>> logger)
-	{
-		_context = context;
-		_logger = logger;
-		_dbSet = context.Set<T>();
-	}
+    public GenericRepository(ApplicationDbContext context, ILogger<GenericRepository<T>> logger)
+    {
+        _context = context;
+        _logger = logger;
+        _dbSet = context.Set<T>();
+    }
 
-	public IQueryable<T> GetQuery(params Expression<Func<T, object?>>[] loadRelatedEntities)
-	{
-		return _dbSet.AsQueryable();
-	}
+    public IQueryable<T> GetQuery(params Expression<Func<T, object?>>[] loadRelatedEntities)
+    {
+        return _dbSet.AsQueryable();
+    }
 
-	public Func<IQueryable<T>, IQueryable<T>> GetQueryBuilder(Expression<Func<T, bool>> predicate)
-	{
-		return query => query.Where(predicate);
-	}
+    public Func<IQueryable<T>, IQueryable<T>> GetQueryBuilder(Expression<Func<T, bool>> predicate)
+    {
+        return query => query.Where(predicate);
+    }
 
-	public Func<IQueryable<T>, IQueryable<TResult>> GetQueryBuilder<TResult>(Func<IQueryable<T>, IQueryable<TResult>> builderFn)
-	{
-		return builderFn;
-	}
+    public Func<IQueryable<T>, IQueryable<TResult>> GetQueryBuilder<TResult>(
+        Func<IQueryable<T>, IQueryable<TResult>> builderFn)
+    {
+        return builderFn;
+    }
 
-	public virtual async Task<List<T>> GetAllAsync(
-		Func<IQueryable<T>, IQueryable<T>>? queryBuilder,
-		params Expression<Func<T, object>>[] includeProperties)
-	{
-		IQueryable<T> query = _dbSet;
+    public virtual async Task<List<T>> GetAllAsync(
+        Func<IQueryable<T>, IQueryable<T>>? queryBuilder,
+        params Expression<Func<T, object>>[] includeProperties)
+    {
+        IQueryable<T> query = _dbSet;
 
-		// Bổ sung các trường vào bảng kết quả nếu được cung cấp
-		if (includeProperties != null)
-			foreach (var includeProperty in includeProperties)
-				query = query.Include(includeProperty);
+        // Bổ sung các trường vào bảng kết quả nếu được cung cấp
+        if (includeProperties != null)
+            foreach (var includeProperty in includeProperties)
+                query = query.Include(includeProperty);
 
-		// Thêm AsNoTracking và AsSplitQuery trước khi thực hiện truy vấn
-		query = query
-			.AsNoTracking()
-			.AsSplitQuery();
+        // Thêm AsNoTracking và AsSplitQuery trước khi thực hiện truy vấn
+        query = query
+            .AsNoTracking()
+            .AsSplitQuery();
 
-		// Sử dụng queryBuilder để xây dựng truy vấn LINQ động\
-		if (queryBuilder != null)
-			query = queryBuilder(query);
+        // Sử dụng queryBuilder để xây dựng truy vấn LINQ động\
+        if (queryBuilder != null)
+            query = queryBuilder(query);
 
-		return await query.ToListAsync();
-	}
+        return await query.ToListAsync();
+    }
 
-	public virtual async Task<T?> GetAsync(
-		Func<IQueryable<T>, IQueryable<T>>? queryBuilder,
-		params Expression<Func<T, object>>[] includeProperties)
-	{
-		IQueryable<T> query = _dbSet;
+    public async Task<List<TSelector>> GetAllAsync<TSelector>(Func<IQueryable<T>, IQueryable<TSelector>>? queryBuilder,
+        params Expression<Func<T, object>>[] includeProperties)
+    {
+        IQueryable<T> query = _dbSet;
 
-		if (includeProperties != null)
-			foreach (var includeProperty in includeProperties)
-				query = query.Include(includeProperty);
+        if (includeProperties != null)
+            foreach (var includeProperty in includeProperties)
+                query = query.Include(includeProperty);
 
-		if (queryBuilder != null)
-			query = queryBuilder(query)
-				.AsNoTracking()
-				.AsSplitQuery();
+        query = query.AsNoTracking().AsSplitQuery();
 
-		return await query.FirstOrDefaultAsync();
-	}
+        if (queryBuilder != null)
+        {
+            var selectorQuery = queryBuilder(query);
+            return await selectorQuery.ToListAsync();
+        }
 
-	public async Task<T?> GetAsync(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
-	{
-		IQueryable<T> query = _dbSet;
+        return await query.Cast<TSelector>().ToListAsync();
+    }
 
-		if (includeProperties != null)
-			foreach (var includeProperty in includeProperties)
-				query = query.Include(includeProperty);
+    public virtual async Task<T?> GetAsync(
+        Func<IQueryable<T>, IQueryable<T>>? queryBuilder,
+        params Expression<Func<T, object>>[] includeProperties)
+    {
+        IQueryable<T> query = _dbSet;
 
-		return await query.FirstOrDefaultAsync(predicate);
-	}
+        if (includeProperties != null)
+            foreach (var includeProperty in includeProperties)
+                query = query.Include(includeProperty);
 
-	public virtual async Task<T> CreateAsync(T entity)
-	{
-		if (entity == null) throw new ArgumentNullException(nameof(entity));
-		await _dbSet.AddAsync(entity);
-		return entity;
-	}
+        if (queryBuilder != null)
+            query = queryBuilder(query)
+                .AsNoTracking()
+                .AsSplitQuery();
 
-	public virtual async Task UpdateAsync(T entity)
-	{
-		if (entity == null) throw new ArgumentNullException(nameof(entity));
-		_dbSet.Update(entity);
-	}
+        return await query.FirstOrDefaultAsync();
+    }
 
-	public virtual async Task RemoveAsync(T entity)
-	{
-		if (entity == null) throw new ArgumentNullException(nameof(entity));
-		_dbSet.Remove(entity);
-	}
+    public async Task<T?> GetAsync(Expression<Func<T, bool>> predicate,
+        params Expression<Func<T, object>>[] includeProperties)
+    {
+        IQueryable<T> query = _dbSet;
 
-	public virtual async Task<int> CountAsync(Func<IQueryable<T>, IQueryable<T>> queryBuilder)
-	{
-		IQueryable<T> query = _dbSet;
+        if (includeProperties != null)
+            foreach (var includeProperty in includeProperties)
+                query = query.Include(includeProperty);
 
-		query = queryBuilder(query);
+        return await query.FirstOrDefaultAsync(predicate);
+    }
 
-		return await query.CountAsync();
-	}
+    public virtual async Task<T> CreateAsync(T entity)
+    {
+        if (entity == null) throw new ArgumentNullException(nameof(entity));
+        await _dbSet.AddAsync(entity);
+        return entity;
+    }
 
-	public virtual async Task SaveChangesAsync()
-	{
-		await _context.SaveChangesAsync();
-	}
+    public virtual async Task UpdateAsync(T entity)
+    {
+        if (entity == null) throw new ArgumentNullException(nameof(entity));
+        _dbSet.Update(entity);
+    }
 
-	public virtual async Task<List<T>> CreateManyAsync(List<T> entities)
-	{
-		if (entities == null) throw new ArgumentNullException(nameof(entities));
+    public virtual async Task RemoveAsync(T entity)
+    {
+        if (entity == null) throw new ArgumentNullException(nameof(entity));
+        _dbSet.Remove(entity);
+    }
 
-		await _dbSet.AddRangeAsync(entities);
+    public virtual async Task<int> CountAsync(Func<IQueryable<T>, IQueryable<T>> queryBuilder)
+    {
+        IQueryable<T> query = _dbSet;
 
-		return entities;
-	}
+        query = queryBuilder(query);
 
-	public virtual async Task<List<T>> UpdateManyAsync(List<T> entities)
-	{
-		if (entities == null) throw new ArgumentNullException(nameof(entities));
+        return await query.CountAsync();
+    }
 
-		_dbSet.UpdateRange(entities);
+    public virtual async Task SaveChangesAsync()
+    {
+        await _context.SaveChangesAsync();
+    }
 
-		return entities;
-	}
+    public virtual async Task<List<T>> CreateManyAsync(List<T> entities)
+    {
+        if (entities == null) throw new ArgumentNullException(nameof(entities));
 
-	public virtual async Task RemoveManyAsync(List<T> entities)
-	{
-		if (entities == null) throw new ArgumentNullException(nameof(entities));
+        await _dbSet.AddRangeAsync(entities);
 
-		_dbSet.RemoveRange(entities);
-	}
+        return entities;
+    }
+
+    public virtual async Task<List<T>> UpdateManyAsync(List<T> entities)
+    {
+        if (entities == null) throw new ArgumentNullException(nameof(entities));
+
+        _dbSet.UpdateRange(entities);
+
+        return entities;
+    }
+
+    public virtual async Task RemoveManyAsync(List<T> entities)
+    {
+        if (entities == null) throw new ArgumentNullException(nameof(entities));
+
+        _dbSet.RemoveRange(entities);
+    }
 }

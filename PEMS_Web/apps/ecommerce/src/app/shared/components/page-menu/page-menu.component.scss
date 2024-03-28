@@ -1,0 +1,14 @@
+page-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.page-menu {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-start;
+}
+

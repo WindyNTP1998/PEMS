@@ -24,6 +24,10 @@ export class AuthService {
 		return 'access_token';
 	}
 	
+	public get userFullName() {
+		return this.getUserData()?.fullName ?? '';
+	}
+	
 	protected get apiUrl(): string {
 		return this.authorityUrl + '/api';
 	}
@@ -59,7 +63,6 @@ export class AuthService {
 	
 	private getToken = (): string | null =>
 		localStorage.getItem(this.tokenKey) || '';
-	
 }
 
 export class LoggedInUserInfo {

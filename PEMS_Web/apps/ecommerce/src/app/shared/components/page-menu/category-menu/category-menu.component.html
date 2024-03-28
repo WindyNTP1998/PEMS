@@ -1,0 +1,32 @@
+<div class="category-menu">
+    <div class="category-menu__title"
+         #menuPopover="ngbPopover"
+         popoverClass="category-menu__popover"
+         [ngbPopover]="subCategoryMenu"
+         autoClose="outside"
+         container="body"
+         placement="bottom-start">
+        <span class="category-menu__root-name">{{ rootCategory?.name }}</span>
+        <i class="svg-icon chevron-down-icon size-24"></i>
+    </div>
+
+    <ng-template #subCategoryMenu>
+        <div class="category-menu__sub-menu">
+            <div class="category-menu__sub-menu-left">
+                @for (subCategory of subCategories; track subCategory.id) {
+                    <span class="category-menu__sub-category-name"
+                          (mouseenter)="onClickOpenCategoryContent(subCategory.id!)"
+
+                    >
+                        {{ subCategory.name }}
+                    </span>
+                }
+            </div>
+            <category-menu-content
+                *ngIf="selectedCategoryId != undefined"
+                class="category-menu__sub-menu-right"
+                [category]="subCategoriesDict[selectedCategoryId]"></category-menu-content>
+        </div>
+    </ng-template>
+</div>
+

@@ -1,0 +1,5 @@
+<div class="page-menu container">
+    @for (item of rootCategories; track item.id) {
+        <category-menu class="page-menu__menu-item" [rootCategory]="item"></category-menu>
+    }
+</div>

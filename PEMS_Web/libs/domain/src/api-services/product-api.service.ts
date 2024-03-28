@@ -1,14 +1,14 @@
-import { inject, Injectable } from '@angular/core';
-import { PlatformApiService, PlatformPagedResultDto } from '@pem/platform-core';
-import { BASE_URL } from '../../../../../apps/admin/src/app/app.config';
-import { GetProductListQuery, Product } from '@pem/domain';
-import { map, Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {PlatformApiService, PlatformPagedResultDto} from '@pem/platform-core';
+import {GetProductListQuery, Product} from '@pem/domain';
+import {map, Observable} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ProductApiService extends PlatformApiService {
-    public baseUrl = inject(BASE_URL);
+    //public baseUrl = inject(BASE_URL);
+    public baseUrl = "http://localhost:5160";
 
     protected get apiUrl(): string {
         return this.baseUrl + '/api/Product';

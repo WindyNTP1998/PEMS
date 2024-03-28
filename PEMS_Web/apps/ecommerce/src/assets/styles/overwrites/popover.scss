@@ -1,0 +1,35 @@
+.popover {
+    // => Notice: this is all popover variables. Overwrite them if needed
+    //  Moreinfo => https://ng-bootstrap.github.io/#/home
+    //    --bs-popover-zindex: 1070;
+    //    --bs-popover-max-width: 276px;
+    //    --bs-popover-font-size: 0.875rem;
+    //    --bs-popover-bg: var(--bs-body-bg);
+    //    --bs-popover-border-width: var(--bs-border-width);
+    //    --bs-popover-border-color: var(--bs-border-color-translucent);
+    //    --bs-popover-border-radius: var(--bs-border-radius-lg);
+    //    --bs-popover-inner-border-radius: calc(var(--bs-border-radius-lg) - var(--bs-border-width));
+    //    --bs-popover-box-shadow: var(--bs-box-shadow);
+    --bs-popover-header-padding-x: 0;
+    --bs-popover-header-padding-y: 0;
+    //    --bs-popover-header-font-size: 1rem;
+    //    --bs-popover-header-color: inherit;
+    //    --bs-popover-header-bg: var(--bs-secondary-bg);
+    --bs-popover-body-padding-x: 0;
+    --bs-popover-body-padding-y: 0;
+    //    --bs-popover-body-color: var(--bs-body-color);
+    //    --bs-popover-arrow-width: 1rem;
+    //    --bs-popover-arrow-height: 0.5rem;
+    //    --bs-popover-arrow-border: var(--bs-popover-border-color);
+
+    .popover-arrow {
+        display: none;
+    }
+
+    .popover-body {
+        background-color: transparent;
+        border-radius: 4px;
+        box-shadow: 0px 24px 58px rgba(0, 0, 0, 0.22),
+        0px 4px 16px rgba(0, 0, 0, 0.18);
+    }
+}

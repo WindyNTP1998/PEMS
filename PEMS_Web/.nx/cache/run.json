@@ -1,18 +1,18 @@
 {
   "run": {
-    "command": "nx serve ecommerce --port=3240",
-    "startTime": "2024-03-20T08:56:32.773Z",
-    "endTime": "2024-03-21T02:33:36.718Z",
+    "command": "nx serve admin --port=3239",
+    "startTime": "2024-03-27T15:39:39.690Z",
+    "endTime": "2024-03-28T03:04:43.548Z",
     "inner": false
   },
   "tasks": [
     {
-      "taskId": "ecommerce:serve:development",
+      "taskId": "admin:serve:development",
       "target": "serve",
-      "projectName": "ecommerce",
-      "hash": "16559857324061148843",
-      "startTime": "2024-03-20T08:56:32.782Z",
-      "endTime": "2024-03-21T02:33:36.713Z",
+      "projectName": "admin",
+      "hash": "1387577378118098940",
+      "startTime": "2024-03-27T15:39:39.705Z",
+      "endTime": "2024-03-28T03:04:43.545Z",
       "params": "",
       "cacheStatus": "cache-miss",
       "status": 1

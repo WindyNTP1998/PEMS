@@ -6,12 +6,16 @@
 			src="assets/images/logo.png"
 		>
 
-		<pem-search-product class="w-100 app-header__search">
+		<pem-search-product class="app-header__search">
 		</pem-search-product>
 
 		<div class="d-flex align-items-center justify-end gap-3 app-header__menu">
-			@if(authService.getUserData() != null){
-				
+			@if (authService.getUserData() != null) {
+				<span
+					class="app-header__login-name"
+				>
+					{{ 'Xin chào:' }} {{ authService.userFullName }}
+				</span>
 			} @else {
 				<div
 					(click)="onClickLogin()"

@@ -6,15 +6,15 @@ import {
     tapSkipFirst,
     Watch
 } from '@pem/platform-core';
-import { Injectable } from '@angular/core';
-import { IPageInfo } from '../../../../../../libs/common/src/ui-model/table.model';
-import { GetListCategoriesQuery } from '../../../../../../libs/domain/src/admin/api-services/requests/get-list-categories.query';
-import { Category, CategoryApiService } from '@pem/domain';
+import {Injectable} from '@angular/core';
+import {IPageInfo} from '../../../../../../libs/common/src/ui-model/table.model';
+import {GetListCategoriesQuery} from '../../../../../../libs/domain/src/requests/get-list-categories.query';
+import {Category, CategoryApiService} from '@pem/domain';
 
-import { Observable, switchMap } from 'rxjs';
+import {Observable, switchMap} from 'rxjs';
 
 export class CategoryManagementState extends PlatformVm {
-    public pageInfo: IPageInfo = { pageIndex: 0, pageSize: 0, totalItems: 0, totalPages: 0 };
+    public pageInfo: IPageInfo = {pageIndex: 0, pageSize: 0, totalItems: 0, totalPages: 0};
     @Watch<CategoryManagementState>('updatePageInfo')
     public query: GetListCategoriesQuery = new GetListCategoriesQuery();
     @Watch<CategoryManagementState>('updatePageInfo')
@@ -37,7 +37,7 @@ export class CategoryManagementState extends PlatformVm {
     }
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class CategoryManagementStoreStore extends PlatformVmStore<CategoryManagementState> {
     public readonly query$ = this.select((state: CategoryManagementState) => state.query);
     public loadCategories = this.effect((query$: Observable<GetListCategoriesQuery>, isReloading?: boolean) => {
@@ -45,28 +45,32 @@ export class CategoryManagementStoreStore extends PlatformVmStore<CategoryManage
             switchMap(query => this.categoryApiService.getCategoryList(query)),
             this.observerLoadingErrorState('loadingCategories'),
             this.tapResponse(result => {
-                this.updateState({ result: result });
+                this.updateState({result: result});
             })
         );
     });
-    public reloadOrInitData = () => {
-        this.loadCategories(this.currentState.query, true);
-    };
-    protected onInitVm = () => {
-        this.subscribe(this.query$.pipe(tapSkipFirst(query => this.loadCategories(query))));
-    };
-    public vmConstructor = (data?: Partial<CategoryManagementState>) => new CategoryManagementState(data);
-    protected cachedStateKeyName = () => 'CategoryManagementVmStore';
-
-    public setPageIndex = (pageIndex: number) => {
-        this.updateState({ query: this.currentState.query.withPageIndex(pageIndex) });
-    };
 
     constructor(private categoryApiService: CategoryApiService) {
         super(
             new CategoryManagementState({
-                query: new GetListCategoriesQuery({ skipCount: 0, maxResultCount: 20 })
+                query: new GetListCategoriesQuery({skipCount: 0, maxResultCount: 10})
             })
         );
     }
+
+    public reloadOrInitData = () => {
+        this.loadCategories(this.currentState.query, true);
+    };
+
+    public vmConstructor = (data?: Partial<CategoryManagementState>) => new CategoryManagementState(data);
+
+    public setPageIndex = (pageIndex: number) => {
+        this.updateState({query: this.currentState.query.withPageIndex(pageIndex)});
+    };
+
+    protected onInitVm = () => {
+        this.subscribe(this.query$.pipe(tapSkipFirst(query => this.loadCategories(query))));
+    };
+
+    protected cachedStateKeyName = () => 'CategoryManagementVmStore';
 }

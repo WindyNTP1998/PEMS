@@ -1,22 +1,29 @@
 <div class="category-management">
-	<header class="category-management__header">
-		<button
-			(click)="onClickAddCategory()"
-			[disableRipple]="true" class="category-management__add-cate-btn" color="accent" mat-flat-button
-		>
-			<div class="d-flex align-items-center justify-content-center p-2 gap-1 text-white">
-				<mat-icon>add</mat-icon>
-				<span class="">{{ 'Add category' }}</span>
-			</div>
-		</button>
-	</header>
-	@if (vm(); as vm) {
-		<category-table
-			[pageInfo]="vm.pageInfo"
-			[isLoading]="vm.isStateLoading"
-			[categories]="vm.result?.items || []"
-			(requiredReloadEventChange)="store.reloadOrInitData()"
-			class="category-management__body"
-		></category-table>
-	}
+    <header class="category-management__header">
+        <button
+            (click)="onClickAddCategory()"
+            [disableRipple]="true" class="category-management__add-cate-btn" color="accent" mat-flat-button
+        >
+            <div class="d-flex align-items-center justify-content-center p-2 gap-1 text-white">
+                <mat-icon>add</mat-icon>
+                <span class="">{{ 'Add category' }}</span>
+            </div>
+        </button>
+    </header>
+    @if (vm(); as vm) {
+        <category-table
+            [pageInfo]="vm.pageInfo"
+            [isLoading]="vm.isStateLoading"
+            [categories]="vm.result?.items || []"
+            (requiredReloadEventChange)="store.reloadOrInitData()"
+            class="category-management__body"
+        ></category-table>
+        <table-pagination
+            class="category-table__pagination"
+            [pageInfo]="vm.pageInfo"
+            [items]="vm.result?.items || []"
+            (pageChangeEventEmitter)="onPageChange($event)"
+
+        ></table-pagination>
+    }
 </div>

@@ -17,7 +17,7 @@
         <ng-container matColumnDef="categoryImageUrl">
             <td *matCellDef="let element" class="category-table__table-data-cell " mat-cell>
                 <img [height]="48" [width]="48" alt="image" class="category-table__image"
-                    src="{{ element.categoryImageUrl ?? 'assets/icon/picture-icon.svg' }}">
+                     src="{{ element.categoryImageUrl ?? 'assets/icon/picture-icon.svg' }}">
             </td>
             <th *matHeaderCellDef class="category-table__table-header-cell --image" mat-header-cell> Image</th>
         </ng-container>
@@ -25,8 +25,8 @@
         <ng-container matColumnDef="parentId">
             <td *matCellDef="let element" class="category-table__table-data-cell" mat-cell>
                 @if (element.parentCategory) {
-                <img [height]="48" [width]="48" alt="parent-image"
-                    src="{{ element.parentCategory?.categoryImageUrl ?? './assets/icons/picture-icon.svg' }}">
+                    <img [height]="48" [width]="48" alt="parent-image"
+                         src="{{ element.parentCategory?.categoryImageUrl ?? './assets/icons/picture-icon.svg' }}">
                 }
             </td>
             <th *matHeaderCellDef class="category-table__table-header-cell --parentId" mat-header-cell> Parent</th>
@@ -36,9 +36,9 @@
             <td *matCellDef="let element" class="category-table__table-data-cell" mat-cell>
                 <div class="d-flex align-items-center gap-2 justify-content-end category-table__action-group">
                     @if (!element.isRootCategory) {
-                    <button (click)="onClickRemoveCategory(element.id)" mat-icon-button>
-                        <i class="svg-icon remove-icon size-24 danger"></i>
-                    </button>
+                        <button (click)="onClickRemoveCategory(element.id)" mat-icon-button>
+                            <i class="svg-icon remove-icon size-24 danger"></i>
+                        </button>
                     }
 
                     <button (click)="onClickUpdateCategory(element.id)" mat-icon-button>
@@ -51,137 +51,14 @@
 
         <tr *matHeaderRowDef="displayedColumns" class="category-table__header-row" mat-header-row></tr>
 
-        <!-- @if (!isLoading) {
-			<tr *matRowDef="let row; columns: displayedColumns;" class="category-table__row " mat-row></tr>
-		} -->
-
-
+        @if (!isLoading) {
+            <tr *matRowDef="let row; columns: displayedColumns;" class="category-table__row " mat-row></tr>
+        }
 
     </table>
-    <div class="category-table__data" [ngStyle]="{'grid-template-columns': '20% 30% 20% 20% 10%'}">
-        <span class="category-table__data-temp">Thuốc</span>
-        <span class="category-table__data-temp">thuoc</span>
-        <img [height]="60" [width]="60" alt="parent-image"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
-        <span class="category-table__data-temp"></span>
-        <span class="category-table__data-temp">
-            <button mat-icon-button>
-                <i class="svg-icon remove-icon size-24 danger"></i>
-            </button>
-
-            <button mat-icon-button>
-                <i class="svg-icon writing-icon size-24"></i>
-            </button></span>
-    </div>
-    <div class="category-table__data" [ngStyle]="{'grid-template-columns': '20% 30% 20% 20% 10%'}">
-        <span class="category-table__data-temp">Thuốc</span>
-        <span class="category-table__data-temp">thuoc</span>
-        <img [height]="60" [width]="60" alt="parent-image"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
-        <span class="category-table__data-temp"></span>
-        <span class="category-table__data-temp">
-            <button mat-icon-button>
-                <i class="svg-icon remove-icon size-24 danger"></i>
-            </button>
-
-            <button mat-icon-button>
-                <i class="svg-icon writing-icon size-24"></i>
-            </button></span>
-    </div>
-    <div class="category-table__data" [ngStyle]="{'grid-template-columns': '20% 30% 20% 20% 10%'}">
-        <span class="category-table__data-temp">Thuốc</span>
-        <span class="category-table__data-temp">thuoc</span>
-        <img [height]="60" [width]="60" alt="parent-image"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
-        <span class="category-table__data-temp"></span>
-        <span class="category-table__data-temp">
-            <button mat-icon-button>
-                <i class="svg-icon remove-icon size-24 danger"></i>
-            </button>
-
-            <button mat-icon-button>
-                <i class="svg-icon writing-icon size-24"></i>
-            </button></span>
-    </div>
-    <div class="category-table__data" [ngStyle]="{'grid-template-columns': '20% 30% 20% 20% 10%'}">
-        <span class="category-table__data-temp">Thuốc</span>
-        <span class="category-table__data-temp">thuoc</span>
-        <img [height]="60" [width]="60" alt="parent-image"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
-        <span class="category-table__data-temp"></span>
-        <span class="category-table__data-temp">
-            <button mat-icon-button>
-                <i class="svg-icon remove-icon size-24 danger"></i>
-            </button>
-
-            <button mat-icon-button>
-                <i class="svg-icon writing-icon size-24"></i>
-            </button></span>
-    </div>
-    <div class="category-table__data" [ngStyle]="{'grid-template-columns': '20% 30% 20% 20% 10%'}">
-        <span class="category-table__data-temp">Thuốc</span>
-        <span class="category-table__data-temp">thuoc</span>
-        <img [height]="60" [width]="60" alt="parent-image"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
-        <span class="category-table__data-temp"></span>
-        <span class="category-table__data-temp">
-            <button mat-icon-button>
-                <i class="svg-icon remove-icon size-24 danger"></i>
-            </button>
-
-            <button mat-icon-button>
-                <i class="svg-icon writing-icon size-24"></i>
-            </button></span>
-    </div>
-
-    <div class="category-table__data" [ngStyle]="{'grid-template-columns': '20% 30% 20% 20% 10%'}">
-        <span class="category-table__data-temp">Thuốc</span>
-        <span class="category-table__data-temp">thuoc</span>
-        <img [height]="60" [width]="60" alt="parent-image"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
-        <span class="category-table__data-temp"></span>
-        <span class="category-table__data-temp">
-            <button mat-icon-button>
-                <i class="svg-icon remove-icon size-24 danger"></i>
-            </button>
-
-            <button mat-icon-button>
-                <i class="svg-icon writing-icon size-24"></i>
-            </button></span>
-    </div>
-    <div class="category-table__data" [ngStyle]="{'grid-template-columns': '20% 30% 20% 20% 10%'}">
-        <span class="category-table__data-temp">Thuốc</span>
-        <span class="category-table__data-temp">thuoc</span>
-        <img [height]="60" [width]="60" alt="parent-image"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
-        <span class="category-table__data-temp"></span>
-        <span class="category-table__data-temp">
-            <button mat-icon-button>
-                <i class="svg-icon remove-icon size-24 danger"></i>
-            </button>
-
-            <button mat-icon-button>
-                <i class="svg-icon writing-icon size-24"></i>
-            </button></span>
-    </div>
-    <div class="category-table__data" [ngStyle]="{'grid-template-columns': '20% 30% 20% 20% 10%'}">
-        <span class="category-table__data-temp">Thuốc</span>
-        <span class="category-table__data-temp">thuoc</span>
-        <img [height]="60" [width]="60" alt="parent-image"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/12-08-18-tilidin-retard.jpg/220px-12-08-18-tilidin-retard.jpg">
-        <span class="category-table__data-temp"></span>
-        <span class="category-table__data-temp">
-            <button mat-icon-button>
-                <i class="svg-icon remove-icon size-24 danger"></i>
-            </button>
-
-            <button mat-icon-button>
-                <i class="svg-icon writing-icon size-24"></i>
-            </button></span>
-    </div>
 
     @if (isLoading) {
-    <mat-spinner class="category-table__loading"></mat-spinner>
+        <mat-spinner class="category-table__loading"></mat-spinner>
     }
 
 </div>

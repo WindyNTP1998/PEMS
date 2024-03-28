@@ -7,7 +7,7 @@
 			@for (error of errors; track error) {
 				<li class="text-error">{{ error?.description }}</li>
 			}
-			@if (form?.controls?.password?.errors?.['pattern'] && form?.controls?.password?.touched) {
+			@if (form.controls.password!.errors?.['pattern'] && form.controls.password!.touched) {
 				<li>Password must contain at least one uppercase</li>
 				<li>Password must contain at least one lowercase</li>
 				<li>Password must contain at least one digit</li>
@@ -34,14 +34,14 @@
 			>{{ 'Email bắt buộc' }}
 			</li>
 			<li
-				*ngIf="form?.controls?.password?.touched &&
-						form?.controls?.password?.errors?.['required']"
+				*ngIf="form.controls.password?.touched &&
+						form.controls?.password?.errors?.['required']"
 				class="text-error"
 			>{{ 'Mật khẩu bắt buộc' }}
 			</li>
 			<li
-				*ngIf="form?.controls?.confirmPassword?.touched &&
-						form?.controls?.confirmPassword?.errors?.['required']"
+				*ngIf="form.controls?.confirmPassword?.touched &&
+						form.controls?.confirmPassword?.errors?.['required']"
 				class="text-error"
 			>{{ 'Xác nhận mật khẩu bắt buộc' }}
 			</li>

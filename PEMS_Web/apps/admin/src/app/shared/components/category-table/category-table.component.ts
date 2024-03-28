@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { PlatformComponent } from '@pem/platform-core';
-import { Category, CategoryApiService, ConfirmDialogComponent } from '@pem/domain';
-import { IPageInfo } from '../../../../../../../libs/common/src/ui-model/table.model';
-import { CdkDropList } from '@angular/cdk/drag-drop';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {PlatformComponent} from '@pem/platform-core';
+import {Category, CategoryApiService, ConfirmDialogComponent, TablePaginationComponent} from '@pem/domain';
+import {IPageInfo} from '../../../../../../../libs/common/src/ui-model/table.model';
+import {CdkDropList} from '@angular/cdk/drag-drop';
 import {
     MatCell,
     MatCellDef,
@@ -17,9 +17,9 @@ import {
     MatRowDef,
     MatTable
 } from '@angular/material/table';
-import { DialogService, MaterialModule } from '@pem/common';
-import { CategoryDetailComponent } from '../category-detail/category-detail.component';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import {DialogService, MaterialModule} from '@pem/common';
+import {CategoryDetailComponent} from '../category-detail/category-detail.component';
+import {MatProgressSpinner} from '@angular/material/progress-spinner';
 
 @Component({
     selector: 'category-table',
@@ -39,7 +39,8 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
         MatRowDef,
         MaterialModule,
         MatProgressSpinner,
-        MatNoDataRow
+        MatNoDataRow,
+        TablePaginationComponent
     ],
     templateUrl: './category-table.component.html',
     styleUrl: './category-table.component.scss',
@@ -48,7 +49,7 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 })
 export class CategoryTableComponent extends PlatformComponent {
     @Input() public categories: Category[] = [];
-    @Input() public pageInfo: IPageInfo = { pageIndex: 0, pageSize: 0, totalItems: 0, totalPages: 0 };
+    @Input() public pageInfo: IPageInfo = {pageIndex: 0, pageSize: 0, totalItems: 0, totalPages: 0};
     @Input() public isLoading: boolean = false;
     @Output() public requiredReloadEventChange: EventEmitter<void> = new EventEmitter<void>();
 
@@ -65,7 +66,7 @@ export class CategoryTableComponent extends PlatformComponent {
         this.dialogService
             .openDialog(
                 CategoryDetailComponent,
-                { mode: 'update', categoryId: categoryId },
+                {mode: 'update', categoryId: categoryId},
                 {
                     autoFocus: false,
                     disableClose: true,

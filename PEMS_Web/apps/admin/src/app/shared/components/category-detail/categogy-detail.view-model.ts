@@ -1,5 +1,5 @@
-import { Category } from '@pem/domain';
-import { cloneDeep, immutableUpdate, isDifferent, PlatformFormMode, PlatformVm } from '@pem/platform-core';
+import {Category} from '@pem/domain';
+import {cloneDeep, immutableUpdate, isDifferent, PlatformFormMode, PlatformVm} from '@pem/platform-core';
 
 export class CategoryDetailFormVm extends PlatformVm {
     public mode: PlatformFormMode = 'update';
@@ -34,7 +34,7 @@ export class CategoryDetailFormVm extends PlatformVm {
     }
 
     public set name(v: string) {
-        this._formData = immutableUpdate(this.formData, { name: v });
+        this._formData = immutableUpdate(this.formData, {name: v});
     }
 
     public get slug(): string | undefined {
@@ -42,7 +42,7 @@ export class CategoryDetailFormVm extends PlatformVm {
     }
 
     public set slug(v: string) {
-        this._formData = immutableUpdate(this.formData, { slug: v });
+        this._formData = immutableUpdate(this.formData, {slug: v});
     }
 
     public get categoryImageUrl(): string | undefined {
@@ -50,7 +50,7 @@ export class CategoryDetailFormVm extends PlatformVm {
     }
 
     public set categoryImageUrl(v: string) {
-        this._formData = immutableUpdate(this.formData, { categoryImageUrl: v });
+        this._formData = immutableUpdate(this.formData, {categoryImageUrl: v});
     }
 
     public get parentId(): string | undefined {
@@ -58,32 +58,24 @@ export class CategoryDetailFormVm extends PlatformVm {
     }
 
     public set parentId(v: string) {
-        this._formData = immutableUpdate(this.formData, { parentId: v });
+        this._formData = immutableUpdate(this.formData, {parentId: v});
     }
 
-    // public get isActive(): boolean | undefined {
-    // 	return this.formData.isActive;
+    // public get fullPathSlug(): string | undefined {
+    //     return this.formData.fullPathSlug;
     // }
     //
-    // public set isActive(v: boolean) {
-    // 	this._formData = immutableUpdate(this.formData, { isActive: v });
-    // }
-    //
-    // public get level(): number | undefined {
-    // 	return this.formData.level;
-    // }
-    //
-    // public set level(v: number) {
-    // 	this._formData = immutableUpdate(this.formData, { level: v });
+    // public set fullPathSlug(v: string) {
+    //     this._formData = immutableUpdate(this.formData, {fullPathSlug: v});
     // }
 
-    public get fullSlug(): string | undefined {
+    public get fullPathSlug() {
         const parentCategory = this.categoryOptions.find(c => c.id === this.parentId);
         const slug = this.formData.slug;
         if (parentCategory != undefined && slug != undefined && slug.length > 0) {
-            return `${parentCategory.slug}/${this.formData.slug}`;
+            return `${parentCategory.fullPathSlug}/${this.formData.slug}`;
         }
-        return this.slug;
+        return slug;
     }
 
     public mapToCategoryModel() {
@@ -92,7 +84,8 @@ export class CategoryDetailFormVm extends PlatformVm {
             name: this.formData.name,
             slug: this.formData.slug,
             parentId: this.formData.parentId,
-            categoryImageUrl: this.formData.categoryImageUrl
+            categoryImageUrl: this.formData.categoryImageUrl,
+            fullPathSlug: this.fullPathSlug
         });
 
         return this.category;
